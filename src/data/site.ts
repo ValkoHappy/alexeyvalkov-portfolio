@@ -1,0 +1,603 @@
+export type ProjectCategory =
+  | "websites"
+  | "react"
+  | "automation"
+  | "bots"
+  | "extensions"
+  | "fullstack";
+
+export type Project = {
+  slug: string;
+  title: string;
+  shortTitle: string;
+  type: string;
+  summary: string;
+  description: string;
+  stack: string[];
+  categories: ProjectCategory[];
+  links: {
+    label: string;
+    href: string;
+  }[];
+  highlights: string[];
+  workflow: string[];
+  accent: "blue" | "cyan" | "green" | "amber" | "rose";
+  preview: {
+    kind: "site" | "tool" | "bot" | "extension";
+    label: string;
+  };
+};
+
+export type ProjectDetails = {
+  period: string;
+  status: "Production" | "Рабочий инструмент" | "MVP" | "Прототип" | "Учебный проект";
+  role: string;
+  challenge: string;
+  solution: string;
+  outcome: string;
+  image?: string;
+  imageAlt?: string;
+};
+
+export const profile = {
+  name: "Алексей Вальков",
+  initials: "AV",
+  role: "Fullstack-разработчик веб-инструментов и автоматизации",
+  telegram: "https://t.me/leshaqt",
+  github: "https://github.com/ValkoHappy",
+  kwork: "https://kwork.ru/user/leshaqt",
+  location: "Архангельск",
+  summary:
+    "Проектирую и собираю прикладные веб-системы: интерфейс, API, базу данных, фоновые процессы, парсинг и интеграции — от идеи до работающего сценария."
+};
+
+export const stats = [
+  { value: "15", label: "разобранных кейсов" },
+  { value: "10+", label: "коммерческих заказов" },
+  { value: "5.0", label: "рейтинг продавца" },
+  { value: "60%", label: "повторных заказов" }
+];
+
+export const focusItems = [
+  {
+    title: "Сайты и лендинги",
+    text: "Коммерческие страницы, адаптивная верстка, формы заявок и публикация на хостинге."
+  },
+  {
+    title: "React-интерфейсы",
+    text: "Личные кабинеты, админ-панели, mini app и клиентские интерфейсы для API."
+  },
+  {
+    title: "Парсеры и автоматизация",
+    text: "Сбор данных, сравнение цен, отчеты, уведомления и обработка повторяющихся задач."
+  },
+  {
+    title: "Боты и расширения",
+    text: "Telegram-боты, Chrome extensions, SEO-инструменты и интеграции со сторонними сервисами."
+  }
+];
+
+export const aboutOverview = {
+  heading: "Делаю сайты, интерфейсы и автоматизацию под реальные задачи",
+  paragraphs: [
+    "Начинал с Unity и C#, потом сместил фокус в веб-разработку и прикладные инструменты. За это время собрал коммерческие сайты, формы заявок, Telegram-ботов, парсеры, браузерные расширения и небольшие fullstack-системы.",
+    "Сейчас развиваюсь как Frontend / Fullstack разработчик с уклоном в React, интерфейсы, Telegram Mini App, интеграции и автоматизацию. Мне ближе проекты, где важны не только код и верстка, но и итоговая польза для бизнеса или команды."
+  ],
+  pathLabel: "Путь и фокус",
+  pathTitle: "Unity / C# -> Web / React / Automation",
+  pathText:
+    "Бэкграунд в Unity и C# дал системное мышление, а веб-направление добавило продуктовый взгляд, быстрый цикл разработки и работу с реальными пользовательскими сценариями."
+};
+
+export const aboutPrinciples = [
+  {
+    title: "Прикладной результат",
+    text: "Собираю не абстрактные демо, а решения под заявки, контент, аналитику, интеграции и рабочие процессы."
+  },
+  {
+    title: "Аккуратный интерфейс",
+    text: "Слежу за структурой, читаемостью, адаптивом и тем, чтобы продукт выглядел собранно и уверенно."
+  },
+  {
+    title: "Автоматизация рядом",
+    text: "Если задачу можно ускорить ботом, парсером, уведомлениями или внутренним инструментом, я это закладываю в решение."
+  }
+];
+
+export const projects: Project[] = [
+  {
+    slug: "wordset-docx-checker",
+    title: "WordSet: проверка и автоисправление DOCX",
+    shortTitle: "WordSet",
+    type: "Продуктовый fullstack-инструмент",
+    summary: "DOCX-first система для проверки академического оформления, безопасных автоисправлений и выдачи отчета по документу.",
+    description:
+      "Прототип продукта для работы с учебными и академическими документами. Движок разбирает DOCX, проверяет оформление по правилам, формирует список проблем и готовит безопасные исправления, а web shell закрывает сценарий upload -> review -> download.",
+    stack: ["Python", "DOCX", "React", "Tests", "Validation"],
+    categories: ["fullstack", "automation", "react"],
+    links: [{ label: "Локальный проект", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Разбор DOCX и проверка структуры документа",
+      "Правила оформления, отчет о проблемах и safe autofix",
+      "Тесты и реальные fixtures для проверки движка"
+    ],
+    workflow: ["Upload", "Parse DOCX", "Validate", "Autofix", "Download"],
+    accent: "green",
+    preview: { kind: "tool", label: "DOCX validation" }
+  },
+  {
+    slug: "scaner-blogers-dashboard",
+    title: "ScanerBlogers: платформа поиска блогеров",
+    shortTitle: "ScanerBlogers",
+    type: "Fullstack dashboard + worker",
+    summary: "Система для поиска и проверки блогеров: Next dashboard, worker, Prisma/SQLite, collectors и e2e-проверки.",
+    description:
+      "Крупный production-like инструмент вокруг сбора и обработки кандидатов из соцсетей. В проекте есть web-интерфейс, очередь задач, слой БД, worker-процессы, collectors для Instagram/VK/YouTube, Chrome extension и тесты.",
+    stack: ["Next.js", "React", "Prisma", "SQLite", "Playwright", "Vitest"],
+    categories: ["fullstack", "react", "automation", "extensions"],
+    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Архитектура web / worker / core / database",
+      "Сбор и нормализация данных из нескольких соцсетей",
+      "Интеграционные и e2e-проверки рабочих сценариев"
+    ],
+    workflow: ["Sources", "Collectors", "Queue", "Database", "Dashboard"],
+    accent: "blue",
+    preview: { kind: "tool", label: "Social dashboard" }
+  },
+  {
+    slug: "chatplus-cms-portal",
+    title: "CHATPLUS: сайт с CMS и контентным workflow",
+    shortTitle: "CHATPLUS",
+    type: "Production CMS-проект",
+    summary: "Публичный Astro-сайт со Strapi CMS, Postgres, uploads на VPS и скриптами для импорта и AI-черновиков.",
+    description:
+      "Проект уровня production: публичный сайт собирается на Astro, контент управляется через Strapi, данные и uploads живут на VPS, а отдельные Node-скрипты помогают с импортом, подготовкой и генерацией контентных черновиков.",
+    stack: ["Astro", "Strapi", "PostgreSQL", "Node.js", "VPS", "nginx"],
+    categories: ["websites", "fullstack", "automation"],
+    links: [{ label: "Описание проекта", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Разделение публичного сайта и CMS-админки",
+      "Контентный pipeline: импорт, черновики, публикация",
+      "Production-подход с VPS, uploads и rebuild workflow"
+    ],
+    workflow: ["CMS", "Content", "Build", "Deploy", "Public site"],
+    accent: "cyan",
+    preview: { kind: "site", label: "CMS + контент" }
+  },
+  {
+    slug: "ads-transparency-monitor",
+    title: "Ads Transparency Monitor",
+    shortTitle: "Ads Monitor",
+    type: "Private dashboard + worker",
+    summary: "Мониторинг креативов Google Ads Transparency Center с очередью сканирования, БД и приватным dashboard.",
+    description:
+      "Прикладной инструмент для отслеживания рекламных креативов. Next dashboard показывает результаты, worker обрабатывает advertiser jobs, Prisma/Postgres хранят данные, а дополнительные скрипты закрывают проверку и deploy-процесс.",
+    stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Worker", "Playwright"],
+    categories: ["fullstack", "react", "automation"],
+    links: [{ label: "Private case", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Очередь заданий для мониторинга рекламодателей",
+      "Dashboard для просмотра и проверки найденных креативов",
+      "Отдельные worker/deploy сценарии для прикладной задачи"
+    ],
+    workflow: ["Advertiser", "Scan job", "Worker", "Postgres", "Dashboard"],
+    accent: "rose",
+    preview: { kind: "tool", label: "Ad intelligence" }
+  },
+  {
+    slug: "private-seo-audit-extension",
+    title: "SEO-аудит в Chrome-расширении",
+    shortTitle: "SEO Audit",
+    type: "Chrome-расширение",
+    summary: "Manifest V3 расширение для SEO-аудита страниц, технических проверок, отчета и PDF-выгрузки.",
+    description:
+      "Chrome/Chromium-расширение для анализа мета-тегов, заголовков, ссылок, изображений, Open Graph, микроразметки и технических SEO-сигналов. Архитектура разделена на content script, background, popup, report page и build/zip сценарии.",
+    stack: ["JavaScript", "Manifest V3", "Chrome APIs", "SEO", "PDF"],
+    categories: ["extensions", "automation"],
+    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Сбор SEO-данных из активной страницы",
+      "Проверки meta, headings, links, images и Open Graph",
+      "Report page, PDF-экспорт и подготовка сборки"
+    ],
+    workflow: ["Content script", "Background", "Popup", "Report", "PDF"],
+    accent: "blue",
+    preview: { kind: "extension", label: "SEO scan" }
+  },
+  {
+    slug: "parser-find-price-tg",
+    title: "ParserFindPriceTg: мониторинг цен",
+    shortTitle: "Price Bot",
+    type: "Parser + Telegram + web UI",
+    summary: "Система мониторинга цен по магазинам с парсерами, историей, web-интерфейсом и Telegram-уведомлениями.",
+    description:
+      "Коммерческий прикладной инструмент: парсеры собирают цены, сервисы хранят товары и историю, web UI помогает управлять списком, Telegram отправляет alerts, а Google Sheets используется как интеграционный слой для отчетов.",
+    stack: ["Python", "Flask", "SQLAlchemy", "Selenium", "BS4", "Telegram API"],
+    categories: ["automation", "bots", "fullstack"],
+    links: [{ label: "Архив проекта", href: "https://disk.yandex.ru/d/3c2tb191ALQinw" }],
+    highlights: [
+      "Сбор цен с внешних страниц и маркетплейсов",
+      "История товаров, сравнение и расчет выгодных вариантов",
+      "Telegram alerts, web-admin и интеграция с Google Sheets"
+    ],
+    workflow: ["Parse", "Store", "Compare", "Alert", "Report"],
+    accent: "green",
+    preview: { kind: "bot", label: "Найдена цена" }
+  },
+  {
+    slug: "stream-tiktok-auction",
+    title: "StreamTiktok: аукцион для TikTok LIVE",
+    shortTitle: "StreamTiktok",
+    type: "Realtime MVP",
+    summary: "MVP аукциона для TikTok LIVE Studio: Fastify backend, SQLite, React admin, overlay и логика ставок.",
+    description:
+      "Интерактивный инструмент для live-стримов. DonationAlerts-события превращаются в ставки, сервер хранит лоты и состояние аукциона, React admin управляет процессом, а overlay выводится в TikTok LIVE Studio.",
+    stack: ["Fastify", "React", "TypeScript", "SQLite", "Vitest"],
+    categories: ["fullstack", "react", "automation"],
+    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Auction engine со ставками, таймером и лотами",
+      "Admin panel для управления live-процессом",
+      "Overlay для трансляции и тесты ключевой логики"
+    ],
+    workflow: ["Donation", "Bid", "Auction", "Admin", "Overlay"],
+    accent: "amber",
+    preview: { kind: "tool", label: "Live overlay" }
+  },
+  {
+    slug: "site-scorer-review-tool",
+    title: "Site Scorer: инструмент ревью сайтов",
+    shortTitle: "Site Scorer",
+    type: "Internal review tool",
+    summary: "FastAPI/Postgres/Playwright приложение для пакетной проверки сайтов из Google Sheets и разметки статусов.",
+    description:
+      "Внутренний инструмент для обработки больших списков сайтов. Backend и worker берут пачки строк, Playwright захватывает страницы, frontend дает review-интерфейс, а результат возвращается обратно в рабочий процесс.",
+    stack: ["FastAPI", "PostgreSQL", "Playwright", "React", "Vite"],
+    categories: ["fullstack", "react", "automation"],
+    links: [{ label: "Internal case", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Пакетная обработка списков из Google Sheets",
+      "Playwright-захват сайтов и статусов проверки",
+      "Review UI для быстрой разметки и контроля качества"
+    ],
+    workflow: ["Sheet", "Batch", "Capture", "Review", "Sync"],
+    accent: "cyan",
+    preview: { kind: "tool", label: "Review queue" }
+  },
+  {
+    slug: "fitseek-telegram-mini-app",
+    title: "FitSeek: Telegram Mini App для тренеров",
+    shortTitle: "FitSeek",
+    type: "Telegram Mini App",
+    summary: "Mini App для поиска тренеров: React/Vite frontend, FastAPI backend, Telegram bot и база данных.",
+    description:
+      "Прототип сервиса в Telegram: пользовательский webapp показывает интерфейс поиска, FastAPI отвечает за API и данные, бот связывает mini app с Telegram-сценариями, а отдельная настройка туннеля помогает тестировать backend.",
+    stack: ["React", "Vite", "FastAPI", "SQLAlchemy", "Telegram Bot"],
+    categories: ["react", "fullstack", "bots"],
+    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Telegram Mini App с web-интерфейсом",
+      "FastAPI backend и структура данных",
+      "Связка bot -> webapp -> API для пользовательского сценария"
+    ],
+    workflow: ["Telegram", "Mini App", "API", "Database"],
+    accent: "green",
+    preview: { kind: "bot", label: "Mini App ready" }
+  },
+  {
+    slug: "scaner-frilance-bot",
+    title: "ScanerFrilance: бот мониторинга заказов",
+    shortTitle: "Freelance Bot",
+    type: "Telegram-бот",
+    summary: "Бот для мониторинга заказов на freelance-площадках с фильтрами, автотегами и защитой от flood.",
+    description:
+      "Рабочий Telegram-бот для отслеживания новых заказов. Парсеры собирают свежие предложения, фильтры оставляют релевантное, хэштеги помогают сортировать поток, а механика отправки учитывает ограничения Telegram.",
+    stack: ["Python", "aiogram", "aiohttp", "BS4", "Playwright"],
+    categories: ["bots", "automation"],
+    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Мониторинг заказов и новых публикаций",
+      "Фильтры, автотеги и хранение просмотренного",
+      "Защита от flood и миграции сообщений"
+    ],
+    workflow: ["Parse", "Filter", "Tag", "Notify"],
+    accent: "cyan",
+    preview: { kind: "bot", label: "Новый заказ" }
+  },
+  {
+    slug: "panzzi-furniture-website",
+    title: "PANZZI: сайт магазина мебели",
+    shortTitle: "PANZZI",
+    type: "Коммерческий сайт",
+    summary: "Сайт для китайского магазина мебели с каталогом, разделами услуг и адаптивной версткой.",
+    description:
+      "Коммерческий сайт для магазина мебели и поставок из Китая. В проекте собраны основные страницы, визуальные секции, каталог, контакты и адаптивная подача для клиентов.",
+    stack: ["HTML", "CSS", "JavaScript"],
+    categories: ["websites"],
+    links: [{ label: "Открыть сайт", href: "https://panzzi.com/" }],
+    highlights: [
+      "Адаптивная верстка основных страниц",
+      "Каталог и контентные блоки для услуг",
+      "Подготовка сайта к публикации на домене"
+    ],
+    workflow: ["Структура", "Верстка", "Контент", "Публикация"],
+    accent: "blue",
+    preview: { kind: "site", label: "Каталог мебели" }
+  },
+  {
+    slug: "mustang-driving-school",
+    title: "Mustang: сайт автошколы",
+    shortTitle: "Mustang",
+    type: "Коммерческий сайт",
+    summary: "Сайт автошколы с формами заявок и отправкой обращений в Telegram.",
+    description:
+      "Сайт для автошколы с информационными страницами, адаптивом и PHP-обработчиком заявок. Заявки с формы отправляются в Telegram, чтобы менеджер быстро видел новые обращения.",
+    stack: ["HTML", "CSS", "JavaScript", "PHP", "Telegram API"],
+    categories: ["websites", "automation"],
+    links: [
+      { label: "Открыть сайт", href: "https://mustang-29.ru/" },
+      { label: "Пост с примером", href: "https://t.me/alexworktut/4" }
+    ],
+    highlights: [
+      "Верстка страниц автошколы",
+      "Форма заявки с PHP-обработчиком",
+      "Отправка новых заявок в Telegram"
+    ],
+    workflow: ["Форма", "PHP", "Telegram", "Менеджер"],
+    accent: "cyan",
+    preview: { kind: "site", label: "Заявки в Telegram" }
+  },
+  {
+    slug: "course-registration-platform",
+    title: "Платформа записи на курсы",
+    shortTitle: "Courses",
+    type: "Учебный fullstack-проект",
+    summary: "React-приложение для записи на курсы с backend на PHP и базой MySQL.",
+    description:
+      "Учебная система регистрации на курс с интерфейсом пользователя и административной частью. Проект показывает связку frontend, backend API и базы данных.",
+    stack: ["React", "Vite", "PHP", "MySQL", "REST API"],
+    categories: ["react", "fullstack"],
+    links: [{ label: "Пост с примером", href: "https://t.me/alexworktut/2" }],
+    highlights: [
+      "React-интерфейс с маршрутизацией",
+      "PHP API для заявок и авторизации",
+      "MySQL-структура для хранения данных"
+    ],
+    workflow: ["React UI", "REST API", "PHP", "MySQL"],
+    accent: "green",
+    preview: { kind: "tool", label: "Личный кабинет" }
+  },
+  {
+    slug: "token-audit-trading-assistant",
+    title: "Ассистент аудита токенов",
+    shortTitle: "Token Audit",
+    type: "Сложный pet-проект",
+    summary: "Сканер и плагин для анализа мемкоинов с аудитом токенов и web-интерфейсом.",
+    description:
+      "Экспериментальный проект вокруг анализа токенов: расширение, сбор данных, аудит сигналов, серверная часть и интерфейс для просмотра результатов.",
+    stack: ["Node.js", "Playwright", "React", "PostgreSQL"],
+    categories: ["extensions", "react", "fullstack", "automation"],
+    links: [{ label: "Пост с примером", href: "https://t.me/alexworktut/5" }],
+    highlights: [
+      "Автоматизация браузера через Playwright",
+      "Сбор и хранение данных",
+      "Web-интерфейс для анализа"
+    ],
+    workflow: ["Scan", "Audit", "Database", "Dashboard"],
+    accent: "rose",
+    preview: { kind: "tool", label: "Аудит токена" }
+  },
+  {
+    slug: "fitness-coach-landing",
+    title: "Сайт-визитка фитнес-тренера",
+    shortTitle: "Fitness",
+    type: "Сайт-визитка",
+    summary: "Сайт-визитка для фитнес-тренера с презентацией услуг и контактами.",
+    description:
+      "Лендинг для персонального тренера: первый экран, услуги, преимущества, контакты и адаптивная структура для публикации на GitHub Pages.",
+    stack: ["HTML", "CSS", "JavaScript"],
+    categories: ["websites"],
+    links: [{ label: "Открыть сайт", href: "https://valkohappy.github.io/sharipculov/" }],
+    highlights: [
+      "Визуальная посадочная страница",
+      "Адаптивные секции и навигация",
+      "Публикация через GitHub Pages"
+    ],
+    workflow: ["Контент", "Верстка", "Адаптив", "GitHub Pages"],
+    accent: "amber",
+    preview: { kind: "site", label: "Личный бренд" }
+  }
+];
+
+export const featuredProjectSlugs = [
+  "wordset-docx-checker",
+  "scaner-blogers-dashboard",
+  "ads-transparency-monitor",
+  "chatplus-cms-portal",
+  "private-seo-audit-extension",
+  "parser-find-price-tg"
+] as const;
+
+export const projectDetails: Record<string, ProjectDetails> = {
+  "wordset-docx-checker": {
+    period: "2026",
+    status: "Прототип",
+    role: "Продуктовая архитектура, Python-движок и web shell",
+    challenge: "Проверка DOCX требует работать не только с текстом, но и со структурой документа, стилями, таблицами и безопасными изменениями без повреждения исходного файла.",
+    solution: "Разделил систему на разбор документа, набор проверяемых правил, план безопасных исправлений и web-сценарий upload → review → download. Реальные fixtures и тесты помогают проверять движок на разных документах.",
+    outcome: "Собран цельный DOCX-first прототип, который находит проблемы оформления, объясняет их пользователю и подготавливает контролируемые автоисправления.",
+    image: "/projects/wordset.png",
+    imageAlt: "Знак продукта WordSet"
+  },
+  "scaner-blogers-dashboard": {
+    period: "2025–2026",
+    status: "Рабочий инструмент",
+    role: "Fullstack-разработка dashboard, worker и collectors",
+    challenge: "Нужно объединить сбор кандидатов из нескольких соцсетей, разные способы авторизации, очереди задач и единый интерфейс проверки данных.",
+    solution: "Построил архитектуру web / worker / core / database, добавил collectors для Instagram, VK и YouTube, управление ключевыми словами, статусами и экспортом результатов.",
+    outcome: "Получился production-like инструмент с единой базой кандидатов, управляемыми сборами и проверяемыми рабочими сценариями.",
+    image: "/projects/scaner-blogers.png",
+    imageAlt: "Интерфейс управления ключевыми словами ScanerBlogers"
+  },
+  "chatplus-cms-portal": {
+    period: "2025–2026",
+    status: "Production",
+    role: "Публичный сайт, CMS-архитектура и контентный workflow",
+    challenge: "Контентной команде требовался управляемый портал, где публикация материалов, загрузки и подготовка черновиков не зависят от ручной правки сайта.",
+    solution: "Разделил публичный Astro-сайт и Strapi CMS, подключил PostgreSQL и uploads на VPS, добавил Node.js-сценарии импорта, подготовки и генерации черновиков.",
+    outcome: "Собрана production-система с отдельной CMS, воспроизводимой публикацией и контентным pipeline вместо ручных обновлений страниц.",
+    image: "/projects/chatplus.png",
+    imageAlt: "Презентационная карточка платформы Chat Plus"
+  },
+  "ads-transparency-monitor": {
+    period: "2026",
+    status: "Рабочий инструмент",
+    role: "Dashboard, очередь сканирования, база и deploy-сценарии",
+    challenge: "Рекламные креативы нужно регулярно собирать, нормализовать и отслеживать по рекламодателям без ручного обхода Google Ads Transparency Center.",
+    solution: "Собрал приватный Next.js dashboard, worker с очередью заданий, слой Prisma/PostgreSQL и отдельные сценарии проверки и публикации.",
+    outcome: "Пользователь управляет рекламодателями и сканированиями из одного интерфейса, а история и найденные креативы сохраняются для дальнейшего анализа.",
+    image: "/projects/ads-monitor.png",
+    imageAlt: "Дашборд Ads Transparency Monitor"
+  },
+  "private-seo-audit-extension": {
+    period: "2025",
+    status: "Рабочий инструмент",
+    role: "Архитектура расширения, SEO-проверки и отчёт",
+    challenge: "SEO-специалисту нужен быстрый аудит прямо на открытой странице без переключения между несколькими внешними сервисами.",
+    solution: "Разделил расширение на content script, background, popup и report page; добавил проверки meta, headings, links, images, Open Graph и выгрузку отчёта.",
+    outcome: "Получился автономный Manifest V3-инструмент, который собирает основные SEO-сигналы и упаковывает их в понятный отчёт.",
+    image: "/projects/seo-audit.png",
+    imageAlt: "Иконка расширения SEO Audit"
+  },
+  "parser-find-price-tg": {
+    period: "2024–2025",
+    status: "Рабочий инструмент",
+    role: "Парсеры, web-интерфейс и Telegram-уведомления",
+    challenge: "Цены на одни и те же товары меняются в разных магазинах, а ручная проверка не масштабируется и не сохраняет историю.",
+    solution: "Связал парсеры магазинов, Flask API, хранение товаров и истории, web UI для управления и Telegram-оповещения об изменениях.",
+    outcome: "Система регулярно проверяет позиции, фиксирует динамику и доставляет полезные изменения в Telegram без ручного мониторинга.",
+    imageAlt: "Схема инструмента мониторинга цен"
+  },
+  "stream-tiktok-auction": {
+    period: "2025",
+    status: "MVP",
+    role: "Backend, логика аукциона, admin и overlay",
+    challenge: "Пожертвования во время трансляции нужно превратить в понятный зрителям аукцион с таймером, ставками и сменой лотов.",
+    solution: "Собрал Fastify backend, хранение состояния в SQLite, React-панель управления и отдельный overlay для TikTok LIVE Studio.",
+    outcome: "MVP закрывает полный live-сценарий от события DonationAlerts до обновления ставки и показа результата в трансляции."
+  },
+  "site-scorer-review-tool": {
+    period: "2026",
+    status: "Прототип",
+    role: "Fullstack-приложение и автоматизация review-процесса",
+    challenge: "Большие списки сайтов из Google Sheets неудобно открывать, проверять и размечать вручную по одному.",
+    solution: "Собрал пакетную обработку строк, Playwright-захват страниц, очередь и React-интерфейс для быстрой проверки и синхронизации статусов.",
+    outcome: "Ручной процесс превратился в последовательную review-очередь с подготовленными данными и единым экраном контроля."
+  },
+  "fitseek-telegram-mini-app": {
+    period: "2024",
+    status: "Прототип",
+    role: "Telegram Mini App, API и структура данных",
+    challenge: "Нужно было перенести поиск тренеров в привычный Telegram-сценарий без отдельной установки приложения.",
+    solution: "Связал React/Vite webapp, FastAPI backend, Telegram-бота и базу данных через единый пользовательский поток.",
+    outcome: "Собран проверяемый прототип Mini App с поисковым интерфейсом и полноценной связкой bot → webapp → API."
+  },
+  "scaner-frilance-bot": {
+    period: "2024–2025",
+    status: "Рабочий инструмент",
+    role: "Парсеры, фильтры и Telegram workflow",
+    challenge: "Новые заказы быстро теряются в общем потоке фриланс-площадок, а частый опрос создаёт дубли и ограничения отправки.",
+    solution: "Добавил асинхронный сбор, фильтрацию, автохэштеги, хранение просмотренного и контролируемую отправку сообщений.",
+    outcome: "Бот формирует чистый поток релевантных заказов и экономит время на повторном просмотре площадок."
+  },
+  "panzzi-furniture-website": {
+    period: "2025–2026",
+    status: "Production",
+    role: "Структура, frontend и публикация",
+    challenge: "Нужно было представить мебельный бизнес и направление запуска проектов в Китае в одном последовательном коммерческом сайте.",
+    solution: "Собрал многостраничную структуру, каталог, сервисные разделы и адаптивную подачу с отдельным China entry-направлением.",
+    outcome: "Рабочий сайт опубликован на домене и используется как коммерческая витрина услуг и проектов.",
+    image: "/projects/panzzi.png",
+    imageAlt: "Страница направления запуска проектов PANZZI"
+  },
+  "mustang-driving-school": {
+    period: "2024",
+    status: "Production",
+    role: "Frontend, формы заявок и интеграция Telegram",
+    challenge: "Автошколе нужен был понятный адаптивный сайт, который не только рассказывает об обучении, но и собирает обращения.",
+    solution: "Собрал информационные страницы, формы с PHP-обработчиком, отправку обращений в Telegram и базовую SEO-подготовку.",
+    outcome: "Сайт опубликован на рабочем домене, а новые заявки сразу попадают менеджеру в привычный канал.",
+    image: "/projects/mustang.jpg",
+    imageAlt: "Учебный класс автошколы Mustang"
+  },
+  "course-registration-platform": {
+    period: "2024",
+    status: "Учебный проект",
+    role: "Frontend, PHP API и MySQL",
+    challenge: "Нужно было реализовать полный сценарий записи на курсы с авторизацией, пользовательской и административной частью.",
+    solution: "Связал React-интерфейс, маршрутизацию, PHP REST API и структуру MySQL для пользователей и заявок.",
+    outcome: "Проект демонстрирует базовую fullstack-связку и разделение пользовательских и административных сценариев."
+  },
+  "token-audit-trading-assistant": {
+    period: "2024–2025",
+    status: "Прототип",
+    role: "Сбор данных, аудит сигналов и web-интерфейс",
+    challenge: "Данные о токенах приходят из нескольких источников и требуют быстрой нормализации перед ручной оценкой.",
+    solution: "Объединил браузерную автоматизацию, серверную обработку, хранение результатов и React-интерфейс анализа.",
+    outcome: "Собран исследовательский прототип, на котором можно проверять сценарии сбора и аудита сигналов."
+  },
+  "fitness-coach-landing": {
+    period: "2023",
+    status: "Production",
+    role: "Дизайн структуры, адаптивная верстка и публикация",
+    challenge: "Персональному тренеру требовалась компактная страница с понятным предложением, услугами и быстрым контактом.",
+    solution: "Собрал посадочную страницу с последовательными секциями, адаптивной навигацией и акцентом на обращение к тренеру.",
+    outcome: "Готовая страница опубликована через GitHub Pages и работает как простая персональная витрина."
+  }
+};
+
+export function getProjectDetails(project: Project): ProjectDetails {
+  return projectDetails[project.slug] ?? {
+    period: "2024–2026",
+    status: "Прототип",
+    role: "Проектирование и разработка",
+    challenge: project.summary,
+    solution: project.description,
+    outcome: project.highlights.join(". ")
+  };
+}
+
+export const reviews = [
+  {
+    title: "Парсер для ЯМ",
+    author: "Restup2021",
+    text:
+      "Задача оказалась намного сложнее, чем была в начале. Но Алексей с ней справился. Спасибо за хорошую работу!"
+  },
+  {
+    title: "Доработка парсера",
+    author: "appmasters",
+    text: "Делал заказ второй раз. Работа была выполнена оперативно и качественно, рекомендую."
+  },
+  {
+    title: "Парсер для иностранного сайта",
+    author: "appmasters",
+    text:
+      "Исполнитель отлично справился с заданием, реализовал парсер как договаривались, все правки и доработки были реализованы качественно."
+  },
+  {
+    title: "Парсер для маркетплейсов",
+    author: "Restup2021",
+    text:
+      "Алексей - очень ответственный и грамотный программист. Спокойно дорабатывал правки, работал аккуратно и вдумчиво, всегда был на связи."
+  }
+];
+
+export const skillGroups = [
+  { title: "Frontend", skills: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Next.js"] },
+  { title: "Backend", skills: ["Node.js", "PHP", "Python", "FastAPI", "REST API"] },
+  { title: "Databases", skills: ["SQL", "SQLite", "MySQL", "PostgreSQL"] },
+  { title: "Automation", skills: ["Parsing", "Playwright", "Selenium", "Telegram API", "Chrome Extensions"] },
+  { title: "Tools", skills: ["Git", "Docker basics", "API integrations", "Google Sheets"] }
+];
