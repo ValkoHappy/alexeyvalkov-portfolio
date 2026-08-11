@@ -1,26 +1,8 @@
-import {
-  ArrowRight,
-  Bot,
-  CheckCircle2,
-  Code2,
-  Database,
-  Github,
-  Globe2,
-  Layers3,
-  MapPin,
-  MessageSquare,
-  Repeat2,
-  Send,
-  Server,
-  ShieldCheck,
-  Sparkles,
-  Star,
-  Workflow,
-  Wrench,
-  Zap
-} from "lucide-react";
+import { ArrowRight, Bot, Github, Globe2, Layers3, MessageSquare, Repeat2, Send, Star, Workflow, Wrench } from "lucide-react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { InteractiveHero } from "@/components/InteractiveHero";
+import { JourneyMap } from "@/components/JourneyMap";
 import { ProjectCard } from "@/components/ProjectCard";
 import {
   aboutOverview,
@@ -30,8 +12,7 @@ import {
   profile,
   projects,
   reviews,
-  skillGroups,
-  stats
+  skillGroups
 } from "@/data/site";
 
 const featuredProjects = featuredProjectSlugs
@@ -40,13 +21,6 @@ const featuredProjects = featuredProjectSlugs
 
 const capabilityIcons = [Globe2, Layers3, Bot, Workflow];
 
-const deliverySteps = [
-  { number: "01", title: "Разобрать задачу", text: "Фиксирую пользовательский сценарий, данные, ограничения и критерий готовности." },
-  { number: "02", title: "Собрать основу", text: "Проектирую интерфейс, API, хранение и фоновые процессы как единую систему." },
-  { number: "03", title: "Проверить на данных", text: "Прогоняю реальные сценарии, пограничные состояния и адаптивность интерфейса." },
-  { number: "04", title: "Передать результат", text: "Готовлю запуск, документацию и понятный путь дальнейшего развития продукта." }
-];
-
 export default function HomePage() {
   return (
     <main id="top">
@@ -54,73 +28,17 @@ export default function HomePage() {
       <div className="ambient ambient-two" aria-hidden="true" />
       <div className="page-shell">
         <Header />
-
-        <section className="hero-section">
-          <div className="hero-copy reveal-up">
-            <div className="availability"><span /> Открыт к проектам и предложениям</div>
-            <p className="hero-kicker">Алексей Вальков · Fullstack developer</p>
-            <h1>Создаю веб-инструменты, которые <em>убирают ручную работу.</em></h1>
-            <p className="hero-text">{profile.summary}</p>
-            <div className="hero-actions">
-              <a className="button primary" href="#projects">
-                Смотреть кейсы <ArrowRight size={18} />
-              </a>
-              <a className="button secondary" href={profile.telegram} target="_blank" rel="noreferrer">
-                <Send size={18} /> Обсудить задачу
-              </a>
-            </div>
-            <div className="hero-footnote">
-              <span><MapPin size={15} /> {profile.location}</span>
-              <span><ShieldCheck size={15} /> Работаю с коммерческими и внутренними продуктами</span>
-            </div>
-          </div>
-
-          <aside className="system-card reveal-up" aria-label="Как устроена моя работа">
-            <div className="system-card-head">
-              <span><i /><i /><i /></span>
-              <small>delivery.pipeline</small>
-              <b>live</b>
-            </div>
-            <div className="system-card-body">
-              <div className="system-title">
-                <Sparkles size={20} />
-                <span>От задачи до работающей системы</span>
-              </div>
-              <div className="system-flow">
-                <div><span>01</span><Code2 size={20} /><b>Interface</b><small>React / Next.js</small></div>
-                <i />
-                <div><span>02</span><Server size={20} /><b>Backend</b><small>Node / Python</small></div>
-                <i />
-                <div><span>03</span><Database size={20} /><b>Data</b><small>SQL / APIs</small></div>
-                <i />
-                <div><span>04</span><Zap size={20} /><b>Automation</b><small>Workers / Bots</small></div>
-              </div>
-              <div className="system-result">
-                <CheckCircle2 size={18} />
-                <span><small>Результат</small><b>Проверяемый рабочий сценарий</b></span>
-              </div>
-            </div>
-          </aside>
-        </section>
-
-        <section className="stats-row" aria-label="Факты об опыте">
-          {stats.map((stat, index) => (
-            <div className="stat-card" key={stat.label}>
-              <small>0{index + 1}</small>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </div>
-          ))}
-        </section>
+        <InteractiveHero />
+        <JourneyMap />
 
         <section className="section-block featured-work" id="projects">
           <div className="section-heading">
             <div>
-              <span className="section-index">01 / Избранное</span>
+              <span className="section-index">02 / Избранные миссии</span>
               <h2>Проекты, где видна система целиком</h2>
-              <p>Не только интерфейс: данные, интеграции, фоновые процессы и рабочий результат.</p>
+              <p>Игры, интерфейсы, данные, интеграции и автоматизация — с честным статусом и подробным разбором.</p>
             </div>
-            <Link className="text-link" href="/projects">Все 15 кейсов <ArrowRight size={17} /></Link>
+            <Link className="text-link" href="/projects">Все {projects.length} кейсов <ArrowRight size={17} /></Link>
           </div>
           <div className="projects-grid featured-grid">
             {featuredProjects.map((project, index) => (
@@ -134,7 +52,7 @@ export default function HomePage() {
         <section className="section-block expertise-section" id="expertise">
           <div className="section-heading">
             <div>
-              <span className="section-index">02 / Экспертиза</span>
+              <span className="section-index">03 / Экспертиза</span>
               <h2>Что я могу собрать</h2>
               <p>Выбираю технологию под сценарий, а не под красивый список в резюме.</p>
             </div>
@@ -153,9 +71,9 @@ export default function HomePage() {
           </div>
           <div className="stack-board">
             <div className="stack-board-copy">
-              <span className="section-index">Рабочий стек</span>
+              <span className="section-index">Инвентарь</span>
               <h3>Инструменты меняются. Инженерный подход остаётся.</h3>
-              <p>Умею пройти через весь сценарий: от интерфейса и API до данных, автоматизации и запуска.</p>
+              <p>Могу пройти через весь сценарий: от интерфейса и игровой логики до API, данных, автоматизации и запуска.</p>
             </div>
             <div className="stack-groups">
               {skillGroups.map((group) => (
@@ -164,25 +82,11 @@ export default function HomePage() {
                   <p>{group.skills.join(" · ")}</p>
                 </div>
               ))}
+              <div className="stack-group">
+                <b>Game development</b>
+                <p>Unity · C# · Gameplay systems · WebGL · Yandex Games SDK</p>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section className="section-block process-section">
-          <div className="section-heading compact-heading">
-            <div>
-              <span className="section-index">03 / Подход</span>
-              <h2>От запроса до результата</h2>
-            </div>
-          </div>
-          <div className="delivery-grid">
-            {deliverySteps.map((step) => (
-              <article className="delivery-card" key={step.number}>
-                <span>{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </article>
-            ))}
           </div>
         </section>
 
@@ -221,7 +125,7 @@ export default function HomePage() {
             {aboutOverview.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <div className="about-path">
               <span>{aboutOverview.pathLabel}</span>
-              <b>{aboutOverview.pathTitle}</b>
+              <b>Unity / C# → Web / React → Fullstack / Automation</b>
               <p>{aboutOverview.pathText}</p>
             </div>
           </div>
@@ -234,17 +138,13 @@ export default function HomePage() {
 
         <section className="contact-section" id="contacts">
           <div>
-            <span className="availability"><i /> Сейчас открыт к предложениям</span>
+            <span className="availability"><i /> Новая миссия доступна</span>
             <h2>Есть задача, которую пора перестать делать вручную?</h2>
             <p>Расскажите, как процесс работает сейчас. Я помогу превратить его в понятный веб-инструмент.</p>
           </div>
           <div className="contact-actions">
-            <a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">
-              Написать в Telegram <Send size={18} />
-            </a>
-            <a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">
-              GitHub <Github size={18} />
-            </a>
+            <a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">Написать в Telegram <Send size={18} /></a>
+            <a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub <Github size={18} /></a>
           </div>
         </section>
 

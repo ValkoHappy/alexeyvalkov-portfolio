@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s — Алексей Вальков"
   },
   description:
-    "Портфолио Алексея Валькова: fullstack-системы, React-интерфейсы, парсеры, Telegram-боты, расширения и автоматизация бизнес-процессов.",
+    "Интерактивный путь Алексея Валькова: Unity-игры, fullstack-системы, React-интерфейсы и автоматизация бизнес-процессов.",
   keywords: ["fullstack разработчик", "React", "Next.js", "автоматизация", "парсеры", "Telegram боты", "портфолио"],
   authors: [{ name: "Алексей Вальков", url: "https://github.com/ValkoHappy" }],
   creator: "Алексей Вальков",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Алексей Вальков — портфолио",
     title: "Алексей Вальков — Fullstack-разработчик и автоматизация",
-    description: "Прикладные веб-системы: интерфейс, API, данные, парсинг и интеграции — от идеи до рабочего сценария.",
-    images: [{ url: "/og.png", width: 1731, height: 909, alt: "Портфолио Алексея Валькова" }]
+    description: "От Unity-игр до прикладных веб-систем: интерфейс, API, данные и автоматизация — от идеи до рабочего сценария.",
+    images: [{ url: "/og.png", width: 1693, height: 929, alt: "Интерактивный путь разработчика Алексея Валькова" }]
   },
   twitter: {
     card: "summary_large_image",

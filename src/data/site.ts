@@ -4,7 +4,8 @@ export type ProjectCategory =
   | "automation"
   | "bots"
   | "extensions"
-  | "fullstack";
+  | "fullstack"
+  | "games";
 
 export type Project = {
   slug: string;
@@ -23,14 +24,14 @@ export type Project = {
   workflow: string[];
   accent: "blue" | "cyan" | "green" | "amber" | "rose";
   preview: {
-    kind: "site" | "tool" | "bot" | "extension";
+    kind: "site" | "tool" | "bot" | "extension" | "game";
     label: string;
   };
 };
 
 export type ProjectDetails = {
   period: string;
-  status: "Production" | "Рабочий инструмент" | "MVP" | "Прототип" | "Учебный проект";
+  status: "Production" | "Рабочий инструмент" | "Законченный проект" | "MVP" | "Прототип" | "Учебный проект";
   role: string;
   challenge: string;
   solution: string;
@@ -52,7 +53,7 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "15", label: "разобранных кейсов" },
+  { value: "17", label: "разобранных кейсов" },
   { value: "10+", label: "коммерческих заказов" },
   { value: "5.0", label: "рейтинг продавца" },
   { value: "60%", label: "повторных заказов" }
@@ -78,15 +79,15 @@ export const focusItems = [
 ];
 
 export const aboutOverview = {
-  heading: "Делаю сайты, интерфейсы и автоматизацию под реальные задачи",
+  heading: "Собираю системы и довожу их до рабочего релиза",
   paragraphs: [
-    "Начинал с Unity и C#, потом сместил фокус в веб-разработку и прикладные инструменты. За это время собрал коммерческие сайты, формы заявок, Telegram-ботов, парсеры, браузерные расширения и небольшие fullstack-системы.",
-    "Сейчас развиваюсь как Frontend / Fullstack разработчик с уклоном в React, интерфейсы, Telegram Mini App, интеграции и автоматизацию. Мне ближе проекты, где важны не только код и верстка, но и итоговая польза для бизнеса или команды."
+    "Начинал с Unity и C#: собрал законченные игровые проекты и выпустил «Выживание: Загадочный Лес» на Яндекс Играх. Игровая разработка научила меня работать с состоянием, поведением объектов, интерфейсом и большими связанными системами.",
+    "Потом сместил фокус в веб-разработку и прикладные инструменты. Сейчас собираю React-интерфейсы, API, базы данных, Telegram-ботов, парсеры, расширения и автоматизацию — проекты, где важны не только код и вёрстка, но и итоговая польза для пользователя или команды."
   ],
   pathLabel: "Путь и фокус",
   pathTitle: "Unity / C# -> Web / React / Automation",
   pathText:
-    "Бэкграунд в Unity и C# дал системное мышление, а веб-направление добавило продуктовый взгляд, быстрый цикл разработки и работу с реальными пользовательскими сценариями."
+    "Бэкграунд в Unity и C# дал системное мышление и опыт выпуска продукта, а веб-направление добавило продуктовый взгляд, быстрый цикл разработки и работу с реальными бизнес-сценариями."
 };
 
 export const aboutPrinciples = [
@@ -105,6 +106,46 @@ export const aboutPrinciples = [
 ];
 
 export const projects: Project[] = [
+  {
+    slug: "mystery-forest-survival",
+    title: "Выживание: Загадочный Лес",
+    shortTitle: "Mystery Forest",
+    type: "Опубликованная Unity-игра",
+    summary: "3D survival-песочница с ресурсами, крафтом, строительством, охотой, рыбалкой, квестами и облачными сохранениями.",
+    description:
+      "Полноценная Unity-игра о выживании в загадочном лесу. Игрок следит за состоянием персонажа, исследует мир, добывает ресурсы, строит убежище, выполняет задания и взаимодействует с животными. Проект опубликован на Яндекс Играх и доступен без установки.",
+    stack: ["Unity", "C#", "WebGL", "Yandex Games SDK", "Cloud Saves"],
+    categories: ["games"],
+    links: [{ label: "Играть на Яндекс Играх", href: "https://yandex.ru/games/developer/99978#app=373383" }],
+    highlights: [
+      "Открытый survival-сценарий: ресурсы, крафт, строительство, охота и рыбалка",
+      "Публикация в WebGL, авторизация и облачные сохранения Яндекс Игр",
+      "Русская, английская и турецкая локализации"
+    ],
+    workflow: ["Исследование", "Ресурсы", "Крафт", "Строительство", "Выживание"],
+    accent: "green",
+    preview: { kind: "game", label: "Игра доступна онлайн" }
+  },
+  {
+    slug: "tower-defense-builder",
+    title: "Tower: строительство и защита базы",
+    shortTitle: "Tower",
+    type: "Законченный Unity-проект",
+    summary: "Игровая система строительства базы с сеткой размещения, генераторами ресурсов, турелями, волнами противников и сохранением прогресса.",
+    description:
+      "Unity-проект вокруг строительства и защиты базы. В кодовой базе выделены системы построек, добычи ресурсов, турелей, состояний противников, волн, уровней, интерфейса, обучения и сохранений.",
+    stack: ["Unity", "C#", "State Machine", "Save System", "Yandex SDK"],
+    categories: ["games"],
+    links: [{ label: "Локальный проект", href: "https://github.com/ValkoHappy" }],
+    highlights: [
+      "Строительство, перемещение и удаление объектов по игровой сетке",
+      "Противники со state machine, поиском целей и атакой построек",
+      "Ресурсы, уровни, UI, обучение и сохранение игрового состояния"
+    ],
+    workflow: ["Ресурсы", "Строительство", "Волна", "Защита", "Прогресс"],
+    accent: "amber",
+    preview: { kind: "game", label: "Unity gameplay systems" }
+  },
   {
     slug: "wordset-docx-checker",
     title: "WordSet: проверка и автоисправление DOCX",
@@ -411,15 +452,33 @@ export const projects: Project[] = [
 ];
 
 export const featuredProjectSlugs = [
+  "mystery-forest-survival",
   "wordset-docx-checker",
   "scaner-blogers-dashboard",
   "ads-transparency-monitor",
   "chatplus-cms-portal",
-  "private-seo-audit-extension",
-  "parser-find-price-tg"
+  "private-seo-audit-extension"
 ] as const;
 
 export const projectDetails: Record<string, ProjectDetails> = {
+  "mystery-forest-survival": {
+    period: "2024 — сейчас онлайн",
+    status: "Production",
+    role: "Unity-разработка, игровые системы и публикация WebGL",
+    challenge: "Нужно было собрать связный survival-мир, где исследование, состояние персонажа, ресурсы, крафт и строительство работают как единая игровая петля и сохраняются между сессиями.",
+    solution: "Игровые механики объединены в открытый сценарий выживания, проект подготовлен под WebGL и интегрирован с Яндекс Играми: авторизация, облачные сохранения и локализации.",
+    outcome: "Игра выпущена 1 ноября 2024 года, остаётся доступной игрокам на Яндекс Играх и имеет пользовательский рейтинг 4.0.",
+    image: "/games/mystery-forest-cover.webp",
+    imageAlt: "Обложка игры Выживание: Загадочный Лес"
+  },
+  "tower-defense-builder": {
+    period: "Unity-глава",
+    status: "Законченный проект",
+    role: "Архитектура и реализация gameplay-систем на C#",
+    challenge: "Строительство, экономика и волны противников требуют нескольких связанных систем, которые должны корректно переживать смену уровней и сохранение состояния.",
+    solution: "Логика разделена на здания и сетку, добычу ресурсов, турели, состояния противников, спавнеры, уровни, UI и отдельный слой сохранений.",
+    outcome: "Собран законченный игровой прототип с полноценной петлёй строительство → добыча → волна → защита → развитие."
+  },
   "wordset-docx-checker": {
     period: "2026",
     status: "Прототип",

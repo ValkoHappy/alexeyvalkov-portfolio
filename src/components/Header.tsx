@@ -13,10 +13,11 @@ export function Header() {
     <header className="site-header">
       <Link className="brand" href="/">
         <span>{profile.initials}</span>
-        <small>portfolio / 2026</small>
+        <small>developer journey</small>
       </Link>
       <nav className="main-nav" aria-label="Главная навигация">
         <Link className={!isProjects ? "active" : undefined} href="/#top">Главная</Link>
+        <Link href="/#journey">Путь</Link>
         <Link className={isProjects ? "active" : undefined} href={isProjects ? "/projects" : "/#projects"}>Кейсы</Link>
         <Link href="/#expertise">Экспертиза</Link>
         <Link href="/#about">Обо мне</Link>

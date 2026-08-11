@@ -75,6 +75,13 @@ export function PreviewFrame({ project }: { project: Project }) {
             </div>
           </>
         )}
+        {project.preview.kind === "game" && (
+          <div className="game-preview-mark">
+            <span>UNITY / C#</span>
+            <strong>{project.shortTitle}</strong>
+            <i>PLAYABLE BUILD</i>
+          </div>
+        )}
       </div>
       <div className="preview-caption preview-caption-abstract">
         <strong>{project.shortTitle}</strong>

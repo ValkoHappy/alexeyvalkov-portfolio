@@ -6,6 +6,7 @@ import type { Project, ProjectCategory } from "@/data/site";
 
 const filters: { value: "all" | ProjectCategory; label: string }[] = [
   { value: "all", label: "Все" },
+  { value: "games", label: "Unity / Игры" },
   { value: "fullstack", label: "Fullstack" },
   { value: "automation", label: "Автоматизация" },
   { value: "react", label: "React" },
