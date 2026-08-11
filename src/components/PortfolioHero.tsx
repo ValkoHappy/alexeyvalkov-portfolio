@@ -1,6 +1,9 @@
+"use client";
+
 import { ArrowDown, ArrowRight, Bot, Code2, Gamepad2, Globe2, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { profile } from "@/data/site";
 import styles from "./PortfolioHero.module.css";
 
@@ -12,8 +15,48 @@ const directions = [
 ];
 
 export function PortfolioHero() {
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    let frame = 0;
+
+    const updateScroll = () => {
+      const rect = hero.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, -rect.top / Math.max(1, rect.height)));
+      hero.style.setProperty("--hero-scroll", `${progress * -34}px`);
+    };
+
+    const updatePointer = (event: PointerEvent) => {
+      if (window.matchMedia("(max-width: 820px)").matches) return;
+      const x = (event.clientX / window.innerWidth - 0.5) * -18;
+      const y = (event.clientY / window.innerHeight - 0.5) * -10;
+      hero.style.setProperty("--hero-x", `${x}px`);
+      hero.style.setProperty("--hero-y", `${y}px`);
+    };
+
+    const requestScrollUpdate = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(updateScroll);
+    };
+
+    updateScroll();
+    window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+    window.addEventListener("resize", requestScrollUpdate);
+    window.addEventListener("pointermove", updatePointer, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", requestScrollUpdate);
+      window.removeEventListener("resize", requestScrollUpdate);
+      window.removeEventListener("pointermove", updatePointer);
+    };
+  }, []);
+
   return (
-    <section className={styles.hero} id="top" aria-labelledby="portfolio-title">
+    <section className={styles.hero} id="top" ref={heroRef} aria-labelledby="portfolio-title">
       <div className={styles.media} aria-hidden="true">
         <Image className={styles.desktopImage} src="/profile/hero-map-v2.png" alt="" fill priority sizes="100vw" />
         <Image className={styles.mobileImage} src="/profile/hero-map-mobile.png" alt="" fill priority sizes="100vw" />

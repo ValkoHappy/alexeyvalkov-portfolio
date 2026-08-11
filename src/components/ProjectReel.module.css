@@ -6,7 +6,7 @@
   height: 700svh;
   margin-left: calc(50% - 50vw);
   color: #f4f1ea;
-  background: rgba(3, 8, 13, .72);
+  background: rgba(3, 8, 13, .34);
 }
 
 .sticky {
@@ -19,8 +19,8 @@
   border-bottom: 1px solid rgba(255,255,255,.12);
   background:
     radial-gradient(circle at 78% 35%, rgba(89,74,255,.11), transparent 26%),
-    rgba(3, 8, 13, .82);
-  backdrop-filter: blur(6px);
+    rgba(3, 8, 13, .5);
+  backdrop-filter: blur(2px);
 }
 
 .header,
