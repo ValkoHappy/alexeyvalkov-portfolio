@@ -35,6 +35,9 @@
   will-change: transform;
 }
 .desktopImage {
+  top: -2.083% !important;
+  bottom: auto !important;
+  height: 104.167% !important;
   object-fit: contain;
   object-position: right center;
   filter: saturate(.86) contrast(1.05) brightness(.82);
