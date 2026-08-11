@@ -1,6 +1,5 @@
 .hero {
   --hero-x: 0px;
-  --hero-y: 0px;
   --hero-scroll: 0px;
   --route-progress: 0%;
   position: relative;
@@ -24,7 +23,10 @@
 
 .media {
   z-index: -1;
-  background: #03080e url("/profile/map-world-long-2k.webp") center 9% / cover no-repeat;
+  background:
+    url("/profile/hero-map-v2.png") right center / auto 96% no-repeat,
+    url("/profile/map-world-long-2k.webp") center 9% / cover no-repeat,
+    #03080e;
 }
 .desktopImage,
 .mobileImage {
@@ -36,7 +38,7 @@
   object-fit: contain;
   object-position: right center;
   filter: saturate(.86) contrast(1.05) brightness(.82);
-  transform: translate3d(var(--hero-x), calc(var(--hero-y) + var(--hero-scroll)), 0) scale(.96);
+  transform: translate3d(var(--hero-x), 0, 0) scale(.96);
   transform-origin: right center;
   transition: transform .14s linear;
 }

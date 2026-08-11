@@ -39,9 +39,7 @@ export function PortfolioHero() {
     const updatePointer = (event: PointerEvent) => {
       if (window.matchMedia("(max-width: 820px)").matches) return;
       const x = (event.clientX / window.innerWidth - 0.5) * -18;
-      const y = (event.clientY / window.innerHeight - 0.5) * -10;
       hero.style.setProperty("--hero-x", `${x}px`);
-      hero.style.setProperty("--hero-y", `${y}px`);
     };
 
     const requestScrollUpdate = () => {
