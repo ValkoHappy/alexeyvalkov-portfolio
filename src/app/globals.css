@@ -78,11 +78,10 @@ button { font: inherit; }
   min-height: 58px;
   padding: 7px 4px;
   border: 0;
-  border-bottom: 1px solid rgba(255,255,255,.13);
   border-radius: 0;
-  background: linear-gradient(180deg, rgba(5,7,10,.84), rgba(5,7,10,.46));
+  background: transparent;
   box-shadow: none;
-  backdrop-filter: blur(22px);
+  backdrop-filter: none;
 }
 .brand { display: flex; align-items: center; gap: 12px; width: max-content; }
 .brand > span {
