@@ -21,7 +21,10 @@
   inset: 0;
 }
 
-.media { z-index: -1; }
+.media {
+  z-index: -1;
+  background: #03080e url("/profile/map-world-long-2k.webp") center 9% / cover no-repeat;
+}
 .desktopImage,
 .mobileImage {
   object-fit: cover;
@@ -29,8 +32,11 @@
   will-change: transform;
 }
 .desktopImage {
+  object-fit: contain;
+  object-position: right center;
   filter: saturate(.86) contrast(1.05) brightness(.82);
-  transform: translate3d(var(--hero-x), calc(var(--hero-y) + var(--hero-scroll)), 0) scale(1.055);
+  transform: translate3d(var(--hero-x), calc(var(--hero-y) + var(--hero-scroll)), 0) scale(.96);
+  transform-origin: right center;
   transition: transform .14s linear;
 }
 .mobileImage { display: none; }
@@ -149,6 +155,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .desktopImage,
+  .desktopImage { transform: scale(.96); transition: none; }
   .mobileImage { transform: scale(1.01); transition: none; }
 }
