@@ -2,7 +2,7 @@ import { ArrowRight, Bot, Github, Globe2, Layers3, MessageSquare, Repeat2, Send,
 import Link from "next/link";
 import { ExpeditionJourney } from "@/components/ExpeditionJourney";
 import { Header } from "@/components/Header";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectReel } from "@/components/ProjectReel";
 import {
   aboutOverview,
   aboutPrinciples,
@@ -28,24 +28,7 @@ export default function HomePage() {
       <div className="page-shell">
         <Header />
         <ExpeditionJourney />
-
-        <section className="section-block featured-work" id="projects">
-          <div className="section-heading">
-            <div>
-              <span className="section-index">02 / Избранные миссии</span>
-              <h2>Проекты, где видна система целиком</h2>
-              <p>Игры, интерфейсы, данные, интеграции и автоматизация — с честным статусом и подробным разбором.</p>
-            </div>
-            <Link className="text-link" href="/projects">Все {projects.length} кейсов <ArrowRight size={17} /></Link>
-          </div>
-          <div className="projects-grid featured-grid">
-            {featuredProjects.map((project, index) => (
-              <div className={`featured-slot featured-slot-${index + 1}`} key={project.slug}>
-                <ProjectCard project={project} featured />
-              </div>
-            ))}
-          </div>
-        </section>
+        <ProjectReel projects={featuredProjects} totalCount={projects.length} />
 
         <section className="section-block expertise-section" id="expertise">
           <div className="section-heading">

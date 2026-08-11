@@ -56,11 +56,17 @@ export function ExpeditionJourney() {
       const travel = Math.max(1, rect.height - window.innerHeight);
       const rawProgress = clamp(-rect.top / travel, 0, 1);
       const stageProgress = clamp((rawProgress - INTRO_SHARE) / (1 - INTRO_SHARE), 0, 0.9999);
+      const stageMidpoint = 0.5 / journeyStages.length;
+      const routeProgress = clamp(
+        (stageProgress - stageMidpoint) / (1 - stageMidpoint * 2),
+        0,
+        1
+      );
       const nextStageIndex = rawProgress < INTRO_SHARE
         ? -1
         : Math.floor(stageProgress * journeyStages.length);
 
-      section.style.setProperty("--route-progress", `${rawProgress * 100}%`);
+      section.style.setProperty("--route-progress", `${routeProgress * 100}%`);
       section.style.setProperty("--orbit-rotation", `${rawProgress * 280}deg`);
       section.style.setProperty("--orbit-rotation-reverse", `${rawProgress * -220}deg`);
       section.style.setProperty("--world-scale", `${1 + rawProgress * 0.22}`);
@@ -95,7 +101,7 @@ export function ExpeditionJourney() {
     if (!section) return;
 
     const travel = section.offsetHeight - window.innerHeight;
-    const target = INTRO_SHARE + ((index + 0.44) / journeyStages.length) * (1 - INTRO_SHARE);
+    const target = INTRO_SHARE + ((index + 0.5) / journeyStages.length) * (1 - INTRO_SHARE);
     window.scrollTo({ top: section.offsetTop + travel * target, behavior: "smooth" });
   }, []);
 
@@ -123,7 +129,7 @@ export function ExpeditionJourney() {
           <div className={styles.heroVeil} />
         </div>
 
-        <div className={styles.sceneHud}>
+        <div className={styles.sceneHud} data-stage={activeStageIndex >= 0 || undefined}>
           <span><MapPin size={13} /> Архангельск · 64.54° N</span>
           <span className={styles.progress}><i /><b>{progress.toString().padStart(2, "0")}%</b></span>
         </div>
