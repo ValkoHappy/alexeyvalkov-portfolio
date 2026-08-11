@@ -73,7 +73,7 @@ export default function HomePage() {
             {focusItems.map((item, index) => {
               const Icon = capabilityIcons[index] ?? Wrench;
               return (
-                <article className="capability-card" key={item.title}>
+                <article className="capability-card" id={index === 2 ? "ai-agents" : undefined} key={item.title}>
                   <div><span>0{index + 1}</span><Icon size={25} /></div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -81,7 +81,7 @@ export default function HomePage() {
               );
             })}
           </div>
-          <div className="parser-section">
+          <div className="parser-section" id="parsers">
             <div className="parser-intro">
               <span className="section-index">Практика автоматизации</span>
               <h3>Какие парсеры я делал</h3>
