@@ -13,10 +13,12 @@ export function Header() {
   const pathname = usePathname();
   const isProjects = pathname.startsWith("/projects");
   const [activeSection, setActiveSection] = useState<HomeSection>(isProjects ? "projects" : "top");
+  const [hasSurface, setHasSurface] = useState(isProjects);
 
   useEffect(() => {
     if (isProjects) {
       setActiveSection("projects");
+      setHasSurface(true);
       return;
     }
 
@@ -36,12 +38,20 @@ export function Header() {
       });
 
       const scrollPosition = window.scrollY;
+      const hero = document.getElementById("top");
+      const surfaceThreshold = hero
+        ? hero.offsetTop + hero.offsetHeight - 88
+        : window.innerHeight - 88;
       const current = thresholds.reduce<HomeSection>(
         (active, section) => scrollPosition >= section.top ? section.id : active,
         "top"
       );
 
       setActiveSection((active) => active === current ? active : current);
+      setHasSurface((currentValue) => {
+        const nextValue = scrollPosition >= surfaceThreshold;
+        return currentValue === nextValue ? currentValue : nextValue;
+      });
     };
 
     const requestUpdate = () => {
@@ -61,7 +71,7 @@ export function Header() {
   }, [isProjects]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${hasSurface ? " is-scrolled" : ""}`}>
       <Link className="brand" href="/">
         <span>{profile.initials}</span>
         <small>fullstack developer</small>
