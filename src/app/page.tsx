@@ -1,5 +1,27 @@
-import { ArrowRight, BarChart3, Bell, BrainCircuit, Eye, Gamepad2, Github, Globe2, MessageSquare, Repeat2, Search, Send, ShoppingCart, Star, Workflow, Wrench } from "lucide-react";
+import { ArrowRight, BarChart3, Bell, BrainCircuit, Code2, Database, Eye, Gamepad2, Github, Globe2, MessageSquare, Repeat2, Search, Send, Server, ShoppingCart, Star, Workflow, Wrench } from "lucide-react";
 import Link from "next/link";
+import type { IconType } from "react-icons";
+import {
+  SiAstro,
+  SiCss3,
+  SiFastapi,
+  SiGooglechrome,
+  SiHtml5,
+  SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpenai,
+  SiPhp,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiSqlite,
+  SiTelegram,
+  SiTypescript,
+  SiUnity,
+  SiWebgl
+} from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
 import { Header } from "@/components/Header";
 import { PortfolioHero } from "@/components/PortfolioHero";
 import { ProjectReel } from "@/components/ProjectReel";
@@ -19,6 +41,29 @@ const featuredProjects = featuredProjectSlugs
   .filter((project): project is (typeof projects)[number] => Boolean(project));
 
 const capabilityIcons = [Globe2, Workflow, BrainCircuit, Gamepad2];
+const stackGroupIcons = [Code2, Server, Database, BrainCircuit, Workflow, Gamepad2];
+
+const technologyIcons: Record<string, IconType> = {
+  "Next.js": SiNextdotjs,
+  Astro: SiAstro,
+  React: SiReact,
+  TypeScript: SiTypescript,
+  HTML: SiHtml5,
+  CSS: SiCss3,
+  "Node.js": SiNodedotjs,
+  Python: SiPython,
+  FastAPI: SiFastapi,
+  PHP: SiPhp,
+  SQLite: SiSqlite,
+  MySQL: SiMysql,
+  PostgreSQL: SiPostgresql,
+  "LLM API": SiOpenai,
+  "Telegram API": SiTelegram,
+  "Chrome Extensions": SiGooglechrome,
+  Unity: SiUnity,
+  "C#": TbBrandCSharp,
+  WebGL: SiWebgl
+};
 
 const parserCases = [
   {
@@ -104,12 +149,25 @@ export default function HomePage() {
               <p>Работаю с современными web-фреймворками, прикладной автоматизацией, AI API и Unity.</p>
             </div>
             <div className="stack-groups">
-              {skillGroups.map((group) => (
-                <div className="stack-group" key={group.title}>
-                  <b>{group.title}</b>
-                  <p>{group.skills.join(" · ")}</p>
-                </div>
-              ))}
+              {skillGroups.map((group, groupIndex) => {
+                const GroupIcon = stackGroupIcons[groupIndex] ?? Wrench;
+                return (
+                  <div className="stack-group" key={group.title}>
+                    <div className="stack-group-head"><span><GroupIcon size={18} /></span><b>{group.title}</b></div>
+                    <div className="stack-skill-list">
+                      {group.skills.map((skill) => {
+                        const SkillIcon = technologyIcons[skill];
+                        return (
+                          <span className="stack-skill" data-has-icon={Boolean(SkillIcon) || undefined} key={skill}>
+                            {SkillIcon ? <SkillIcon aria-hidden="true" /> : null}
+                            {skill}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
