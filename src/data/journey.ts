@@ -43,7 +43,7 @@ export const journeyStages: JourneyStage[] = [
         status: "live",
         projectSlug: "mystery-forest-survival",
         href: "https://yandex.ru/games/developer/99978#app=373383",
-        image: "/games/mystery-forest-icon.webp"
+        image: "/games/mystery-forest-cover.webp"
       },
       {
         title: "Tower",
@@ -65,8 +65,8 @@ export const journeyStages: JourneyStage[] = [
     skills: ["HTML", "CSS", "JavaScript", "PHP", "SEO"],
     achievements: ["Коммерческие сайты", "Рабочие домены", "Заявки в Telegram"],
     missions: [
-      { title: "PANZZI", description: "Коммерческий сайт мебельного бизнеса и запуска проектов в Китае.", status: "case", projectSlug: "panzzi-furniture-website" },
-      { title: "Mustang", description: "Сайт автошколы с формами и отправкой обращений в Telegram.", status: "case", projectSlug: "mustang-driving-school" }
+      { title: "PANZZI", description: "Коммерческий сайт мебельного бизнеса и запуска проектов в Китае.", status: "case", projectSlug: "panzzi-furniture-website", image: "/projects/panzzi.png" },
+      { title: "Mustang", description: "Сайт автошколы с формами и отправкой обращений в Telegram.", status: "case", projectSlug: "mustang-driving-school", image: "/projects/mustang.jpg" }
     ]
   },
   {
@@ -81,8 +81,8 @@ export const journeyStages: JourneyStage[] = [
     skills: ["React", "Next.js", "TypeScript", "FastAPI", "PostgreSQL"],
     achievements: ["Dashboard-системы", "API и базы", "Fullstack-архитектура"],
     missions: [
-      { title: "WordSet", description: "Проверка DOCX, набор правил и безопасные автоисправления.", status: "case", projectSlug: "wordset-docx-checker" },
-      { title: "ScanerBlogers", description: "Dashboard, collectors, очередь и единая база кандидатов.", status: "case", projectSlug: "scaner-blogers-dashboard" }
+      { title: "WordSet", description: "Проверка DOCX, набор правил и безопасные автоисправления.", status: "case", projectSlug: "wordset-docx-checker", image: "/projects/wordset.png" },
+      { title: "ScanerBlogers", description: "Dashboard, collectors, очередь и единая база кандидатов.", status: "case", projectSlug: "scaner-blogers-dashboard", image: "/projects/scaner-blogers.png" }
     ]
   },
   {
@@ -97,8 +97,8 @@ export const journeyStages: JourneyStage[] = [
     skills: ["Playwright", "Workers", "Telegram", "Chrome APIs", "Parsing"],
     achievements: ["Мониторинг данных", "Боты и уведомления", "Внутренние инструменты"],
     missions: [
-      { title: "Ads Monitor", description: "Мониторинг рекламных креативов с очередью сканирования.", status: "case", projectSlug: "ads-transparency-monitor" },
-      { title: "SEO Audit", description: "Расширение для технического аудита и подготовки отчётов.", status: "case", projectSlug: "private-seo-audit-extension" }
+      { title: "Ads Monitor", description: "Мониторинг рекламных креативов с очередью сканирования.", status: "case", projectSlug: "ads-transparency-monitor", image: "/projects/ads-monitor.png" },
+      { title: "SEO Audit", description: "Расширение для технического аудита и подготовки отчётов.", status: "case", projectSlug: "private-seo-audit-extension", image: "/projects/seo-audit.png" }
     ]
   },
   {

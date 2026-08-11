@@ -1,8 +1,8 @@
 import { ArrowRight, Bot, Github, Globe2, Layers3, MessageSquare, Repeat2, Send, Star, Workflow, Wrench } from "lucide-react";
 import Link from "next/link";
+import { ExpeditionJourney } from "@/components/ExpeditionJourney";
 import { Header } from "@/components/Header";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ScrollJourney } from "@/components/ScrollJourney";
 import {
   aboutOverview,
   aboutPrinciples,
@@ -27,7 +27,7 @@ export default function HomePage() {
       <div className="ambient ambient-two" aria-hidden="true" />
       <div className="page-shell">
         <Header />
-        <ScrollJourney />
+        <ExpeditionJourney />
 
         <section className="section-block featured-work" id="projects">
           <div className="section-heading">
