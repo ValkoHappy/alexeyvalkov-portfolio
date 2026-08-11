@@ -43,13 +43,13 @@ export type ProjectDetails = {
 export const profile = {
   name: "Алексей Вальков",
   initials: "AV",
-  role: "Fullstack-разработчик веб-инструментов и автоматизации",
+  role: "Fullstack-разработчик веб-приложений, автоматизации и AI-инструментов",
   telegram: "https://t.me/leshaqt",
   github: "https://github.com/ValkoHappy",
   kwork: "https://kwork.ru/user/leshaqt",
   location: "Архангельск",
   summary:
-    "Проектирую и собираю прикладные веб-системы: интерфейс, API, базу данных, фоновые процессы, парсинг и интеграции — от идеи до работающего сценария."
+    "Разрабатываю веб-приложения, внутренние сервисы, автоматизацию и AI-инструменты. Работаю с Next.js, Astro, React, Node.js и Python; также выпускаю игры на Unity."
 };
 
 export const stats = [
@@ -61,55 +61,51 @@ export const stats = [
 
 export const focusItems = [
   {
-    title: "Игры на Unity",
-    text: "Игровые системы, UI, сохранения, WebGL-сборки и публикация проектов на Яндекс Играх."
+    title: "Веб-приложения",
+    text: "Сайты, кабинеты, внутренние сервисы и CMS на Next.js, Astro и React с API, базами данных и публикацией."
   },
   {
-    title: "Сайты и лендинги",
-    text: "Коммерческие страницы, адаптивная верстка, формы заявок и публикация на хостинге."
+    title: "Автоматизация",
+    text: "Парсеры, workers, очереди, Telegram-боты, Chrome-расширения и интеграции со сторонними сервисами."
   },
   {
-    title: "React-интерфейсы",
-    text: "Личные кабинеты, админ-панели, mini app и клиентские интерфейсы для API."
+    title: "AI и агенты",
+    text: "LLM API, MCP-серверы, агентные процессы, генерация по контрактам и human-in-the-loop проверка результата."
   },
   {
-    title: "Парсеры и автоматизация",
-    text: "Сбор данных, сравнение цен, отчеты, уведомления и обработка повторяющихся задач."
-  },
-  {
-    title: "Боты и расширения",
-    text: "Telegram-боты, Chrome extensions, SEO-инструменты и интеграции со сторонними сервисами."
+    title: "Unity и игры",
+    text: "Gameplay-системы, UI, сохранения, WebGL-сборки и публикация проектов на Яндекс Играх."
   }
 ];
 
 export const aboutOverview = {
-  heading: "Собираю системы и довожу их до рабочего релиза",
+  heading: "Fullstack-разработчик из Архангельска",
   paragraphs: [
-    "Начинал с Unity и C#: собрал законченные игровые проекты и выпустил «Выживание: Загадочный Лес» на Яндекс Играх. Игровая разработка научила меня работать с состоянием, поведением объектов, интерфейсом и большими связанными системами.",
-    "Потом сместил фокус в веб-разработку и прикладные инструменты. Сейчас собираю React-интерфейсы, API, базы данных, Telegram-ботов, парсеры, расширения и автоматизацию — проекты, где важны не только код и вёрстка, но и итоговая польза для пользователя или команды."
+    "Разрабатываю веб-приложения и внутренние инструменты: от интерфейса и API до базы данных, фоновых процессов и деплоя.",
+    "Интегрирую AI и агентов в реальные процессы: использую MCP, очереди задач, структурированные промпты и обязательную проверку человеком. Параллельно продолжаю работать с Unity и C#."
   ],
-  pathLabel: "Путь и фокус",
-  pathTitle: "Unity / C# -> Web / React / Automation",
+  pathLabel: "Основной стек",
+  pathTitle: "Next.js · Astro · React · Node.js · Python · PostgreSQL · Unity",
   pathText:
-    "Бэкграунд в Unity и C# дал системное мышление и опыт выпуска продукта, а веб-направление добавило продуктовый взгляд, быстрый цикл разработки и работу с реальными бизнес-сценариями."
+    "Могу подключиться к отдельной части проекта или собрать решение целиком: интерфейс, backend, интеграции, автоматизацию и запуск."
 };
 
 export const aboutPrinciples = [
   {
-    title: "Прикладной результат",
-    text: "Собираю не абстрактные демо, а решения под заявки, контент, аналитику, интеграции и рабочие процессы."
+    title: "Fullstack",
+    text: "Интерфейс, API, база данных, workers и деплой в одном проекте."
   },
   {
-    title: "Аккуратный интерфейс",
-    text: "Слежу за структурой, читаемостью, адаптивом и тем, чтобы продукт выглядел собранно и уверенно."
+    title: "AI и агенты",
+    text: "MCP, LLM API, управляемые AI-задачи и проверка результата человеком."
   },
   {
-    title: "Автоматизация рядом",
-    text: "Если задачу можно ускорить ботом, парсером, уведомлениями или внутренним инструментом, я это закладываю в решение."
+    title: "Unity / C#",
+    text: "Два законченных игровых проекта и одна опубликованная игра на Яндекс Играх."
   }
 ];
 
-export const projects: Project[] = [
+const projectCatalog: Project[] = [
   {
     slug: "mystery-forest-survival",
     title: "Выживание: Загадочный Лес",
@@ -195,15 +191,15 @@ export const projects: Project[] = [
     title: "CHATPLUS: сайт с CMS и контентным workflow",
     shortTitle: "CHATPLUS",
     type: "Production CMS-проект",
-    summary: "Публичный Astro-сайт со Strapi CMS, Postgres, uploads на VPS и скриптами для импорта и AI-черновиков.",
+    summary: "Production-сайт на Astro и Strapi с AI-генерацией черновиков, human review, Postgres и публикацией на VPS.",
     description:
       "Проект уровня production: публичный сайт собирается на Astro, контент управляется через Strapi, данные и uploads живут на VPS, а отдельные Node-скрипты помогают с импортом, подготовкой и генерацией контентных черновиков.",
-    stack: ["Astro", "Strapi", "PostgreSQL", "Node.js", "VPS", "nginx"],
+    stack: ["Astro", "Strapi", "PostgreSQL", "Node.js", "AI API", "VPS"],
     categories: ["websites", "fullstack", "automation"],
     links: [{ label: "Описание проекта", href: "https://github.com/ValkoHappy" }],
     highlights: [
       "Разделение публичного сайта и CMS-админки",
-      "Контентный pipeline: импорт, черновики, публикация",
+      "AI-задачи по контрактам, human review и управляемая публикация",
       "Production-подход с VPS, uploads и rebuild workflow"
     ],
     workflow: ["CMS", "Content", "Build", "Deploy", "Public site"],
@@ -215,16 +211,16 @@ export const projects: Project[] = [
     title: "Ads Transparency Monitor",
     shortTitle: "Ads Monitor",
     type: "Private dashboard + worker",
-    summary: "Мониторинг креативов Google Ads Transparency Center с очередью сканирования, БД и приватным dashboard.",
+    summary: "Приватный Next.js-сервис для мониторинга рекламных креативов с worker, Postgres и MCP-сервером для AI-агентов.",
     description:
       "Прикладной инструмент для отслеживания рекламных креативов. Next dashboard показывает результаты, worker обрабатывает advertiser jobs, Prisma/Postgres хранят данные, а дополнительные скрипты закрывают проверку и deploy-процесс.",
-    stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Worker", "Playwright"],
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Worker", "Playwright", "MCP"],
     categories: ["fullstack", "react", "automation"],
     links: [{ label: "Private case", href: "https://github.com/ValkoHappy" }],
     highlights: [
       "Очередь заданий для мониторинга рекламодателей",
       "Dashboard для просмотра и проверки найденных креативов",
-      "Отдельные worker/deploy сценарии для прикладной задачи"
+      "MCP-сервер для Codex и других агентных клиентов"
     ],
     workflow: ["Advertiser", "Scan job", "Worker", "Postgres", "Dashboard"],
     accent: "rose",
@@ -452,15 +448,40 @@ export const projects: Project[] = [
     workflow: ["Контент", "Верстка", "Адаптив", "GitHub Pages"],
     accent: "amber",
     preview: { kind: "site", label: "Личный бренд" }
+  },
+  {
+    slug: "driving-test-auto-booking",
+    title: "Сервис автоматического бронирования экзаменов",
+    shortTitle: "Auto Booking",
+    type: "Приватный fullstack-сервис",
+    summary: "Интерфейс и защищённый пользовательский поток для автоматического поиска свободных слотов и подтверждения бронирования.",
+    description:
+      "Приватный англоязычный сервис с приглашениями, onboarding, подключением аккаунта, настройкой центров и предпочтений, мониторингом поиска и подтверждением найденного слота. Frontend работает только через same-origin BFF и не получает сервисные токены или внешние учётные данные.",
+    stack: ["TypeScript", "Vite", "BFF", "WebSocket", "CSRF", "Docker"],
+    categories: ["fullstack", "automation"],
+    links: [],
+    highlights: [
+      "Безопасный пользовательский поток с одноразовыми приглашениями и HttpOnly-сессиями",
+      "Автоматический поиск слотов, мониторинг и подтверждение бронирования",
+      "Production routing, WebSocket viewer и разделение пользовательской и административной частей"
+    ],
+    workflow: ["Invitation", "Account", "Search", "Monitor", "Confirm"],
+    accent: "cyan",
+    preview: { kind: "tool", label: "Private booking service" }
   }
 ];
 
+const hiddenProjectSlugs = new Set(["wordset-docx-checker", "scaner-blogers-dashboard"]);
+
+export const projects = projectCatalog.filter((project) => !hiddenProjectSlugs.has(project.slug));
+
 export const featuredProjectSlugs = [
-  "mystery-forest-survival",
-  "wordset-docx-checker",
-  "scaner-blogers-dashboard",
   "ads-transparency-monitor",
   "chatplus-cms-portal",
+  "driving-test-auto-booking",
+  "mystery-forest-survival",
+  "panzzi-furniture-website",
+  "mustang-driving-school",
   "private-seo-audit-extension"
 ] as const;
 
@@ -512,6 +533,14 @@ export const projectDetails: Record<string, ProjectDetails> = {
     outcome: "Собрана production-система с отдельной CMS, воспроизводимой публикацией и контентным pipeline вместо ручных обновлений страниц.",
     image: "/projects/chatplus.png",
     imageAlt: "Презентационная карточка платформы Chat Plus"
+  },
+  "driving-test-auto-booking": {
+    period: "2026",
+    status: "Production",
+    role: "Frontend, безопасный пользовательский поток и production routing",
+    challenge: "Пользователю нужен понятный интерфейс для подключения аккаунта, настройки поиска и подтверждения найденного слота, при этом чувствительные данные не должны попадать во frontend.",
+    solution: "Собрал англоязычный TypeScript-интерфейс с одноразовыми приглашениями, onboarding, консолью мониторинга и same-origin BFF-контрактом. Сервисные токены и внешние учётные данные остаются на серверной стороне.",
+    outcome: "Получился приватный production-ready поток от приглашения и настройки поиска до мониторинга и подтверждения бронирования."
   },
   "ads-transparency-monitor": {
     period: "2026",
@@ -658,9 +687,10 @@ export const reviews = [
 ];
 
 export const skillGroups = [
-  { title: "Frontend", skills: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Next.js"] },
-  { title: "Backend", skills: ["Node.js", "PHP", "Python", "FastAPI", "REST API"] },
+  { title: "Web", skills: ["Next.js", "Astro", "React", "TypeScript", "HTML", "CSS"] },
+  { title: "Backend", skills: ["Node.js", "Python", "FastAPI", "PHP", "REST API"] },
   { title: "Databases", skills: ["SQL", "SQLite", "MySQL", "PostgreSQL"] },
-  { title: "Automation", skills: ["Parsing", "Playwright", "Selenium", "Telegram API", "Chrome Extensions"] },
-  { title: "Tools", skills: ["Git", "Docker basics", "API integrations", "Google Sheets"] }
+  { title: "AI & Agents", skills: ["LLM API", "MCP", "Agent workflows", "Structured prompts", "Human review"] },
+  { title: "Automation", skills: ["Parsing", "Playwright", "Workers", "Telegram API", "Chrome Extensions"] },
+  { title: "Game development", skills: ["Unity", "C#", "Gameplay systems", "WebGL", "Yandex Games SDK"] }
 ];

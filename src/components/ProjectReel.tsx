@@ -66,8 +66,8 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
       <div className={styles.sticky}>
         <header className={styles.header}>
           <div>
-            <span><Layers3 size={15} /> Selected missions</span>
-            <h2 id="projects-reel-title">Проекты в движении</h2>
+            <span><Layers3 size={15} /> Избранные работы</span>
+            <h2 id="projects-reel-title">Проекты</h2>
           </div>
           <div className={styles.counter} aria-live="polite">
             <span>0{activeIndex + 1} / 0{projects.length}</span>
@@ -82,7 +82,7 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
               <article className={styles.panel} data-accent={project.accent} data-active={activeIndex === index || undefined} key={project.slug}>
                 <div className={styles.panelInner}>
                   <div className={styles.copy}>
-                    <span className={styles.index}>Mission / 0{index + 1}</span>
+                    <span className={styles.index}>Проект / 0{index + 1}</span>
                     <p className={styles.type}>{project.type} · {details.status}</p>
                     <h3>{project.title}</h3>
                     <p className={styles.summary}>{project.summary}</p>

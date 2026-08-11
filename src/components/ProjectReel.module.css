@@ -3,10 +3,10 @@
   --reel-progress: 0%;
   position: relative;
   width: 100vw;
-  height: 620svh;
+  height: 700svh;
   margin-left: calc(50% - 50vw);
   color: #f4f1ea;
-  background: #050609;
+  background: rgba(3, 8, 13, .72);
 }
 
 .sticky {
@@ -19,7 +19,8 @@
   border-bottom: 1px solid rgba(255,255,255,.12);
   background:
     radial-gradient(circle at 78% 35%, rgba(89,74,255,.11), transparent 26%),
-    #050609;
+    rgba(3, 8, 13, .82);
+  backdrop-filter: blur(6px);
 }
 
 .header,
@@ -51,7 +52,7 @@
 .copy { position: relative; z-index: 2; max-width: 650px; }
 .index { color: #ff8a3d; font: 800 12px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .type { margin: 25px 0 0; color: rgba(235,239,242,.56); font: 700 12px var(--font-mono); letter-spacing: .09em; text-transform: uppercase; }
-.copy h3 { max-width: 700px; margin: 16px 0 0; font: 600 clamp(64px, 6.4vw, 112px)/.82 var(--font-display); letter-spacing: -.035em; text-transform: uppercase; text-wrap: balance; }
+.copy h3 { max-width: 700px; margin: 16px 0 0; font: 600 clamp(62px, 6vw, 106px)/.9 var(--font-display); letter-spacing: -.035em; text-transform: uppercase; text-wrap: balance; }
 .summary { max-width: 590px; margin: 24px 0 0; color: rgba(225,230,234,.72); font-size: clamp(16px, 1.15vw, 19px); line-height: 1.65; }
 .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 23px; }
 .stack span { padding: 7px 10px; border: 1px solid rgba(255,255,255,.15); color: rgba(239,242,244,.74); font: 700 11px var(--font-mono); }

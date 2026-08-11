@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { MapWorld } from "@/components/MapWorld";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -6,12 +7,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Алексей Вальков — Fullstack-разработчик и автоматизация",
+    default: "Алексей Вальков — Fullstack-разработчик, автоматизация и AI",
     template: "%s — Алексей Вальков"
   },
   description:
-    "Интерактивный путь Алексея Валькова: Unity-игры, fullstack-системы, React-интерфейсы и автоматизация бизнес-процессов.",
-  keywords: ["fullstack разработчик", "React", "Next.js", "автоматизация", "парсеры", "Telegram боты", "портфолио"],
+    "Портфолио Алексея Валькова: веб-приложения, автоматизация, AI-инструменты, агенты и Unity-игры.",
+  keywords: ["fullstack разработчик", "Next.js", "Astro", "автоматизация", "AI агенты", "MCP", "Unity", "портфолио"],
   authors: [{ name: "Алексей Вальков", url: "https://github.com/ValkoHappy" }],
   creator: "Алексей Вальков",
   manifest: "/site.webmanifest",
@@ -20,14 +21,14 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: siteUrl,
     siteName: "Алексей Вальков — портфолио",
-    title: "Алексей Вальков — Fullstack-разработчик и автоматизация",
-    description: "От Unity-игр до прикладных веб-систем: интерфейс, API, данные и автоматизация — от идеи до рабочего сценария.",
-    images: [{ url: "/og.png", width: 1693, height: 929, alt: "Интерактивный путь разработчика Алексея Валькова" }]
+    title: "Алексей Вальков — Fullstack-разработчик, автоматизация и AI",
+    description: "Веб-приложения, внутренние сервисы, автоматизация, AI-инструменты и Unity-игры.",
+    images: [{ url: "/og.png", width: 1693, height: 929, alt: "Портфолио Алексея Валькова" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "Алексей Вальков — Fullstack-разработчик",
-    description: "Веб-инструменты и автоматизация под реальные задачи.",
+    description: "Веб-приложения, автоматизация, AI-инструменты и Unity.",
     images: ["/og.png"]
   },
   icons: {
@@ -45,7 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Алексей Вальков",
-    jobTitle: "Fullstack-разработчик веб-инструментов и автоматизации",
+    jobTitle: "Fullstack-разработчик веб-приложений, автоматизации и AI-инструментов",
     url: siteUrl,
     sameAs: ["https://github.com/ValkoHappy", "https://t.me/leshaqt", "https://kwork.ru/user/leshaqt"],
     address: { "@type": "PostalAddress", addressLocality: "Архангельск", addressCountry: "RU" }
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ru">
       <body>
+        <MapWorld />
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       </body>
