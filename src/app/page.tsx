@@ -1,4 +1,4 @@
-import { ArrowRight, Bot, Github, Globe2, Layers3, MessageSquare, Repeat2, Send, Star, Workflow, Wrench } from "lucide-react";
+import { ArrowRight, Bot, Gamepad2, Github, Globe2, Layers3, MessageSquare, Repeat2, Send, Star, Workflow, Wrench } from "lucide-react";
 import Link from "next/link";
 import { ExpeditionJourney } from "@/components/ExpeditionJourney";
 import { Header } from "@/components/Header";
@@ -18,7 +18,7 @@ const featuredProjects = featuredProjectSlugs
   .map((slug) => projects.find((project) => project.slug === slug))
   .filter((project): project is (typeof projects)[number] => Boolean(project));
 
-const capabilityIcons = [Globe2, Layers3, Bot, Workflow];
+const capabilityIcons = [Gamepad2, Globe2, Layers3, Bot, Workflow];
 
 export default function HomePage() {
   return (
