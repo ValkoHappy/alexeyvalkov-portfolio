@@ -103,7 +103,7 @@ export function Header() {
     <header className={`site-header${hasSurface ? " is-scrolled" : ""}${isMenuOpen ? " menu-open" : ""}`} ref={headerRef}>
       <Link className="brand" href="/" onClick={() => setIsMenuOpen(false)}>
         <span>{profile.initials}</span>
-        <small>fullstack developer</small>
+        <small>Fullstack / AI Product Engineer</small>
       </Link>
       <nav className="main-nav" id="main-navigation" aria-label="Главная навигация">
         <Link className={!isProjects && activeSection === "top" ? "active" : undefined} href="/#top" onClick={() => setIsMenuOpen(false)}>Главная</Link>

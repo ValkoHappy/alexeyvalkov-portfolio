@@ -43,7 +43,7 @@ export type ProjectDetails = {
 export const profile = {
   name: "Алексей Вальков",
   initials: "AV",
-  role: "Fullstack-разработчик веб-приложений, автоматизации и AI-инструментов",
+  role: "Fullstack / AI Product Engineer",
   telegram: "https://t.me/leshaqt",
   github: "https://github.com/ValkoHappy",
   kwork: "https://kwork.ru/user/leshaqt",

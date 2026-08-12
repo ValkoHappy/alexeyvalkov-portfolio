@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Алексей Вальков — Fullstack-разработчик, автоматизация и AI",
+    default: "Алексей Вальков — Fullstack / AI Product Engineer",
     template: "%s — Алексей Вальков"
   },
   description:
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: siteUrl,
     siteName: "Алексей Вальков — портфолио",
-    title: "Алексей Вальков — Fullstack-разработчик, автоматизация и AI",
+    title: "Алексей Вальков — Fullstack / AI Product Engineer",
     description: "Веб-приложения, внутренние сервисы, автоматизация, AI-инструменты и Unity-игры.",
     images: [{ url: "/og.png", width: 1693, height: 929, alt: "Портфолио Алексея Валькова" }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Алексей Вальков — Fullstack-разработчик",
+    title: "Алексей Вальков — Fullstack / AI Product Engineer",
     description: "Веб-приложения, автоматизация, AI-инструменты и Unity.",
     images: ["/og.png"]
   },
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Алексей Вальков",
-    jobTitle: "Fullstack-разработчик веб-приложений, автоматизации и AI-инструментов",
+    jobTitle: "Fullstack / AI Product Engineer",
     url: siteUrl,
     sameAs: ["https://github.com/ValkoHappy", "https://t.me/leshaqt", "https://kwork.ru/user/leshaqt"],
     address: { "@type": "PostalAddress", addressLocality: "Архангельск", addressCountry: "RU" }
