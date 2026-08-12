@@ -114,7 +114,17 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
         <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? `${localeRoot}/projects` : `${localeRoot}/#projects`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Projects" : "Проекты"}</Link>
         <Link className={!isProjects && activeSection === "proof" ? "active" : undefined} href={`${localeRoot}/#proof`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Reviews" : "Отзывы"}</Link>
         <Link className={!isProjects && activeSection === "about" ? "active" : undefined} href={`${localeRoot}/#about`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "About" : "Обо мне"}</Link>
-        <Link className="language-switch" href={languageHref} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "RU" : "EN"}</Link>
+        <Link
+          className="language-toggle"
+          data-locale={locale}
+          href={languageHref}
+          aria-label={locale === "en" ? "Switch language to Russian" : "Переключить язык на английский"}
+          title={locale === "en" ? "Русская версия" : "English version"}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <span aria-hidden="true">RU</span>
+          <span aria-hidden="true">EN</span>
+        </Link>
         <div className="mobile-nav-actions">
           <a href={profile.github} target="_blank" rel="noreferrer"><Github size={19} /> GitHub</a>
           <a href={profile.vk} target="_blank" rel="noreferrer"><SiVk size={20} /> VK</a>
