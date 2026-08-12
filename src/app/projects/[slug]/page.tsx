@@ -50,7 +50,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <article className="case-page">
           <Link className="back-link" href="/projects"><ArrowLeft size={17} /> Все проекты</Link>
 
-          <section className="case-hero">
+          <section className={`case-hero${details.image ? "" : " case-hero-text"}`}>
             <div className="case-hero-copy">
               <div className="case-eyebrow"><span>{details.status}</span><i />{details.period}</div>
               <h1>{project.title}</h1>
@@ -63,7 +63,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ))}
               </div>
             </div>
-            <PreviewFrame project={project} />
+            {details.image ? <PreviewFrame project={project} /> : null}
           </section>
 
           <section className="case-facts" aria-label="Кратко о проекте">

@@ -7,8 +7,8 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
   const details = getProjectDetails(project);
 
   return (
-    <Link className={`project-card ${featured ? "project-card-featured" : ""}`} href={`/projects/${project.slug}`}>
-      <PreviewFrame project={project} />
+    <Link className={`project-card ${featured ? "project-card-featured" : ""}${details.image ? "" : " project-card-text"}`} href={`/projects/${project.slug}`}>
+      {details.image ? <PreviewFrame project={project} /> : null}
       <div className="project-card-body">
         <div className="project-meta">
           <span>{details.status}</span>

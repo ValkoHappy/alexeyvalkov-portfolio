@@ -128,9 +128,9 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "tower-defense-builder",
-    title: "Tower: строительство и защита базы",
-    shortTitle: "Tower",
-    type: "Законченный Unity-проект",
+    title: "Конструктор базы и защита от волн",
+    shortTitle: "Base Defense",
+    type: "Законченный игровой прототип",
     summary: "Игровая система строительства базы с сеткой размещения, генераторами ресурсов, турелями, волнами противников и сохранением прогресса.",
     description:
       "Unity-проект вокруг строительства и защиты базы. В кодовой базе выделены системы построек, добычи ресурсов, турелей, состояний противников, волн, уровней, интерфейса, обучения и сохранений.",
@@ -188,19 +188,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "chatplus-cms-portal",
-    title: "CHATPLUS: сайт с CMS и контентным workflow",
+    title: "Контентная платформа для омниканального сервиса",
     shortTitle: "CHATPLUS",
-    type: "Production CMS-проект",
-    summary: "Production-сайт на Astro и Strapi с AI-генерацией черновиков, human review, Postgres и публикацией на VPS.",
+    type: "Production-контентная платформа",
+    summary: "Публичный Astro-сайт и Strapi CMS с управляемыми AI-черновиками, редакторским согласованием и публикацией через VPS-контур.",
     description:
-      "Проект уровня production: публичный сайт собирается на Astro, контент управляется через Strapi, данные и uploads живут на VPS, а отдельные Node-скрипты помогают с импортом, подготовкой и генерацией контентных черновиков.",
+      "Production-платформа для большого продуктового сайта: Astro отвечает за маршруты и статическую сборку, Strapi — за страницы, справочники и редакторский интерфейс. AI заполняет только заранее подготовленные структуры, после чего редактор проверяет preview и вручную допускает материал к публикации.",
     stack: ["Astro", "Strapi", "PostgreSQL", "Node.js", "AI API", "VPS"],
     categories: ["websites", "fullstack", "automation"],
     links: [{ label: "Описание проекта", href: "https://github.com/ValkoHappy" }],
     highlights: [
-      "Разделение публичного сайта и CMS-админки",
-      "AI-задачи по контрактам, human review и управляемая публикация",
-      "Production-подход с VPS, uploads и rebuild workflow"
+      "Astro-портал, Strapi 5, Postgres, uploads и nginx на VPS",
+      "AI Generation Jobs с target page, проверкой сущностей и обязательным human review",
+      "Webhook/rebuild/deploy flow, content snapshots, импорт и автоматические проверки качества"
     ],
     workflow: ["CMS", "Content", "Build", "Deploy", "Public site"],
     accent: "cyan",
@@ -208,19 +208,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "ads-transparency-monitor",
-    title: "Ads Transparency Monitor",
+    title: "Мониторинг рекламных креативов",
     shortTitle: "Ads Monitor",
-    type: "Private dashboard + worker",
-    summary: "Приватный Next.js-сервис для мониторинга рекламных креативов с worker, Postgres и MCP-сервером для AI-агентов.",
+    type: "Приватная аналитическая система",
+    summary: "Система регулярного сбора Google Ads-креативов: защищённый dashboard, очередь сканирований, worker, Postgres и MCP-доступ для агентов.",
     description:
-      "Прикладной инструмент для отслеживания рекламных креативов. Next dashboard показывает результаты, worker обрабатывает advertiser jobs, Prisma/Postgres хранят данные, а дополнительные скрипты закрывают проверку и deploy-процесс.",
+      "Монорепозиторий из web-приложения, scan worker, MCP-сервера и общих пакетов. Администратор управляет рекламодателями и очередью, worker собирает detail/preview-данные, база хранит историю, а MCP выдаёт проверенные данные агентным клиентам.",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Worker", "Playwright", "MCP"],
     categories: ["fullstack", "react", "automation"],
     links: [{ label: "Private case", href: "https://github.com/ValkoHappy" }],
     highlights: [
-      "Очередь заданий для мониторинга рекламодателей",
-      "Dashboard для просмотра и проверки найденных креативов",
-      "MCP-сервер для Codex и других агентных клиентов"
+      "Очередь advertiser jobs, bounded concurrency и история запусков",
+      "Next.js dashboard с рекламодателями, креативами, экспортом и статусами ошибок",
+      "Prisma/Postgres, MCP endpoint, unit/integration/e2e проверки и Docker deploy"
     ],
     workflow: ["Advertiser", "Scan job", "Worker", "Postgres", "Dashboard"],
     accent: "rose",
@@ -228,19 +228,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "private-seo-audit-extension",
-    title: "SEO-аудит в Chrome-расширении",
-    shortTitle: "SEO Audit",
-    type: "Chrome-расширение",
-    summary: "Manifest V3 расширение для SEO-аудита страниц, технических проверок, отчета и PDF-выгрузки.",
+    title: "PrivateSEO — аудит страницы в браузере",
+    shortTitle: "PrivateSEO",
+    type: "Chrome-расширение с AI-анализом",
+    summary: "Manifest V3-инструмент для SEO, technical и GEO-аудита открытой страницы, AI-рекомендаций и PDF-отчёта.",
     description:
-      "Chrome/Chromium-расширение для анализа мета-тегов, заголовков, ссылок, изображений, Open Graph, микроразметки и технических SEO-сигналов. Архитектура разделена на content script, background, popup, report page и build/zip сценарии.",
+      "Расширение собирает SEO-сигналы прямо из активной вкладки, дополняет их сетевыми проверками через service worker и показывает результат в модульном popup. AI-ключ не попадает в клиент: запросы идут через Yandex Cloud Function к внешней модели.",
     stack: ["JavaScript", "Manifest V3", "Chrome APIs", "SEO", "PDF"],
     categories: ["extensions", "automation"],
     links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
     highlights: [
-      "Сбор SEO-данных из активной страницы",
-      "Проверки meta, headings, links, images и Open Graph",
-      "Report page, PDF-экспорт и подготовка сборки"
+      "Meta, headings, canonical, robots, hreflang, ссылки, изображения, JSON-LD и Web Vitals",
+      "AI-оценка, генерация мета-тегов, intent/LSI и анализ переспама через защищённый proxy",
+      "Отдельная report page, PDF-экспорт и воспроизводимая Chrome release-сборка"
     ],
     workflow: ["Content script", "Background", "Popup", "Report", "PDF"],
     accent: "blue",
@@ -248,19 +248,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "parser-find-price-tg",
-    title: "ParserFindPriceTg: мониторинг цен",
-    shortTitle: "Price Bot",
-    type: "Parser + Telegram + web UI",
-    summary: "Система мониторинга цен по магазинам с парсерами, историей, web-интерфейсом и Telegram-уведомлениями.",
+    title: "Мониторинг цен и уведомления о скидках",
+    shortTitle: "Price Monitor",
+    type: "Система автоматизации мониторинга",
+    summary: "Регулярная проверка цен более чем в десяти магазинах с историей, менеджерским web-интерфейсом и Telegram-уведомлениями.",
     description:
-      "Коммерческий прикладной инструмент: парсеры собирают цены, сервисы хранят товары и историю, web UI помогает управлять списком, Telegram отправляет alerts, а Google Sheets используется как интеграционный слой для отчетов.",
+      "Python-сервис объединяет отдельные адаптеры магазинов, планировщик проверок, базу товаров и цен, web API и Telegram-бота. Менеджеры работают в отдельных темах Telegram, а товары можно загружать через Excel и Google Sheets.",
     stack: ["Python", "Flask", "SQLAlchemy", "Selenium", "BS4", "Telegram API"],
     categories: ["automation", "bots", "fullstack"],
     links: [{ label: "Архив проекта", href: "https://disk.yandex.ru/d/3c2tb191ALQinw" }],
     highlights: [
-      "Сбор цен с внешних страниц и маркетплейсов",
-      "История товаров, сравнение и расчет выгодных вариантов",
-      "Telegram alerts, web-admin и интеграция с Google Sheets"
+      "10+ источников, включая маркетплейсы, Selenium/stealth и обычный HTTP parsing",
+      "История цены, расписание APScheduler, статистика и JWT-доступ к web-интерфейсу",
+      "Уведомления о снижении цены, темы для менеджеров, Excel и Google Sheets"
     ],
     workflow: ["Parse", "Store", "Compare", "Alert", "Report"],
     accent: "green",
@@ -268,19 +268,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "stream-tiktok-auction",
-    title: "StreamTiktok: аукцион для TikTok LIVE",
-    shortTitle: "StreamTiktok",
-    type: "Realtime MVP",
-    summary: "MVP аукциона для TikTok LIVE Studio: Fastify backend, SQLite, React admin, overlay и логика ставок.",
+    title: "Аукцион донатов для TikTok LIVE",
+    shortTitle: "Live Auction",
+    type: "Realtime-система для трансляций",
+    summary: "DonationAlerts-донаты превращаются в ставки по Roblox-никам, а ведущий управляет аукционом через React-панель и live overlay.",
     description:
-      "Интерактивный инструмент для live-стримов. DonationAlerts-события превращаются в ставки, сервер хранит лоты и состояние аукциона, React admin управляет процессом, а overlay выводится в TikTok LIVE Studio.",
+      "Локальная система для двухкомпьютерной трансляции: Fastify хранит состояние аукциона в SQLite, React admin управляет лотами и никами, а отдельный URL используется как web source в TikTok LIVE Studio.",
     stack: ["Fastify", "React", "TypeScript", "SQLite", "Vitest"],
     categories: ["fullstack", "react", "automation"],
     links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
     highlights: [
-      "Auction engine со ставками, таймером и лотами",
-      "Admin panel для управления live-процессом",
-      "Overlay для трансляции и тесты ключевой логики"
+      "Суммирование донатов по Roblox-нику, tie-break и ручное исправление имени",
+      "Таймер с продлением, лоты, dev-события и сохранение состояния в SQLite",
+      "React admin и отдельный overlay для TikTok LIVE Studio по локальной сети"
     ],
     workflow: ["Donation", "Bid", "Auction", "Admin", "Overlay"],
     accent: "amber",
@@ -288,19 +288,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "site-scorer-review-tool",
-    title: "Site Scorer: инструмент ревью сайтов",
-    shortTitle: "Site Scorer",
-    type: "Internal review tool",
-    summary: "FastAPI/Postgres/Playwright приложение для пакетной проверки сайтов из Google Sheets и разметки статусов.",
+    title: "Очередь аудита сайтов из Google Sheets",
+    shortTitle: "Review Queue",
+    type: "Внутренний инструмент проверки",
+    summary: "Пакетная обработка таблиц по 50/100/200 строк: фоновый захват сайтов, ручной scoring и синхронизация статусов обратно в Google Sheets.",
     description:
-      "Внутренний инструмент для обработки больших списков сайтов. Backend и worker берут пачки строк, Playwright захватывает страницы, frontend дает review-интерфейс, а результат возвращается обратно в рабочий процесс.",
+      "Google Sheet используется как исходная очередь, а Postgres — как рабочее состояние приложения. FastAPI и отдельный worker готовят следующую пачку, Playwright снимает страницы, React-интерфейс помогает быстро оценивать их и формировать CRM copy package.",
     stack: ["FastAPI", "PostgreSQL", "Playwright", "React", "Vite"],
     categories: ["fullstack", "react", "automation"],
     links: [{ label: "Internal case", href: "https://github.com/ValkoHappy" }],
     highlights: [
-      "Пакетная обработка списков из Google Sheets",
-      "Playwright-захват сайтов и статусов проверки",
-      "Review UI для быстрой разметки и контроля качества"
+      "Full sync таблицы без предварительного создания тысяч review-задач",
+      "Фоновые Playwright captures, очереди ARQ/Redis и Postgres migrations",
+      "Плотный React review UI, ручной scoring и обратная запись статуса в Sheet"
     ],
     workflow: ["Sheet", "Batch", "Capture", "Review", "Sync"],
     accent: "cyan",
@@ -308,8 +308,8 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "fitseek-telegram-mini-app",
-    title: "FitSeek: Telegram Mini App для тренеров",
-    shortTitle: "FitSeek",
+    title: "Поиск тренеров внутри Telegram",
+    shortTitle: "Trainer Search",
     type: "Telegram Mini App",
     summary: "Mini App для поиска тренеров: React/Vite frontend, FastAPI backend, Telegram bot и база данных.",
     description:
@@ -328,9 +328,9 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "scaner-frilance-bot",
-    title: "ScanerFrilance: бот мониторинга заказов",
-    shortTitle: "Freelance Bot",
-    type: "Telegram-бот",
+    title: "Агрегатор фриланс-заказов в Telegram",
+    shortTitle: "Order Feed",
+    type: "Рабочий Telegram-агрегатор",
     summary: "Бот для мониторинга заказов на freelance-площадках с фильтрами, автотегами и защитой от flood.",
     description:
       "Рабочий Telegram-бот для отслеживания новых заказов. Парсеры собирают свежие предложения, фильтры оставляют релевантное, хэштеги помогают сортировать поток, а механика отправки учитывает ограничения Telegram.",
@@ -348,19 +348,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "panzzi-furniture-website",
-    title: "PANZZI: сайт магазина мебели",
+    title: "Мультиязычная витрина мебели и услуг в Китае",
     shortTitle: "PANZZI",
     type: "Коммерческий сайт",
-    summary: "Сайт для китайского магазина мебели с каталогом, разделами услуг и адаптивной версткой.",
+    summary: "Мультиязычный коммерческий сайт с каталогом, интерактивными картами, портфолио и отдельным направлением запуска бизнеса в Китае.",
     description:
-      "Коммерческий сайт для магазина мебели и поставок из Китая. В проекте собраны основные страницы, визуальные секции, каталог, контакты и адаптивная подача для клиентов.",
+      "Коммерческий сайт PANZZI объединяет мебель, освещение, материалы, проекты и услуги сопровождения в Китае. Каталог использует интерактивные карты с hotspot-превью, а контент и навигация поддерживают RU/EN/ZH.",
     stack: ["HTML", "CSS", "JavaScript"],
     categories: ["websites"],
     links: [{ label: "Открыть сайт", href: "https://panzzi.com/" }],
     highlights: [
-      "Адаптивная верстка основных страниц",
-      "Каталог и контентные блоки для услуг",
-      "Подготовка сайта к публикации на домене"
+      "Каталог с интерактивными hotspot-картами и галереями категорий",
+      "RU/EN/ZH, отдельный China Entry flow и коммерческие CTA",
+      "Адаптивная многостраничная верстка, портфолио проектов и публикация на домене"
     ],
     workflow: ["Структура", "Верстка", "Контент", "Публикация"],
     accent: "blue",
@@ -368,12 +368,12 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "mustang-driving-school",
-    title: "Mustang: сайт автошколы",
+    title: "Сайт автошколы с обработкой заявок",
     shortTitle: "Mustang",
     type: "Коммерческий сайт",
-    summary: "Сайт автошколы с формами заявок и отправкой обращений в Telegram.",
+    summary: "Коммерческий сайт автошколы: страницы обучения, формы заявок, Telegram-доставка обращений и техническая SEO-подготовка.",
     description:
-      "Сайт для автошколы с информационными страницами, адаптивом и PHP-обработчиком заявок. Заявки с формы отправляются в Telegram, чтобы менеджер быстро видел новые обращения.",
+      "Многостраничный сайт автошколы с программами обучения, юридическими страницами и формами. PHP API валидирует обращения и отправляет их менеджеру в Telegram; robots.txt, sitemap, verification-файлы и серверные правила подготовлены для рабочего домена.",
     stack: ["HTML", "CSS", "JavaScript", "PHP", "Telegram API"],
     categories: ["websites", "automation"],
     links: [
@@ -381,9 +381,9 @@ const projectCatalog: Project[] = [
       { label: "Пост с примером", href: "https://t.me/alexworktut/4" }
     ],
     highlights: [
-      "Верстка страниц автошколы",
-      "Форма заявки с PHP-обработчиком",
-      "Отправка новых заявок в Telegram"
+      "Адаптивная главная и отдельная страница об образовательной программе",
+      "PHP endpoint для заявок, валидация и Telegram API",
+      "Sitemap, robots, верификация поисковиков, privacy/offer и deploy под reg.ru"
     ],
     workflow: ["Форма", "PHP", "Telegram", "Менеджер"],
     accent: "cyan",
@@ -391,10 +391,10 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "course-registration-platform",
-    title: "Платформа записи на курсы",
-    shortTitle: "Courses",
+    title: "Личный кабинет участника курса",
+    shortTitle: "Course Cabinet",
     type: "Учебный fullstack-проект",
-    summary: "React-приложение для записи на курсы с backend на PHP и базой MySQL.",
+    summary: "Учебное React-приложение с регистрацией, авторизацией, подачей заявок и отдельным административным сценарием на PHP/MySQL.",
     description:
       "Учебная система регистрации на курс с интерфейсом пользователя и административной частью. Проект показывает связку frontend, backend API и базы данных.",
     stack: ["React", "Vite", "PHP", "MySQL", "REST API"],
@@ -411,19 +411,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "token-audit-trading-assistant",
-    title: "Ассистент аудита токенов",
-    shortTitle: "Token Audit",
-    type: "Сложный pet-проект",
-    summary: "Сканер и плагин для анализа мемкоинов с аудитом токенов и web-интерфейсом.",
+    title: "Исследовательская платформа для мемкоинов",
+    shortTitle: "Token Intelligence",
+    type: "Research / paper-trading платформа",
+    summary: "Надстройка над GMGN для сбора данных, replay, анализа кошельков и разработчиков, risk intelligence и проверяемых demo-решений без реальных сделок.",
     description:
-      "Экспериментальный проект вокруг анализа токенов: расширение, сбор данных, аудит сигналов, серверная часть и интерфейс для просмотра результатов.",
-    stack: ["Node.js", "Playwright", "React", "PostgreSQL"],
+      "Большая исследовательская система, где GMGN остаётся рыночным терминалом, а локальный стек добавляет память, collectors, replay и слой принятия решений. Внутри есть Chrome extension, data server, dashboard и отдельный browser audit service.",
+    stack: ["Node.js", "Chrome Extension", "React", "PostgreSQL", "Playwright", "Python"],
     categories: ["extensions", "react", "fullstack", "automation"],
     links: [{ label: "Пост с примером", href: "https://t.me/alexworktut/5" }],
     highlights: [
-      "Автоматизация браузера через Playwright",
-      "Сбор и хранение данных",
-      "Web-интерфейс для анализа"
+      "Wallet/developer intelligence, token replay, coverage и risk verdicts",
+      "Chrome extension, collectors, API, Postgres и operations dashboard",
+      "Demo/paper decisions, тесты lifecycle и явный запрет реальных swaps/private keys"
     ],
     workflow: ["Scan", "Audit", "Database", "Dashboard"],
     accent: "rose",
@@ -431,8 +431,8 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "fitness-coach-landing",
-    title: "Сайт-визитка фитнес-тренера",
-    shortTitle: "Fitness",
+    title: "Персональный сайт фитнес-тренера",
+    shortTitle: "Coach Portfolio",
     type: "Сайт-визитка",
     summary: "Сайт-визитка для фитнес-тренера с презентацией услуг и контактами.",
     description:
@@ -451,19 +451,19 @@ const projectCatalog: Project[] = [
   },
   {
     slug: "driving-test-auto-booking",
-    title: "Сервис автоматического бронирования экзаменов",
-    shortTitle: "Auto Booking",
-    type: "Приватный fullstack-сервис",
-    summary: "Интерфейс и защищённый пользовательский поток для автоматического поиска свободных слотов и подтверждения бронирования.",
+    title: "DriveAlerts — поиск слотов экзамена RSA",
+    shortTitle: "DriveAlerts",
+    type: "Защищённая production-система",
+    summary: "Многоуровневая система мониторинга отменённых слотов RSA Ireland: participant frontend, BFF, durable workers и контролируемое подтверждение бронирования.",
     description:
-      "Приватный англоязычный сервис с приглашениями, onboarding, подключением аккаунта, настройкой центров и предпочтений, мониторингом поиска и подтверждением найденного слота. Frontend работает только через same-origin BFF и не получает сервисные токены или внешние учётные данные.",
-    stack: ["TypeScript", "Vite", "BFF", "WebSocket", "CSRF", "Docker"],
+      "Frontend закрывает приглашение, onboarding, подключение RSA-аккаунта, фильтры поиска и подтверждение результата. За ним работает отдельный production-oriented backend: typed RSA client, PostgreSQL jobs, monitoring/booking workers, encrypted session storage, mock RSA и защищённый beta portal.",
+    stack: ["TypeScript", "React", "Vite", "BFF", "PostgreSQL", "WebSocket", "Docker"],
     categories: ["fullstack", "automation"],
     links: [],
     highlights: [
-      "Безопасный пользовательский поток с одноразовыми приглашениями и HttpOnly-сессиями",
-      "Автоматический поиск слотов, мониторинг и подтверждение бронирования",
-      "Production routing, WebSocket viewer и разделение пользовательской и административной частей"
+      "Одноразовые приглашения, HttpOnly session, CSRF/Origin/role checks и same-origin BFF",
+      "Typed RSA client, durable monitoring/booking workflows, PostgreSQL scheduling и recovery сценарии",
+      "Mock RSA, load/restore/security drills, защищённый WebSocket viewer и staged live gates"
     ],
     workflow: ["Invitation", "Account", "Search", "Monitor", "Confirm"],
     accent: "cyan",
@@ -527,40 +527,40 @@ export const projectDetails: Record<string, ProjectDetails> = {
   "chatplus-cms-portal": {
     period: "2025–2026",
     status: "Production",
-    role: "Публичный сайт, CMS-архитектура и контентный workflow",
+    role: "Astro-портал, Strapi-модель, AI workflow и production-публикация",
     challenge: "Контентной команде требовался управляемый портал, где публикация материалов, загрузки и подготовка черновиков не зависят от ручной правки сайта.",
-    solution: "Разделил публичный Astro-сайт и Strapi CMS, подключил PostgreSQL и uploads на VPS, добавил Node.js-сценарии импорта, подготовки и генерации черновиков.",
-    outcome: "Собрана production-система с отдельной CMS, воспроизводимой публикацией и контентным pipeline вместо ручных обновлений страниц.",
+    solution: "Разделил Astro-портал и Strapi CMS, описал page contracts и справочники, подключил PostgreSQL/uploads и управляемые AI Generation Jobs с preview и редакторским approval.",
+    outcome: "Платформа работает на VPS: редактор управляет страницами через Strapi, AI готовит контролируемые черновики, а webhook запускает проверяемую пересборку и публикацию.",
     image: "/projects/chatplus.webp",
     imageAlt: "Главная страница платформы Chat Plus"
   },
   "driving-test-auto-booking": {
     period: "2026",
     status: "Production",
-    role: "Frontend, безопасный пользовательский поток и production routing",
+    role: "Participant frontend, BFF-контракт, backend workflows и production hardening",
     challenge: "Пользователю нужен понятный интерфейс для подключения аккаунта, настройки поиска и подтверждения найденного слота, при этом чувствительные данные не должны попадать во frontend.",
-    solution: "Собрал англоязычный TypeScript-интерфейс с одноразовыми приглашениями, onboarding, консолью мониторинга и same-origin BFF-контрактом. Сервисные токены и внешние учётные данные остаются на серверной стороне.",
-    outcome: "Получился приватный production-ready поток от приглашения и настройки поиска до мониторинга и подтверждения бронирования.",
+    solution: "Связал React frontend с same-origin BFF, typed RSA client, PostgreSQL jobs, monitoring/booking workers, encrypted session ingestion, mock RSA и защищённым beta portal.",
+    outcome: "Собран полный production-oriented контур с безопасным пользовательским сценарием, recovery/runbook-процедурами и отдельными гейтами перед реальными booking-операциями.",
     image: "/projects/drivealerts.webp",
     imageAlt: "Интерфейс автоматического бронирования DriveAlerts"
   },
   "ads-transparency-monitor": {
     period: "2026",
     status: "Рабочий инструмент",
-    role: "Dashboard, очередь сканирования, база и deploy-сценарии",
+    role: "Монорепозиторий: dashboard, scan worker, MCP, база и deploy",
     challenge: "Рекламные креативы нужно регулярно собирать, нормализовать и отслеживать по рекламодателям без ручного обхода Google Ads Transparency Center.",
-    solution: "Собрал приватный Next.js dashboard, worker с очередью заданий, слой Prisma/PostgreSQL и отдельные сценарии проверки и публикации.",
-    outcome: "Пользователь управляет рекламодателями и сканированиями из одного интерфейса, а история и найденные креативы сохраняются для дальнейшего анализа.",
+    solution: "Разделил систему на Next.js web, worker, MCP server, core parsers и Prisma/Postgres package; добавил очередь, статусы, экспорт и production deploy scripts.",
+    outcome: "Система хранит рекламодателей, креативы и историю сканирований; оператор видит покрытие и ошибки, а агентные клиенты получают данные через MCP.",
     image: "/projects/ads-transparency.webp",
     imageAlt: "Дашборд Ads Transparency Monitor"
   },
   "private-seo-audit-extension": {
     period: "2025",
     status: "Рабочий инструмент",
-    role: "Архитектура расширения, SEO-проверки и отчёт",
+    role: "Архитектура расширения, SEO/GEO-проверки, AI proxy и отчёт",
     challenge: "SEO-специалисту нужен быстрый аудит прямо на открытой странице без переключения между несколькими внешними сервисами.",
-    solution: "Разделил расширение на content script, background, popup и report page; добавил проверки meta, headings, links, images, Open Graph и выгрузку отчёта.",
-    outcome: "Получился автономный Manifest V3-инструмент, который собирает основные SEO-сигналы и упаковывает их в понятный отчёт.",
+    solution: "Разделил расширение на content script, service worker, модульный popup и report page; добавил technical/GEO checks, AI-функции через serverless proxy и release scripts.",
+    outcome: "Рабочее расширение проверяет страницу без перехода во внешние сервисы, формирует рекомендации и PDF, а AI-ключ остаётся вне клиентской сборки.",
     image: "/projects/private-seo.png",
     imageAlt: "Интерфейс расширения PrivateSEO с результатами аудита"
   },
@@ -583,11 +583,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
   },
   "site-scorer-review-tool": {
     period: "2026",
-    status: "Прототип",
-    role: "Fullstack-приложение и автоматизация review-процесса",
+    status: "Рабочий инструмент",
+    role: "FastAPI backend, capture worker, React review UI и Sheets sync",
     challenge: "Большие списки сайтов из Google Sheets неудобно открывать, проверять и размечать вручную по одному.",
-    solution: "Собрал пакетную обработку строк, Playwright-захват страниц, очередь и React-интерфейс для быстрой проверки и синхронизации статусов.",
-    outcome: "Ручной процесс превратился в последовательную review-очередь с подготовленными данными и единым экраном контроля."
+    solution: "Собрал full sync таблицы, Postgres-модель, ARQ/Redis worker с Playwright capture и плотный React-интерфейс для пачек по 50/100/200 строк.",
+    outcome: "Вместо ручного открытия URL оператор получает подготовленную очередь, быстро выставляет score/статус и синхронизирует результат обратно в Google Sheet."
   },
   "fitseek-telegram-mini-app": {
     period: "2024",
@@ -608,9 +608,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
   "panzzi-furniture-website": {
     period: "2025–2026",
     status: "Production",
-    role: "Структура, frontend и публикация",
+    role: "Многостраничный frontend, каталог, локализации и публикация",
     challenge: "Нужно было представить мебельный бизнес и направление запуска проектов в Китае в одном последовательном коммерческом сайте.",
-    solution: "Собрал многостраничную структуру, каталог, сервисные разделы и адаптивную подачу с отдельным China entry-направлением.",
+    solution: "Собрал многостраничную структуру, RU/EN/ZH контент, каталог с hotspot-картами, галереи проектов и отдельный China Entry flow.",
     outcome: "Рабочий сайт опубликован на домене и используется как коммерческая витрина услуг и проектов.",
     image: "/projects/panzzi.webp",
     imageAlt: "Главная страница мебельного сайта PANZZI"
@@ -618,9 +618,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
   "mustang-driving-school": {
     period: "2024",
     status: "Production",
-    role: "Frontend, формы заявок и интеграция Telegram",
+    role: "Frontend, PHP API заявок, Telegram и техническая SEO-подготовка",
     challenge: "Автошколе нужен был понятный адаптивный сайт, который не только рассказывает об обучении, но и собирает обращения.",
-    solution: "Собрал информационные страницы, формы с PHP-обработчиком, отправку обращений в Telegram и базовую SEO-подготовку.",
+    solution: "Собрал информационные и юридические страницы, PHP endpoint с валидацией, Telegram-доставку заявок, sitemap/robots и конфигурацию рабочего хостинга.",
     outcome: "Сайт опубликован на рабочем домене, а новые заявки сразу попадают менеджеру в привычный канал.",
     image: "/projects/mustang.webp",
     imageAlt: "Главная страница автошколы Mustang"
@@ -636,10 +636,10 @@ export const projectDetails: Record<string, ProjectDetails> = {
   "token-audit-trading-assistant": {
     period: "2024–2025",
     status: "Прототип",
-    role: "Сбор данных, аудит сигналов и web-интерфейс",
+    role: "Chrome extension, collectors, data server, dashboard и risk/replay слой",
     challenge: "Данные о токенах приходят из нескольких источников и требуют быстрой нормализации перед ручной оценкой.",
-    solution: "Объединил браузерную автоматизацию, серверную обработку, хранение результатов и React-интерфейс анализа.",
-    outcome: "Собран исследовательский прототип, на котором можно проверять сценарии сбора и аудита сигналов."
+    solution: "Связал Chrome extension, Node collectors, Postgres API, React dashboard, external browser audit и сервисы wallet/developer intelligence и replay.",
+    outcome: "Получилась большая paper-only исследовательская платформа для проверки гипотез и demo-решений без реальных swaps, приватных ключей и скрытого auto-execution."
   },
   "fitness-coach-landing": {
     period: "2023",
