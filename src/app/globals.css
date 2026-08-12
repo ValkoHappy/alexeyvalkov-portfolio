@@ -277,7 +277,9 @@ button { font: inherit; }
 .project-card:hover .preview-real img { filter: brightness(1.05); }
 .preview-wordset-docx-checker img { object-fit: contain; padding: 15%; background: linear-gradient(145deg, #edf3fa, #d7e6f8); }
 .preview-private-seo-audit-extension { background: #eaf1ff; }
-.preview-private-seo-audit-extension img { object-fit: cover; object-position: left top; }
+.preview-private-seo-audit-extension img { object-fit: contain; object-position: left top; image-rendering: auto; }
+.preview-private-seo-audit-extension .preview-status,
+.preview-private-seo-audit-extension .preview-caption { display: none; }
 .preview-status { position: absolute; top: 16px; right: 16px; z-index: 2; padding: 7px 9px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; color: #fff; background: rgba(4,10,18,.68); backdrop-filter: blur(12px); font: 750 11px ui-monospace, monospace; text-transform: uppercase; }
 .preview-caption { position: absolute; z-index: 2; left: 16px; right: 16px; bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding: 13px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px; color: #fff; background: rgba(4,10,18,.72); backdrop-filter: blur(14px); }
 .preview-caption strong, .preview-caption span { display: block; }
@@ -418,6 +420,7 @@ button { font: inherit; }
 .case-hero-copy > p { max-width: 770px; margin: 26px 0 0; color: #aebdce; font-size: 17px; line-height: 1.75; }
 .case-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
 .case-hero > .preview-frame { aspect-ratio: 4 / 3; border: 1px solid var(--line-strong); border-radius: 22px; box-shadow: var(--shadow); }
+.case-hero > .preview-private-seo-audit-extension { width: min(720px, 100%); aspect-ratio: 1 / 1; justify-self: center; }
 .case-facts { display: grid; grid-template-columns: .7fr .8fr 1.35fr 1.15fr; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); overflow: hidden; }
 .case-facts > div { min-height: 138px; padding: 24px; border-right: 1px solid var(--line); }
 .case-facts > div:last-child { border-right: 0; }

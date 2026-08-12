@@ -561,7 +561,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
     challenge: "SEO-специалисту нужен быстрый аудит прямо на открытой странице без переключения между несколькими внешними сервисами.",
     solution: "Разделил расширение на content script, background, popup и report page; добавил проверки meta, headings, links, images, Open Graph и выгрузку отчёта.",
     outcome: "Получился автономный Manifest V3-инструмент, который собирает основные SEO-сигналы и упаковывает их в понятный отчёт.",
-    image: "/projects/private-seo.webp",
+    image: "/projects/private-seo.png",
     imageAlt: "Интерфейс расширения PrivateSEO с результатами аудита"
   },
   "parser-find-price-tg": {

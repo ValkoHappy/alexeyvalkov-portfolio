@@ -71,7 +71,7 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
               Открыть кейс <ArrowRight size={18} />
             </Link>
           </div>
-          <Link className={styles.visual} href={`/projects/${project.slug}`} aria-label={`Открыть кейс ${project.shortTitle}`}>
+          <Link className={styles.visual} data-project={project.slug} href={`/projects/${project.slug}`} aria-label={`Открыть кейс ${project.shortTitle}`}>
             <PreviewFrame project={project} />
             <span className={styles.visualNumber}>0{index + 1}</span>
           </Link>
