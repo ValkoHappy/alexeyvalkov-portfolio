@@ -4,6 +4,7 @@ import { ArrowUpRight, Github, Menu, Send, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { SiInstagram, SiVk } from "react-icons/si";
 import { profile } from "@/data/site";
 
 const homeSections = ["top", "expertise", "projects", "proof", "about"] as const;
@@ -113,6 +114,8 @@ export function Header() {
         <Link className={!isProjects && activeSection === "about" ? "active" : undefined} href="/#about" onClick={() => setIsMenuOpen(false)}>Обо мне</Link>
         <div className="mobile-nav-actions">
           <a href={profile.github} target="_blank" rel="noreferrer"><Github size={19} /> GitHub</a>
+          <a href={profile.vk} target="_blank" rel="noreferrer"><SiVk size={20} /> VK</a>
+          <a href={profile.instagram} target="_blank" rel="noreferrer"><SiInstagram size={19} /> Instagram</a>
           <a href={profile.telegram} target="_blank" rel="noreferrer"><Send size={19} /> Обсудить задачу</a>
         </div>
       </nav>
@@ -120,6 +123,12 @@ export function Header() {
         <a href={profile.github} aria-label="GitHub" target="_blank" rel="noreferrer">
           <Github size={19} />
           <span>GitHub</span>
+        </a>
+        <a className="header-social" href={profile.vk} aria-label="VK" title="VK" target="_blank" rel="noreferrer">
+          <SiVk size={20} />
+        </a>
+        <a className="header-social" href={profile.instagram} aria-label="Instagram" title="Instagram" target="_blank" rel="noreferrer">
+          <SiInstagram size={18} />
         </a>
         <a href={profile.telegram} aria-label="Telegram" target="_blank" rel="noreferrer">
           <Send size={19} />

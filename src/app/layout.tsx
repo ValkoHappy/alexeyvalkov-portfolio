@@ -48,7 +48,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: "Алексей Вальков",
     jobTitle: "Fullstack / AI Product Engineer",
     url: siteUrl,
-    sameAs: ["https://github.com/ValkoHappy", "https://t.me/leshaqt", "https://kwork.ru/user/leshaqt"],
+    sameAs: [
+      "https://github.com/ValkoHappy",
+      "https://t.me/leshaqt",
+      "https://vk.ru/alexvalkoov",
+      "https://www.instagram.com/leshaqt/",
+      "https://kwork.ru/user/leshaqt"
+    ],
     address: { "@type": "PostalAddress", addressLocality: "Архангельск", addressCountry: "RU" }
   };
 

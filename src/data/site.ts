@@ -46,6 +46,8 @@ export const profile = {
   role: "Fullstack / AI Product Engineer",
   telegram: "https://t.me/leshaqt",
   github: "https://github.com/ValkoHappy",
+  vk: "https://vk.ru/alexvalkoov",
+  instagram: "https://www.instagram.com/leshaqt/",
   kwork: "https://kwork.ru/user/leshaqt",
   location: "Архангельск",
   summary:
@@ -53,7 +55,7 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "17", label: "разобранных кейсов" },
+  { value: "18", label: "разобранных кейсов" },
   { value: "10+", label: "коммерческих заказов" },
   { value: "5.0", label: "рейтинг продавца" },
   { value: "60%", label: "повторных заказов" }

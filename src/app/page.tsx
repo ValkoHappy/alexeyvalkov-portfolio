@@ -7,6 +7,7 @@ import {
   SiFastapi,
   SiGooglechrome,
   SiHtml5,
+  SiInstagram,
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
@@ -19,6 +20,7 @@ import {
   SiTelegram,
   SiTypescript,
   SiUnity,
+  SiVk,
   SiWebgl
 } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -232,6 +234,8 @@ export default function HomePage() {
           <div className="contact-actions">
             <a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">Написать в Telegram <Send size={18} /></a>
             <a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub <Github size={18} /></a>
+            <a className="button contact-ghost" href={profile.vk} target="_blank" rel="noreferrer">VK <SiVk size={19} /></a>
+            <a className="button contact-ghost" href={profile.instagram} target="_blank" rel="noreferrer">Instagram <SiInstagram size={18} /></a>
           </div>
         </section>
 
