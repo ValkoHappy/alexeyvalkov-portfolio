@@ -99,9 +99,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reel { height: auto; }
-  .sticky { position: relative; height: auto; }
-  .track { display: block; width: auto; transform: none; }
-  .panel { height: auto; }
-  .panelInner { min-height: 760px; }
+  .visual,
+  .footer button i,
+  .caseLink svg { transition: none; }
 }
