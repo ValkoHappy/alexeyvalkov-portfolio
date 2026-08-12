@@ -137,7 +137,7 @@ const projectCatalog: Project[] = [
       "Unity-проект вокруг строительства и защиты базы. В кодовой базе выделены системы построек, добычи ресурсов, турелей, состояний противников, волн, уровней, интерфейса, обучения и сохранений.",
     stack: ["Unity", "C#", "State Machine", "Save System", "Yandex SDK"],
     categories: ["games"],
-    links: [{ label: "Локальный проект", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Строительство, перемещение и удаление объектов по игровой сетке",
       "Противники со state machine, поиском целей и атакой построек",
@@ -157,7 +157,7 @@ const projectCatalog: Project[] = [
       "Прототип продукта для работы с учебными и академическими документами. Движок разбирает DOCX, проверяет оформление по правилам, формирует список проблем и готовит безопасные исправления, а web shell закрывает сценарий upload -> review -> download.",
     stack: ["Python", "DOCX", "React", "Tests", "Validation"],
     categories: ["fullstack", "automation", "react"],
-    links: [{ label: "Локальный проект", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Разбор DOCX и проверка структуры документа",
       "Правила оформления, отчет о проблемах и safe autofix",

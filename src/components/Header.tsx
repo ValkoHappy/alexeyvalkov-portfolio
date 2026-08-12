@@ -108,7 +108,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
         <span>{profile.initials}</span>
         <small>Fullstack / AI Product Engineer</small>
       </Link>
-      <nav className="main-nav" id="main-navigation" aria-label="Главная навигация">
+      <nav className="main-nav" id="main-navigation" aria-label={locale === "en" ? "Main navigation" : "Главная навигация"}>
         <Link className={!isProjects && activeSection === "top" ? "active" : undefined} href={`${localeRoot}/#top`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Home" : "Главная"}</Link>
         <Link className={!isProjects && activeSection === "expertise" ? "active" : undefined} href={`${localeRoot}/#expertise`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Services" : "Услуги"}</Link>
         <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? `${localeRoot}/projects` : `${localeRoot}/#projects`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Projects" : "Проекты"}</Link>
