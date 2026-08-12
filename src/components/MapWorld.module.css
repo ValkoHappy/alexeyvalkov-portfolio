@@ -28,13 +28,13 @@
 .base {
   inset: -24px 0;
   background-image:
-    linear-gradient(110deg, rgba(1, 6, 10, .28), rgba(3, 11, 18, .06) 48%, rgba(2, 7, 11, .36)),
-    radial-gradient(ellipse at center, rgba(9, 23, 34, .72), #03090f 74%),
+    linear-gradient(110deg, rgba(1, 6, 10, .16), rgba(3, 11, 18, .01) 48%, rgba(2, 7, 11, .22)),
+    radial-gradient(ellipse at center, rgba(9, 23, 34, .12), rgba(3, 9, 15, .78) 92%),
     url("/profile/map-world-long-2k.webp");
   background-position: center, center, center var(--map-position);
   background-repeat: no-repeat;
-  background-size: cover, cover, min(88vw, 1720px) auto;
-  filter: saturate(.82) contrast(1.03) brightness(.72);
+  background-size: cover, cover, min(92vw, 1800px) auto;
+  filter: saturate(.92) contrast(1.08) brightness(.88);
   transform: translate3d(0, var(--map-shift), 0);
   will-change: transform;
 }
