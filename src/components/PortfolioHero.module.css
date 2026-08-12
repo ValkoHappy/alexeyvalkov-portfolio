@@ -24,7 +24,6 @@
 .media {
   z-index: -1;
   background:
-    url("/profile/hero-map-v2.png") right center / auto 96% no-repeat,
     url("/profile/map-world-long-2k.webp") center 9% / cover no-repeat,
     #03080e;
 }
@@ -41,6 +40,8 @@
   object-fit: contain;
   object-position: right center;
   filter: saturate(.86) contrast(1.05) brightness(.82);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 9%, #000 91%, transparent);
   transform: translate3d(var(--hero-x), 0, 0) scale(.96);
   transform-origin: right center;
   transition: transform .14s linear;
