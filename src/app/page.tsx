@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart3, Bell, BrainCircuit, Code2, Database, Eye, Gamepad2, Github, Globe2, MessageSquare, Repeat2, Search, Send, Server, ShoppingCart, Star, Workflow, Wrench } from "lucide-react";
+import { ArrowRight, BrainCircuit, Code2, Database, Gamepad2, Github, Globe2, MessageSquare, Repeat2, Send, Server, Star, Workflow, Wrench } from "lucide-react";
 import Link from "next/link";
 import type { IconType } from "react-icons";
 import {
@@ -65,36 +65,38 @@ const technologyIcons: Record<string, IconType> = {
   WebGL: SiWebgl
 };
 
-const parserCases = [
+const practiceItems = [
   {
-    title: "Мониторинг цен",
-    text: "Сбор цен с 10+ магазинов и маркетплейсов, история изменений, web-панель и уведомления в Telegram.",
-    icon: Bell
-  },
-  {
-    title: "Маркетплейсы",
-    text: "Яндекс Маркет, Ozon и Wildberries: карточки, цены и характеристики через API или браузерную автоматизацию, выгрузка в Excel.",
-    icon: ShoppingCart
-  },
-  {
-    title: "Рекламные креативы",
-    text: "Регулярный сбор объявлений из Google Ads Transparency Center: очередь заданий, нормализация, история и приватный dashboard.",
-    icon: Eye
-  },
-  {
-    title: "Telegram-аналитика",
-    text: "Сбор статистики, постов и комментариев, AI-анализ через Gemini и формирование PDF-отчёта.",
-    icon: BarChart3
-  },
-  {
-    title: "Мониторинг заказов",
-    text: "Сбор новых заказов с freelance-площадок, фильтры, дедупликация, автотеги и отправка подходящих задач в Telegram.",
-    icon: Search
-  },
-  {
-    title: "Проверка сайтов",
-    text: "Пакетный обход URL из Google Sheets, снимки через Playwright, первичная оценка и очередь для ручной проверки.",
+    id: "practice-web",
+    label: "Web / production",
+    title: "Сайты и рабочие сервисы",
+    text: "Коммерческие сайты и внутренние продукты, которые используются после релиза, а не остаются в виде макета.",
+    facts: ["PANZZI и сайт автошколы Mustang", "Кабинеты, CMS и формы заявок", "API, базы данных и публикация"],
     icon: Globe2
+  },
+  {
+    id: "practice-automation",
+    label: "Automation",
+    title: "Сбор данных и автоматизация",
+    text: "Делал не только парсеры, а полные рабочие цепочки: от регулярного сбора до фильтрации, хранения и уведомлений.",
+    facts: ["Цены и карточки маркетплейсов", "Рекламные креативы и Telegram-аналитика", "Заказы, проверка сайтов и отчёты"],
+    icon: Workflow
+  },
+  {
+    id: "practice-ai",
+    label: "AI / agents",
+    title: "AI в прикладных процессах",
+    text: "Встраивал модели туда, где они сокращают ручную работу: анализируют данные, готовят материалы и возвращают результат в заданном формате.",
+    facts: ["LLM API и структурированный вывод", "MCP и агентные сценарии", "Очереди, отчёты и проверка человеком"],
+    icon: BrainCircuit
+  },
+  {
+    id: "practice-unity",
+    label: "Unity / games",
+    title: "Законченные игровые проекты",
+    text: "Проектировал игровые системы и доводил проекты до готового состояния, включая браузерную сборку и интеграцию с площадкой.",
+    facts: ["Два законченных Unity-проекта", "Gameplay, UI и сохранения", "Одна игра работает на Яндекс Играх"],
+    icon: Gamepad2
   }
 ];
 
@@ -104,21 +106,20 @@ export default function HomePage() {
       <div className="page-shell">
         <Header />
         <PortfolioHero />
-        <ProjectReel projects={featuredProjects} totalCount={projects.length} />
 
         <section className="section-block expertise-section" id="expertise">
           <div className="section-heading">
             <div>
-              <span className="section-index">02 / Услуги</span>
-              <h2>Что я делаю</h2>
-              <p>Разрабатываю продукт целиком: интерфейс, серверную часть, данные, интеграции и запуск.</p>
+              <span className="section-index">01 / Услуги</span>
+              <h2>С чем могу помочь</h2>
+              <p>Можно обратиться с готовым техническим заданием или только с проблемой, которую нужно разобрать и превратить в рабочее решение.</p>
             </div>
           </div>
           <div className="capability-grid">
             {focusItems.map((item, index) => {
               const Icon = capabilityIcons[index] ?? Wrench;
               return (
-                <article className="capability-card" id={index === 2 ? "ai-agents" : undefined} key={item.title}>
+                <article className="capability-card" key={item.title}>
                   <div><span>0{index + 1}</span><Icon size={25} /></div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -126,27 +127,29 @@ export default function HomePage() {
               );
             })}
           </div>
-          <div className="parser-section" id="parsers">
-            <div className="parser-intro">
-              <span className="section-index">Практика автоматизации</span>
-              <h3>Какие парсеры я делал</h3>
-              <p>Это не разовые скрипты для сбора HTML, а рабочие системы: очереди, хранение данных, фильтры, отчёты, интерфейс и уведомления.</p>
+          <div className="practice-section" id="practice">
+            <div className="practice-intro">
+              <span className="section-index">02 / Практика</span>
+              <h3>Что уже делал</h3>
+              <p>Конкретный опыт по каждому направлению. Здесь — типы решённых задач, ниже — отдельные проекты с деталями.</p>
             </div>
-            <div className="parser-grid">
-              {parserCases.map(({ icon: Icon, text, title }, index) => (
-                <article key={title}>
-                  <div><span>0{index + 1}</span><Icon size={22} /></div>
+            <div className="practice-grid">
+              {practiceItems.map(({ facts, icon: Icon, id, label, text, title }, index) => (
+                <article id={id} key={title}>
+                  <div className="practice-card-head"><span>0{index + 1}</span><Icon size={24} /></div>
+                  <span className="practice-label">{label}</span>
                   <h4>{title}</h4>
                   <p>{text}</p>
+                  <ul>{facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
                 </article>
               ))}
             </div>
           </div>
           <div className="stack-board">
             <div className="stack-board-copy">
-              <span className="section-index">Стек</span>
+              <span className="section-index">03 / Стек</span>
               <h3>Технологии подбираю под задачу.</h3>
-              <p>Работаю с современными web-фреймворками, прикладной автоматизацией, AI API и Unity.</p>
+              <p>Смотрю на ограничения проекта, дальнейшую поддержку и способ запуска — без привязки к одному фреймворку.</p>
             </div>
             <div className="stack-groups">
               {skillGroups.map((group, groupIndex) => {
@@ -172,11 +175,13 @@ export default function HomePage() {
           </div>
         </section>
 
+        <ProjectReel projects={featuredProjects} totalCount={projects.length} />
+
         <section className="section-block proof-section" id="proof">
           <div className="proof-intro">
-            <span className="section-index">03 / Опыт</span>
+            <span className="section-index">05 / Отзывы</span>
             <h2>Отзывы заказчиков</h2>
-            <p>Коммерческие сайты, парсеры и автоматизация. Ниже — отзывы с моего профиля на Kwork.</p>
+            <p>Отзывы о выполненных заказах из моего профиля на Kwork.</p>
             <div className="proof-metrics">
               <div><Star size={21} /><strong>5.0</strong><span>рейтинг</span></div>
               <div><MessageSquare size={21} /><strong>5</strong><span>отзывов</span></div>
@@ -200,7 +205,7 @@ export default function HomePage() {
 
         <section className="about-section" id="about">
           <div className="about-lead">
-            <span className="section-index">04 / Обо мне</span>
+            <span className="section-index">06 / Обо мне</span>
             <h2>{aboutOverview.heading}</h2>
           </div>
           <div className="about-content">

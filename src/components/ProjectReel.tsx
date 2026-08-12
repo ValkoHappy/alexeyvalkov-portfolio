@@ -93,7 +93,7 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
       <div className={styles.sticky}>
         <header className={styles.header}>
           <div>
-            <span><Layers3 size={15} /> Избранные работы</span>
+            <span><Layers3 size={15} /> 04 / Избранные работы</span>
             <h2 id="projects-reel-title">Проекты</h2>
           </div>
           <div className={styles.counter} aria-live="polite">

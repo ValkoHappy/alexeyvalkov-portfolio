@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { profile } from "@/data/site";
 
-const homeSections = ["top", "projects", "expertise", "proof", "about"] as const;
+const homeSections = ["top", "expertise", "projects", "proof", "about"] as const;
 type HomeSection = (typeof homeSections)[number];
 
 export function Header() {
@@ -78,9 +78,9 @@ export function Header() {
       </Link>
       <nav className="main-nav" aria-label="Главная навигация">
         <Link className={!isProjects && activeSection === "top" ? "active" : undefined} href="/#top">Главная</Link>
-        <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? "/projects" : "/#projects"}>Проекты</Link>
         <Link className={!isProjects && activeSection === "expertise" ? "active" : undefined} href="/#expertise">Услуги</Link>
-        <Link className={!isProjects && activeSection === "proof" ? "active" : undefined} href="/#proof">Опыт</Link>
+        <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? "/projects" : "/#projects"}>Проекты</Link>
+        <Link className={!isProjects && activeSection === "proof" ? "active" : undefined} href="/#proof">Отзывы</Link>
         <Link className={!isProjects && activeSection === "about" ? "active" : undefined} href="/#about">Обо мне</Link>
       </nav>
       <div className="header-actions">

@@ -8,10 +8,10 @@ import { profile } from "@/data/site";
 import styles from "./PortfolioHero.module.css";
 
 const directions = [
-  { href: "#projects", label: "Веб", icon: Globe2 },
-  { href: "#parsers", label: "Автоматизация", icon: Code2 },
-  { href: "#ai-agents", label: "AI и агенты", icon: Bot },
-  { href: "/projects/mystery-forest-survival", label: "Unity", icon: Gamepad2 }
+  { href: "#practice-web", label: "Веб", icon: Globe2 },
+  { href: "#practice-automation", label: "Автоматизация", icon: Code2 },
+  { href: "#practice-ai", label: "AI и агенты", icon: Bot },
+  { href: "#practice-unity", label: "Unity", icon: Gamepad2 }
 ];
 
 export function PortfolioHero() {
@@ -73,8 +73,8 @@ export function PortfolioHero() {
           <span className={styles.eyebrow}><Sparkles size={15} /> Fullstack developer · Архангельск</span>
           <h1 id="portfolio-title"><span>{profile.name}</span><strong>Веб · автоматизация · AI</strong></h1>
           <p className={styles.lead}>
-            Разрабатываю веб-приложения, внутренние сервисы, парсеры, ботов и AI-инструменты.
-            Работаю с Next.js, Astro, React, Node.js и Python. Также выпускаю игры на Unity.
+            Проектирую и запускаю сайты, внутренние сервисы, автоматизацию и AI-инструменты.
+            Могу собрать продукт целиком или подключиться к отдельной части проекта.
           </p>
           <div className={styles.actions}>
             <Link href="#projects">Смотреть проекты <ArrowDown size={17} /></Link>
