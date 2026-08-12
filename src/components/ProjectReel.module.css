@@ -62,7 +62,7 @@
 
 .visual { position: relative; display: block; width: 100%; animation: visual-enter .66s .08s cubic-bezier(.2,.75,.2,1) both; }
 .visual :global(.preview-frame) { aspect-ratio: 16 / 10; min-height: 0; border: 1px solid rgba(255,255,255,.2); border-radius: 0; box-shadow: 0 40px 100px rgba(0,0,0,.4); }
-.visual[data-project="private-seo-audit-extension"] { width: min(100%, 860px, calc((100svh - 230px) * 1.15)); justify-self: center; }
+.visual[data-project="private-seo-audit-extension"] { width: min(100%, 650px, calc((100svh - 230px) * 1.15)); justify-self: center; }
 .visual[data-project="private-seo-audit-extension"] :global(.preview-frame) { aspect-ratio: 860 / 748; }
 .visual :global(.preview-caption) { padding: 15px 17px; border-radius: 0; }
 .visualNumber { position: absolute; right: -18px; bottom: -45px; color: rgba(255,255,255,.07); font: 700 clamp(120px, 13vw, 220px)/.7 var(--font-display); }
