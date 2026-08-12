@@ -49,7 +49,6 @@ export const profile = {
   vk: "https://vk.ru/alexvalkoov",
   instagram: "https://www.instagram.com/leshaqt/",
   kwork: "https://kwork.ru/user/leshaqt",
-  location: "Архангельск",
   summary:
     "Разрабатываю веб-приложения, внутренние сервисы, автоматизацию и AI-инструменты. Работаю с Next.js, Astro, React, Node.js и Python; также выпускаю игры на Unity."
 };
@@ -81,7 +80,7 @@ export const focusItems = [
 ];
 
 export const aboutOverview = {
-  heading: "Алексей Вальков, разработчик из Архангельска",
+  heading: "Алексей Вальков, Fullstack / AI Product Engineer",
   paragraphs: [
     "Беру задачу от первого разбора до запуска: уточняю требования, показываю промежуточный результат и заранее объясняю технические ограничения.",
     "Могу сделать решение целиком или подключиться к существующей команде на отдельную часть. В работе ценю прямую коммуникацию, короткие итерации и результат, который можно проверить."

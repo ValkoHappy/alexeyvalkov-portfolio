@@ -54,8 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       "https://vk.ru/alexvalkoov",
       "https://www.instagram.com/leshaqt/",
       "https://kwork.ru/user/leshaqt"
-    ],
-    address: { "@type": "PostalAddress", addressLocality: "Архангельск", addressCountry: "RU" }
+    ]
   };
 
   return (

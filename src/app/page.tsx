@@ -241,7 +241,7 @@ export default function HomePage() {
 
         <footer className="site-footer">
           <div><b>{profile.name}</b><span>{profile.role}</span></div>
-          <span>Архангельск · 2026</span>
+          <span>Работаю удалённо · 2026</span>
         </footer>
       </div>
     </main>

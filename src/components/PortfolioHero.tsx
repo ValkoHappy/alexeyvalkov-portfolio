@@ -70,7 +70,7 @@ export function PortfolioHero() {
 
       <div className={styles.content}>
         <div className={styles.copy}>
-          <span className={styles.eyebrow}><Sparkles size={15} /> Fullstack / AI Product Engineer · Архангельск</span>
+          <span className={styles.eyebrow}><Sparkles size={15} /> Fullstack / AI Product Engineer</span>
           <h1 id="portfolio-title"><span>{profile.name}</span><strong>Веб · автоматизация · AI</strong></h1>
           <p className={styles.lead}>
             Проектирую и запускаю сайты, внутренние сервисы, автоматизацию и AI-инструменты.
