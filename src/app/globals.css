@@ -283,6 +283,11 @@ button { font: inherit; }
 .preview-private-seo-audit-extension img { object-fit: contain; object-position: left top; image-rendering: auto; }
 .preview-private-seo-audit-extension .preview-status,
 .preview-private-seo-audit-extension .preview-caption { display: none; }
+.preview-funpay-price-sniper,
+.preview-scaner-frilance-bot { background: #172534; }
+.preview-funpay-price-sniper img,
+.preview-scaner-frilance-bot img { object-fit: contain; object-position: center; padding: 10px; }
+.preview-tower-defense-builder img { object-fit: contain; object-position: left top; background: #23354d; }
 .preview-status { position: absolute; top: 16px; right: 16px; z-index: 2; padding: 7px 9px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; color: #fff; background: rgba(4,10,18,.68); backdrop-filter: blur(12px); font: 750 11px ui-monospace, monospace; text-transform: uppercase; }
 .preview-caption { position: absolute; z-index: 2; left: 16px; right: 16px; bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding: 13px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px; color: #fff; background: rgba(4,10,18,.72); backdrop-filter: blur(14px); }
 .preview-caption strong, .preview-caption span { display: block; }
