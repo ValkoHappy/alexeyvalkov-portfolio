@@ -274,8 +274,14 @@ button { font: inherit; }
 .preview-frame { position: relative; aspect-ratio: 16 / 9; min-height: 0; border-bottom: 1px solid var(--line); overflow: hidden; background: #0c1b2e; }
 .preview-real img { object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
 .project-card:hover .preview-real img { transform: scale(1.035); }
-.preview-wordset-docx-checker img, .preview-private-seo-audit-extension img { object-fit: contain; padding: 15%; background: linear-gradient(145deg, #edf3fa, #d7e6f8); }
+.preview-wordset-docx-checker img { object-fit: contain; padding: 15%; background: linear-gradient(145deg, #edf3fa, #d7e6f8); }
+.preview-private-seo-audit-extension img { object-fit: cover; object-position: center top; background: #eaf1ff; }
 .preview-chatplus-cms-portal img { object-fit: cover; }
+.preview-driving-test-auto-booking img,
+.preview-ads-transparency-monitor img,
+.preview-panzzi-furniture-website img,
+.preview-mustang-driving-school img { object-position: center top; }
+.preview-mystery-forest-survival img { object-position: center 18%; }
 .preview-status { position: absolute; top: 16px; left: 16px; z-index: 2; padding: 7px 9px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; color: #fff; background: rgba(4,10,18,.68); backdrop-filter: blur(12px); font: 750 11px ui-monospace, monospace; text-transform: uppercase; }
 .preview-caption { position: absolute; z-index: 2; left: 16px; right: 16px; bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding: 13px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px; color: #fff; background: rgba(4,10,18,.72); backdrop-filter: blur(14px); }
 .preview-caption strong, .preview-caption span { display: block; }

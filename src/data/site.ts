@@ -493,8 +493,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
     challenge: "Нужно было собрать связный survival-мир, где исследование, состояние персонажа, ресурсы, крафт и строительство работают как единая игровая петля и сохраняются между сессиями.",
     solution: "Игровые механики объединены в открытый сценарий выживания, проект подготовлен под WebGL и интегрирован с Яндекс Играми: авторизация, облачные сохранения и локализации.",
     outcome: "Игра выпущена 1 ноября 2024 года, остаётся доступной игрокам на Яндекс Играх и имеет пользовательский рейтинг 4.0.",
-    image: "/games/mystery-forest-cover.webp",
-    imageAlt: "Обложка игры Выживание: Загадочный Лес"
+    image: "/projects/mystery-forest-yandex.webp",
+    imageAlt: "Страница игры Выживание: Загадочный Лес на Яндекс Играх"
   },
   "tower-defense-builder": {
     period: "Unity-глава",
@@ -531,8 +531,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
     challenge: "Контентной команде требовался управляемый портал, где публикация материалов, загрузки и подготовка черновиков не зависят от ручной правки сайта.",
     solution: "Разделил публичный Astro-сайт и Strapi CMS, подключил PostgreSQL и uploads на VPS, добавил Node.js-сценарии импорта, подготовки и генерации черновиков.",
     outcome: "Собрана production-система с отдельной CMS, воспроизводимой публикацией и контентным pipeline вместо ручных обновлений страниц.",
-    image: "/projects/chatplus.png",
-    imageAlt: "Презентационная карточка платформы Chat Plus"
+    image: "/projects/chatplus.webp",
+    imageAlt: "Главная страница платформы Chat Plus"
   },
   "driving-test-auto-booking": {
     period: "2026",
@@ -540,7 +540,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
     role: "Frontend, безопасный пользовательский поток и production routing",
     challenge: "Пользователю нужен понятный интерфейс для подключения аккаунта, настройки поиска и подтверждения найденного слота, при этом чувствительные данные не должны попадать во frontend.",
     solution: "Собрал англоязычный TypeScript-интерфейс с одноразовыми приглашениями, onboarding, консолью мониторинга и same-origin BFF-контрактом. Сервисные токены и внешние учётные данные остаются на серверной стороне.",
-    outcome: "Получился приватный production-ready поток от приглашения и настройки поиска до мониторинга и подтверждения бронирования."
+    outcome: "Получился приватный production-ready поток от приглашения и настройки поиска до мониторинга и подтверждения бронирования.",
+    image: "/projects/drivealerts.webp",
+    imageAlt: "Интерфейс автоматического бронирования DriveAlerts"
   },
   "ads-transparency-monitor": {
     period: "2026",
@@ -549,7 +551,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
     challenge: "Рекламные креативы нужно регулярно собирать, нормализовать и отслеживать по рекламодателям без ручного обхода Google Ads Transparency Center.",
     solution: "Собрал приватный Next.js dashboard, worker с очередью заданий, слой Prisma/PostgreSQL и отдельные сценарии проверки и публикации.",
     outcome: "Пользователь управляет рекламодателями и сканированиями из одного интерфейса, а история и найденные креативы сохраняются для дальнейшего анализа.",
-    image: "/projects/ads-monitor.png",
+    image: "/projects/ads-transparency.webp",
     imageAlt: "Дашборд Ads Transparency Monitor"
   },
   "private-seo-audit-extension": {
@@ -559,8 +561,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
     challenge: "SEO-специалисту нужен быстрый аудит прямо на открытой странице без переключения между несколькими внешними сервисами.",
     solution: "Разделил расширение на content script, background, popup и report page; добавил проверки meta, headings, links, images, Open Graph и выгрузку отчёта.",
     outcome: "Получился автономный Manifest V3-инструмент, который собирает основные SEO-сигналы и упаковывает их в понятный отчёт.",
-    image: "/projects/seo-audit.png",
-    imageAlt: "Иконка расширения SEO Audit"
+    image: "/projects/private-seo.webp",
+    imageAlt: "Интерфейс расширения PrivateSEO с результатами аудита"
   },
   "parser-find-price-tg": {
     period: "2024–2025",
@@ -610,8 +612,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
     challenge: "Нужно было представить мебельный бизнес и направление запуска проектов в Китае в одном последовательном коммерческом сайте.",
     solution: "Собрал многостраничную структуру, каталог, сервисные разделы и адаптивную подачу с отдельным China entry-направлением.",
     outcome: "Рабочий сайт опубликован на домене и используется как коммерческая витрина услуг и проектов.",
-    image: "/projects/panzzi.png",
-    imageAlt: "Страница направления запуска проектов PANZZI"
+    image: "/projects/panzzi.webp",
+    imageAlt: "Главная страница мебельного сайта PANZZI"
   },
   "mustang-driving-school": {
     period: "2024",
@@ -620,8 +622,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
     challenge: "Автошколе нужен был понятный адаптивный сайт, который не только рассказывает об обучении, но и собирает обращения.",
     solution: "Собрал информационные страницы, формы с PHP-обработчиком, отправку обращений в Telegram и базовую SEO-подготовку.",
     outcome: "Сайт опубликован на рабочем домене, а новые заявки сразу попадают менеджеру в привычный канал.",
-    image: "/projects/mustang.jpg",
-    imageAlt: "Учебный класс автошколы Mustang"
+    image: "/projects/mustang.webp",
+    imageAlt: "Главная страница автошколы Mustang"
   },
   "course-registration-platform": {
     period: "2024",
