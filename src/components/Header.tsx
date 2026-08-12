@@ -1,9 +1,9 @@
 "use client";
 
-import { ArrowUpRight, Github, Send } from "lucide-react";
+import { ArrowUpRight, Github, Menu, Send, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { profile } from "@/data/site";
 
 const homeSections = ["top", "expertise", "projects", "proof", "about"] as const;
@@ -14,6 +14,35 @@ export function Header() {
   const isProjects = pathname.startsWith("/projects");
   const [activeSection, setActiveSection] = useState<HomeSection>(isProjects ? "projects" : "top");
   const [hasSurface, setHasSurface] = useState(isProjects);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setIsMenuOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    const closeOnDesktop = () => {
+      if (window.innerWidth > 1120) setIsMenuOpen(false);
+    };
+
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("resize", closeOnDesktop);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("resize", closeOnDesktop);
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     if (isProjects) {
@@ -71,17 +100,21 @@ export function Header() {
   }, [isProjects]);
 
   return (
-    <header className={`site-header${hasSurface ? " is-scrolled" : ""}`}>
-      <Link className="brand" href="/">
+    <header className={`site-header${hasSurface ? " is-scrolled" : ""}${isMenuOpen ? " menu-open" : ""}`} ref={headerRef}>
+      <Link className="brand" href="/" onClick={() => setIsMenuOpen(false)}>
         <span>{profile.initials}</span>
         <small>fullstack developer</small>
       </Link>
-      <nav className="main-nav" aria-label="Главная навигация">
-        <Link className={!isProjects && activeSection === "top" ? "active" : undefined} href="/#top">Главная</Link>
-        <Link className={!isProjects && activeSection === "expertise" ? "active" : undefined} href="/#expertise">Услуги</Link>
-        <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? "/projects" : "/#projects"}>Проекты</Link>
-        <Link className={!isProjects && activeSection === "proof" ? "active" : undefined} href="/#proof">Отзывы</Link>
-        <Link className={!isProjects && activeSection === "about" ? "active" : undefined} href="/#about">Обо мне</Link>
+      <nav className="main-nav" id="main-navigation" aria-label="Главная навигация">
+        <Link className={!isProjects && activeSection === "top" ? "active" : undefined} href="/#top" onClick={() => setIsMenuOpen(false)}>Главная</Link>
+        <Link className={!isProjects && activeSection === "expertise" ? "active" : undefined} href="/#expertise" onClick={() => setIsMenuOpen(false)}>Услуги</Link>
+        <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? "/projects" : "/#projects"} onClick={() => setIsMenuOpen(false)}>Проекты</Link>
+        <Link className={!isProjects && activeSection === "proof" ? "active" : undefined} href="/#proof" onClick={() => setIsMenuOpen(false)}>Отзывы</Link>
+        <Link className={!isProjects && activeSection === "about" ? "active" : undefined} href="/#about" onClick={() => setIsMenuOpen(false)}>Обо мне</Link>
+        <div className="mobile-nav-actions">
+          <a href={profile.github} target="_blank" rel="noreferrer"><Github size={19} /> GitHub</a>
+          <a href={profile.telegram} target="_blank" rel="noreferrer"><Send size={19} /> Обсудить задачу</a>
+        </div>
       </nav>
       <div className="header-actions">
         <a href={profile.github} aria-label="GitHub" target="_blank" rel="noreferrer">
@@ -94,6 +127,16 @@ export function Header() {
           <ArrowUpRight size={16} />
         </a>
       </div>
+      <button
+        className="menu-toggle"
+        type="button"
+        aria-controls="main-navigation"
+        aria-expanded={isMenuOpen}
+        aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+        onClick={() => setIsMenuOpen((open) => !open)}
+      >
+        {isMenuOpen ? <X size={23} /> : <Menu size={23} />}
+      </button>
     </header>
   );
 }

@@ -144,6 +144,7 @@ button { font: inherit; }
 }
 .header-actions a:first-child { color: var(--muted); }
 .header-actions a:last-child { border: 1px solid rgba(240,161,95,.44); color: #fff; background: rgba(8,10,14,.48); }
+.menu-toggle, .mobile-nav-actions { display: none; }
 
 /* Shared */
 .button {
@@ -458,7 +459,15 @@ button { font: inherit; }
 
 @media (max-width: 1120px) {
   .site-header { grid-template-columns: 1fr auto; }
-  .main-nav { display: none; }
+  .header-actions { display: none; }
+  .menu-toggle { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid rgba(240,161,95,.42); border-radius: 11px; color: #fff; background: rgba(8,10,14,.48); cursor: pointer; }
+  .main-nav { position: absolute; top: calc(100% + 8px); right: 0; left: 0; display: grid; gap: 0; padding: 10px; border: 1px solid rgba(164,190,220,.2); border-radius: 14px; background: rgba(3,8,13,.97); box-shadow: 0 22px 60px rgba(0,0,0,.48); backdrop-filter: blur(20px); opacity: 0; visibility: hidden; transform: translateY(-8px); pointer-events: none; transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
+  .site-header.menu-open { border-color: rgba(164,190,220,.18); background: rgba(3,8,13,.94); backdrop-filter: blur(18px); }
+  .site-header.menu-open .main-nav { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+  .main-nav a { padding: 15px 14px; border-bottom: 1px solid rgba(164,190,220,.1); border-radius: 0; font-size: 16px; }
+  .main-nav a::after { right: auto; bottom: 7px; left: 14px; width: 44px; }
+  .mobile-nav-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-top: 10px; }
+  .mobile-nav-actions a { display: flex; justify-content: center; align-items: center; gap: 9px; border: 1px solid rgba(164,190,220,.16); border-radius: 10px; }
   .featured-slot, .featured-slot:nth-child(n+3) { grid-column: span 6; }
   .capability-card { grid-template-columns: 100px 1fr; }
   .capability-card p { grid-column: 2; }
@@ -485,9 +494,9 @@ button { font: inherit; }
 @media (max-width: 760px) {
   .page-shell { width: min(100% - 28px, var(--max)); padding-top: 10px; }
   .ambient { display: none; }
-  .site-header { top: 8px; min-height: 58px; padding: 8px 9px 8px 16px; border-radius: 14px; }
-  .brand small, .header-actions a:first-child, .header-actions a:last-child span, .header-actions a:last-child svg:last-child { display: none; }
-  .header-actions a:last-child { width: 42px; height: 42px; min-height: 42px; padding: 0; }
+  .site-header { top: 8px; grid-template-columns: 1fr auto; min-height: 58px; padding: 8px 9px 8px 16px; border-radius: 14px; }
+  .brand small, .header-actions { display: none; }
+  .mobile-nav-actions { grid-template-columns: 1fr; }
   .section-block { padding-top: 86px; }
   .section-heading { display: block; margin-bottom: 26px; }
   .section-heading .text-link { margin-top: 22px; }
@@ -499,7 +508,7 @@ button { font: inherit; }
   .featured-slot:nth-child(n+3) .project-card p { font-size: 14px; }
   .project-card-footer { display: block; }
   .project-more, .featured-slot:nth-child(n+3) .project-more { display: inline-flex; margin-top: 18px; }
-  .capability-grid, .stack-board, .principles-grid { grid-template-columns: 1fr; }
+  .capability-grid, .stack-board, .principles-grid { grid-template-columns: minmax(0, 1fr); }
   .capability-card { display: block; min-height: 0; padding: 26px 4px; }
   .capability-card:hover { padding-right: 10px; padding-left: 10px; }
   .capability-card > div { justify-content: flex-start; gap: 18px; }
@@ -522,6 +531,8 @@ button { font: inherit; }
   .review-card p { font-size: 17px; }
   .review-card footer { align-items: flex-start; flex-direction: column; gap: 4px; }
   .about-section { padding-top: 95px; }
+  .about-lead, .about-content { min-width: 0; }
+  .about-lead h2 { max-width: 100%; overflow-wrap: anywhere; }
   .principles-grid article { min-height: 210px; border-right: 0; border-bottom: 1px solid var(--line-strong); }
   .principles-grid article:last-child { border-bottom: 0; }
   .contact-section { margin-top: 90px; padding: 30px 24px; }
