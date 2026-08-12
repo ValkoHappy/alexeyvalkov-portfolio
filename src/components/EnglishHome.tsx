@@ -1,0 +1,39 @@
+import { ArrowRight, BrainCircuit, Code2, Database, Gamepad2, Github, Globe2, MessageSquare, Repeat2, Send, Server, Star, Workflow, Wrench } from "lucide-react";
+import type { IconType } from "react-icons";
+import { SiAstro, SiCss3, SiFastapi, SiGooglechrome, SiHtml5, SiInstagram, SiMysql, SiNextdotjs, SiNodedotjs, SiOpenai, SiPhp, SiPostgresql, SiPython, SiReact, SiSqlite, SiTelegram, SiTypescript, SiUnity, SiVk, SiWebgl } from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
+import { Header } from "./Header";
+import { PortfolioHero } from "./PortfolioHero";
+import { ProjectReel } from "./ProjectReel";
+import { aboutOverviewEn, aboutPrinciplesEn, focusItemsEn, projectsEn, reviewsEn } from "@/data/site.en";
+import { featuredProjectSlugs, profile, skillGroups } from "@/data/site";
+
+const featured = featuredProjectSlugs.map((slug) => projectsEn.find((project) => project.slug === slug)).filter((project): project is Project => Boolean(project));
+type Project = (typeof projectsEn)[number];
+const capabilityIcons = [Globe2, Workflow, BrainCircuit, Gamepad2];
+const groupIcons = [Code2, Server, Database, BrainCircuit, Workflow, Gamepad2];
+const techIcons: Record<string, IconType> = { "Next.js": SiNextdotjs, Astro: SiAstro, React: SiReact, TypeScript: SiTypescript, HTML: SiHtml5, CSS: SiCss3, "Node.js": SiNodedotjs, Python: SiPython, FastAPI: SiFastapi, PHP: SiPhp, SQLite: SiSqlite, MySQL: SiMysql, PostgreSQL: SiPostgresql, "LLM API": SiOpenai, "Telegram API": SiTelegram, "Chrome Extensions": SiGooglechrome, Unity: SiUnity, "C#": TbBrandCSharp, WebGL: SiWebgl };
+const practices = [
+  { id: "practice-web", label: "Web / production", title: "Websites and working products", text: "Commercial websites and internal products that remain useful after launch.", facts: ["PANZZI and Mustang driving school", "Dashboards, CMS and lead forms", "APIs, databases and production deployment"], icon: Globe2 },
+  { id: "practice-automation", label: "Automation", title: "Data collection and automation", text: "Complete workflows from scheduled collection to filtering, storage and notifications.", facts: ["Prices and marketplace listings", "Ad creatives and Telegram analytics", "Jobs, website review and reporting"], icon: Workflow },
+  { id: "practice-ai", label: "AI / agents", title: "AI in practical workflows", text: "Models used where they reduce manual work and return controlled, testable output.", facts: ["LLM APIs and structured output", "MCP and agent workflows", "Queues, reports and human review"], icon: BrainCircuit },
+  { id: "practice-unity", label: "Unity / games", title: "Completed game projects", text: "Gameplay systems delivered through finished projects, including a live browser release.", facts: ["Two completed Unity projects", "Gameplay, UI and persistence", "One game live on Yandex Games"], icon: Gamepad2 }
+];
+const groupTitles: Record<string, string> = { Databases: "Databases", Automation: "Automation", "Game development": "Game development" };
+
+export function EnglishHome() {
+  return <main><div className="page-shell">
+    <Header locale="en" /><PortfolioHero locale="en" />
+    <section className="section-block expertise-section" id="expertise">
+      <div className="section-heading"><div><span className="section-index">01 / Services</span><h2>How I can help</h2><p>Bring a detailed specification or just the problem. I can turn it into a clear technical plan and a working product.</p></div></div>
+      <div className="capability-grid">{focusItemsEn.map((item, index) => { const Icon = capabilityIcons[index] ?? Wrench; return <article className="capability-card" key={item.title}><div><span>0{index + 1}</span><Icon size={25} /></div><h3>{item.title}</h3><p>{item.text}</p></article>; })}</div>
+      <div className="practice-section" id="practice"><div className="practice-intro"><span className="section-index">02 / Experience</span><h3>What I have built</h3><p>Concrete experience by area. Detailed case studies follow below.</p></div><div className="practice-grid">{practices.map(({ facts, icon: Icon, id, label, text, title }, index) => <article id={id} key={title}><div className="practice-card-head"><span>0{index + 1}</span><Icon size={24} /></div><span className="practice-label">{label}</span><h4>{title}</h4><p>{text}</p><ul>{facts.map((fact) => <li key={fact}>{fact}</li>)}</ul></article>)}</div></div>
+      <div className="stack-board"><div className="stack-board-copy"><span className="section-index">03 / Stack</span><h3>Technology follows the problem.</h3><p>I choose the stack around product constraints, maintenance and deployment — not loyalty to one framework.</p></div><div className="stack-groups">{skillGroups.map((group, index) => { const Icon = groupIcons[index] ?? Wrench; return <div className="stack-group" key={group.title}><div className="stack-group-head"><span><Icon size={18} /></span><b>{groupTitles[group.title] ?? group.title}</b></div><div className="stack-skill-list">{group.skills.map((skill) => { const SkillIcon = techIcons[skill]; return <span className="stack-skill" data-has-icon={Boolean(SkillIcon) || undefined} key={skill}>{SkillIcon ? <SkillIcon aria-hidden="true" /> : null}{skill}</span>; })}</div></div>; })}</div></div>
+    </section>
+    <ProjectReel projects={featured} totalCount={projectsEn.length} locale="en" />
+    <section className="section-block proof-section" id="proof"><div className="proof-intro"><span className="section-index">05 / Reviews</span><h2>Client reviews</h2><p>Verified feedback from completed freelance projects.</p><div className="proof-metrics"><div><Star size={21} /><strong>5.0</strong><span>rating</span></div><div><MessageSquare size={21} /><strong>5</strong><span>reviews</span></div><div><Repeat2 size={21} /><strong>60%</strong><span>repeat clients</span></div></div><a className="text-link" href={profile.kwork} target="_blank" rel="noreferrer">Kwork profile <ArrowRight size={17} /></a></div><div className="reviews-list">{reviewsEn.map((review, index) => <article className="review-card" key={review.title}><div className="review-number">0{index + 1}</div><div><div className="stars">★★★★★</div><p>“{review.text}”</p><footer><b>{review.author}</b><span>{review.title}</span></footer></div></article>)}</div></section>
+    <section className="about-section" id="about"><div className="about-lead"><span className="section-index">06 / About</span><h2>{aboutOverviewEn.heading}</h2></div><div className="about-content">{aboutOverviewEn.paragraphs.map((p) => <p key={p}>{p}</p>)}<div className="about-path"><span>{aboutOverviewEn.pathLabel}</span><b>{aboutOverviewEn.pathTitle}</b><p>{aboutOverviewEn.pathText}</p></div></div><div className="principles-grid">{aboutPrinciplesEn.map((item, index) => <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section>
+    <section className="contact-section" id="contacts"><div><span className="availability"><i /> Available for projects and opportunities</span><h2>Need a website, product or automation?</h2><p>Describe the task and I will propose an approach, stack and implementation plan.</p></div><div className="contact-actions"><a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">Message on Telegram <Send size={18} /></a><a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub <Github size={18} /></a><a className="button contact-ghost" href={profile.vk} target="_blank" rel="noreferrer">VK <SiVk size={19} /></a><a className="button contact-ghost" href={profile.instagram} target="_blank" rel="noreferrer">Instagram <SiInstagram size={18} /></a></div></section>
+    <footer className="site-footer"><div><b>Alexey Valkov</b><span>{profile.role}</span></div><span>Remote · 2026</span></footer>
+  </div></main>;
+}

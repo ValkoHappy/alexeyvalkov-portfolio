@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   },
   description:
     "Портфолио Алексея Валькова: веб-приложения, автоматизация, AI-инструменты, агенты и Unity-игры.",
+  alternates: { canonical: "/", languages: { ru: "/", en: "/en" } },
   keywords: ["fullstack разработчик", "Next.js", "Astro", "автоматизация", "AI агенты", "MCP", "Unity", "портфолио"],
   authors: [{ name: "Алексей Вальков", url: "https://github.com/ValkoHappy" }],
   creator: "Алексей Вальков",

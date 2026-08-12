@@ -1,9 +1,10 @@
 import Image from "next/image";
 import type { Project } from "@/data/site";
 import { getProjectDetails } from "@/data/site";
+import { getProjectDetailsEn } from "@/data/site.en";
 
-export function PreviewFrame({ project }: { project: Project }) {
-  const details = getProjectDetails(project);
+export function PreviewFrame({ project, locale = "ru" }: { project: Project; locale?: "ru" | "en" }) {
+  const details = locale === "en" ? getProjectDetailsEn(project) : getProjectDetails(project);
 
   if (!details.image) return null;
 

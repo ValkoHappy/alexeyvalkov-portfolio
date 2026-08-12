@@ -31,7 +31,7 @@ export type Project = {
 
 export type ProjectDetails = {
   period: string;
-  status: "Production" | "Рабочий инструмент" | "Законченный проект" | "MVP" | "Прототип" | "Учебный проект";
+  status: string;
   role: string;
   challenge: string;
   solution: string;

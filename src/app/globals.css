@@ -130,6 +130,7 @@ button { font: inherit; }
 .main-nav a:hover { color: var(--text); }
 .main-nav a.active { color: var(--blue-soft); background: transparent; }
 .main-nav a.active::after { opacity: 1; transform: scaleX(1); }
+.main-nav .language-switch { margin-left: 4px; border: 1px solid rgba(240,161,95,.34); color: #ffae75; font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; }
 .header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
 .header-actions a {
   display: inline-flex;

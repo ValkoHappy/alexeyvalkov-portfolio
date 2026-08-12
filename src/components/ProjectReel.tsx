@@ -4,10 +4,11 @@ import { ArrowRight, Layers3 } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getProjectDetails, type Project } from "@/data/site";
+import { getProjectDetailsEn } from "@/data/site.en";
 import { PreviewFrame } from "./PreviewFrame";
 import styles from "./ProjectReel.module.css";
 
-export function ProjectReel({ projects, totalCount }: { projects: Project[]; totalCount: number }) {
+export function ProjectReel({ projects, totalCount, locale = "ru" }: { projects: Project[]; totalCount: number; locale?: "ru" | "en" }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -49,7 +50,8 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
   }, [projects.length]);
 
   const renderProject = (project: Project, index: number, mobile = false) => {
-    const details = getProjectDetails(project);
+    const details = locale === "en" ? getProjectDetailsEn(project) : getProjectDetails(project);
+    const prefix = locale === "en" ? "/en" : "";
 
     return (
       <article
@@ -60,20 +62,20 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
       >
         <div className={styles.panelInner}>
           <div className={styles.copy}>
-            <span className={styles.index}>Проект / 0{index + 1}</span>
+            <span className={styles.index}>{locale === "en" ? "Project" : "Проект"} / 0{index + 1}</span>
             <p className={styles.type}>{project.type} · {details.status}</p>
             <h3>{project.title}</h3>
             <p className={styles.summary}>{project.summary}</p>
             <div className={styles.stack}>
               {project.stack.slice(0, 5).map((item) => <span key={item}>{item}</span>)}
             </div>
-            <Link className={styles.caseLink} href={`/projects/${project.slug}`}>
-              Открыть кейс <ArrowRight size={18} />
+            <Link className={styles.caseLink} href={`${prefix}/projects/${project.slug}`}>
+              {locale === "en" ? "View case study" : "Открыть кейс"} <ArrowRight size={18} />
             </Link>
           </div>
           {details.image ? (
-            <Link className={styles.visual} data-project={project.slug} href={`/projects/${project.slug}`} aria-label={`Открыть кейс ${project.shortTitle}`}>
-              <PreviewFrame project={project} />
+            <Link className={styles.visual} data-project={project.slug} href={`${prefix}/projects/${project.slug}`} aria-label={`${locale === "en" ? "View case study" : "Открыть кейс"} ${project.shortTitle}`}>
+              <PreviewFrame project={project} locale={locale} />
               <span className={styles.visualNumber}>0{index + 1}</span>
             </Link>
           ) : null}
@@ -95,8 +97,8 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
       <div className={styles.sticky}>
         <header className={styles.header}>
           <div>
-            <span><Layers3 size={15} /> 04 / Избранные работы</span>
-            <h2 id="projects-reel-title">Проекты</h2>
+            <span><Layers3 size={15} /> 04 / {locale === "en" ? "Selected work" : "Избранные работы"}</span>
+            <h2 id="projects-reel-title">{locale === "en" ? "Projects" : "Проекты"}</h2>
           </div>
           <div className={styles.counter} aria-live="polite">
             <span>0{activeIndex + 1} / 0{projects.length}</span>
@@ -113,11 +115,11 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
         </div>
 
         <footer className={styles.footer}>
-          <nav aria-label="Избранные проекты">
+          <nav aria-label={locale === "en" ? "Selected projects" : "Избранные проекты"}>
             {projects.map((project, index) => (
               <button
                 aria-current={activeIndex === index ? "step" : undefined}
-                aria-label={`Перейти к проекту ${project.shortTitle}`}
+                aria-label={`${locale === "en" ? "Go to project" : "Перейти к проекту"} ${project.shortTitle}`}
                 data-active={activeIndex === index || undefined}
                 key={project.slug}
                 onClick={() => scrollToProject(index)}
@@ -127,7 +129,7 @@ export function ProjectReel({ projects, totalCount }: { projects: Project[]; tot
               </button>
             ))}
           </nav>
-          <Link href="/projects">Все {totalCount} кейсов <ArrowRight size={17} /></Link>
+          <Link href={`${locale === "en" ? "/en" : ""}/projects`}>{locale === "en" ? `All ${totalCount} case studies` : `Все ${totalCount} кейсов`} <ArrowRight size={17} /></Link>
         </footer>
       </div>
     </section>

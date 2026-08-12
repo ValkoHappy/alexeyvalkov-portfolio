@@ -1,14 +1,16 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getProjectDetails, type Project } from "@/data/site";
+import { getProjectDetailsEn } from "@/data/site.en";
 import { PreviewFrame } from "./PreviewFrame";
 
-export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
-  const details = getProjectDetails(project);
+export function ProjectCard({ project, featured = false, locale = "ru" }: { project: Project; featured?: boolean; locale?: "ru" | "en" }) {
+  const details = locale === "en" ? getProjectDetailsEn(project) : getProjectDetails(project);
+  const prefix = locale === "en" ? "/en" : "";
 
   return (
-    <Link className={`project-card ${featured ? "project-card-featured" : ""}${details.image ? "" : " project-card-text"}`} href={`/projects/${project.slug}`}>
-      {details.image ? <PreviewFrame project={project} /> : null}
+    <Link className={`project-card ${featured ? "project-card-featured" : ""}${details.image ? "" : " project-card-text"}`} href={`${prefix}/projects/${project.slug}`}>
+      {details.image ? <PreviewFrame project={project} locale={locale} /> : null}
       <div className="project-card-body">
         <div className="project-meta">
           <span>{details.status}</span>
@@ -22,7 +24,7 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
               <span key={item}>{item}</span>
             ))}
           </div>
-          <span className="project-more">Разобрать кейс <ArrowRight size={16} /></span>
+          <span className="project-more">{locale === "en" ? "View case study" : "Разобрать кейс"} <ArrowRight size={16} /></span>
         </div>
       </div>
     </Link>

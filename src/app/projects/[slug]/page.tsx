@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: ProjectPageProps) {
   return {
     title: project.title,
     description: project.summary,
+    alternates: { canonical: `/projects/${slug}`, languages: { ru: `/projects/${slug}`, en: `/en/projects/${slug}` } },
     openGraph: { title: project.title, description: project.summary }
   };
 }

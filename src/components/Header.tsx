@@ -10,9 +10,11 @@ import { profile } from "@/data/site";
 const homeSections = ["top", "expertise", "projects", "proof", "about"] as const;
 type HomeSection = (typeof homeSections)[number];
 
-export function Header() {
+export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
   const pathname = usePathname();
-  const isProjects = pathname.startsWith("/projects");
+  const localeRoot = locale === "en" ? "/en" : "";
+  const isProjects = pathname.startsWith(`${localeRoot}/projects`);
+  const languageHref = locale === "en" ? (pathname.replace(/^\/en/, "") || "/") : `/en${pathname === "/" ? "" : pathname}`;
   const [activeSection, setActiveSection] = useState<HomeSection>(isProjects ? "projects" : "top");
   const [hasSurface, setHasSurface] = useState(isProjects);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -102,21 +104,22 @@ export function Header() {
 
   return (
     <header className={`site-header${hasSurface ? " is-scrolled" : ""}${isMenuOpen ? " menu-open" : ""}`} ref={headerRef}>
-      <Link className="brand" href="/" onClick={() => setIsMenuOpen(false)}>
+      <Link className="brand" href={localeRoot || "/"} onClick={() => setIsMenuOpen(false)}>
         <span>{profile.initials}</span>
         <small>Fullstack / AI Product Engineer</small>
       </Link>
       <nav className="main-nav" id="main-navigation" aria-label="Главная навигация">
-        <Link className={!isProjects && activeSection === "top" ? "active" : undefined} href="/#top" onClick={() => setIsMenuOpen(false)}>Главная</Link>
-        <Link className={!isProjects && activeSection === "expertise" ? "active" : undefined} href="/#expertise" onClick={() => setIsMenuOpen(false)}>Услуги</Link>
-        <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? "/projects" : "/#projects"} onClick={() => setIsMenuOpen(false)}>Проекты</Link>
-        <Link className={!isProjects && activeSection === "proof" ? "active" : undefined} href="/#proof" onClick={() => setIsMenuOpen(false)}>Отзывы</Link>
-        <Link className={!isProjects && activeSection === "about" ? "active" : undefined} href="/#about" onClick={() => setIsMenuOpen(false)}>Обо мне</Link>
+        <Link className={!isProjects && activeSection === "top" ? "active" : undefined} href={`${localeRoot}/#top`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Home" : "Главная"}</Link>
+        <Link className={!isProjects && activeSection === "expertise" ? "active" : undefined} href={`${localeRoot}/#expertise`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Services" : "Услуги"}</Link>
+        <Link className={activeSection === "projects" ? "active" : undefined} href={isProjects ? `${localeRoot}/projects` : `${localeRoot}/#projects`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Projects" : "Проекты"}</Link>
+        <Link className={!isProjects && activeSection === "proof" ? "active" : undefined} href={`${localeRoot}/#proof`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "Reviews" : "Отзывы"}</Link>
+        <Link className={!isProjects && activeSection === "about" ? "active" : undefined} href={`${localeRoot}/#about`} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "About" : "Обо мне"}</Link>
+        <Link className="language-switch" href={languageHref} onClick={() => setIsMenuOpen(false)}>{locale === "en" ? "RU" : "EN"}</Link>
         <div className="mobile-nav-actions">
           <a href={profile.github} target="_blank" rel="noreferrer"><Github size={19} /> GitHub</a>
           <a href={profile.vk} target="_blank" rel="noreferrer"><SiVk size={20} /> VK</a>
           <a href={profile.instagram} target="_blank" rel="noreferrer"><SiInstagram size={19} /> Instagram</a>
-          <a href={profile.telegram} target="_blank" rel="noreferrer"><Send size={19} /> Обсудить задачу</a>
+          <a href={profile.telegram} target="_blank" rel="noreferrer"><Send size={19} /> {locale === "en" ? "Discuss a project" : "Обсудить задачу"}</a>
         </div>
       </nav>
       <div className="header-actions">
@@ -132,7 +135,7 @@ export function Header() {
         </a>
         <a href={profile.telegram} aria-label="Telegram" target="_blank" rel="noreferrer">
           <Send size={19} />
-          <span>Обсудить задачу</span>
+          <span>{locale === "en" ? "Discuss a project" : "Обсудить задачу"}</span>
           <ArrowUpRight size={16} />
         </a>
       </div>
@@ -141,7 +144,7 @@ export function Header() {
         type="button"
         aria-controls="main-navigation"
         aria-expanded={isMenuOpen}
-        aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+        aria-label={isMenuOpen ? (locale === "en" ? "Close menu" : "Закрыть меню") : (locale === "en" ? "Open menu" : "Открыть меню")}
         onClick={() => setIsMenuOpen((open) => !open)}
       >
         {isMenuOpen ? <X size={23} /> : <Menu size={23} />}

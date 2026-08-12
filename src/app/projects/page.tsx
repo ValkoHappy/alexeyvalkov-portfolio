@@ -7,7 +7,8 @@ import { projects } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Проекты",
-  description: "17 кейсов Алексея Валькова: Unity-игры, fullstack-системы, автоматизация, React-интерфейсы, Telegram-боты и коммерческие сайты."
+  description: "18 кейсов Алексея Валькова: Unity-игры, fullstack-системы, автоматизация, React-интерфейсы, Telegram-боты и коммерческие сайты.",
+  alternates: { canonical: "/projects", languages: { ru: "/projects", en: "/en/projects" } }
 };
 
 export default function ProjectsPage() {

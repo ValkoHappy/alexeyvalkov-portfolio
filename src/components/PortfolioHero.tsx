@@ -14,7 +14,7 @@ const directions = [
   { href: "#practice-unity", label: "Unity", icon: Gamepad2 }
 ];
 
-export function PortfolioHero() {
+export function PortfolioHero({ locale = "ru" }: { locale?: "ru" | "en" }) {
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -71,23 +71,24 @@ export function PortfolioHero() {
       <div className={styles.content}>
         <div className={styles.copy}>
           <span className={styles.eyebrow}><Sparkles size={15} /> Fullstack / AI Product Engineer</span>
-          <h1 id="portfolio-title"><span>{profile.name}</span><strong>Веб · автоматизация · AI</strong></h1>
+          <h1 id="portfolio-title"><span>{locale === "en" ? "Alexey Valkov" : profile.name}</span><strong>{locale === "en" ? "Web · automation · AI" : "Веб · автоматизация · AI"}</strong></h1>
           <p className={styles.lead}>
-            Проектирую и запускаю сайты, внутренние сервисы, автоматизацию и AI-инструменты.
-            Могу собрать продукт целиком или подключиться к отдельной части проекта.
+            {locale === "en"
+              ? "I design and launch websites, internal tools, automation and AI products. I can own a complete product or join an existing team for a focused part."
+              : "Проектирую и запускаю сайты, внутренние сервисы, автоматизацию и AI-инструменты. Могу собрать продукт целиком или подключиться к отдельной части проекта."}
           </p>
           <div className={styles.actions}>
-            <Link href="#projects">Смотреть проекты <ArrowDown size={17} /></Link>
-            <a href={profile.telegram} target="_blank" rel="noreferrer">Обсудить задачу <ArrowRight size={17} /></a>
+            <Link href="#projects">{locale === "en" ? "View projects" : "Смотреть проекты"} <ArrowDown size={17} /></Link>
+            <a href={profile.telegram} target="_blank" rel="noreferrer">{locale === "en" ? "Discuss a project" : "Обсудить задачу"} <ArrowRight size={17} /></a>
           </div>
         </div>
 
-        <nav className={styles.route} aria-label="Основные направления">
+        <nav className={styles.route} aria-label={locale === "en" ? "Core areas" : "Основные направления"}>
           <div className={styles.routeLine} />
           {directions.map(({ href, icon: Icon, label }, index) => (
             <a data-active={index === 0 || undefined} data-route-node={index} href={href} key={label}>
               <span><Icon size={19} /></span>
-              <small>{label}</small>
+              <small>{locale === "en" ? ["Web", "Automation", "AI & agents", "Unity"][index] : label}</small>
             </a>
           ))}
         </nav>
