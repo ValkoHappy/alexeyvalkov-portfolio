@@ -4,7 +4,7 @@
   --route-progress: 0%;
   position: relative;
   width: 100vw;
-  height: min(100svh, 920px);
+  height: 100svh;
   min-height: 680px;
   margin: -86px 0 0 calc(50% - 50vw);
   overflow: hidden;
