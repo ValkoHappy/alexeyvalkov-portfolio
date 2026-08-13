@@ -10,7 +10,7 @@
   overflow: hidden;
   isolation: isolate;
   color: #f6f2ea;
-  background: #03080e;
+  background: transparent;
 }
 
 .hero::after {
@@ -20,9 +20,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 150px;
+  height: 190px;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent, #071019 94%);
+  background: linear-gradient(180deg, transparent, rgba(7, 16, 25, .34) 48%, transparent 100%);
 }
 
 .media,
@@ -36,6 +36,8 @@
 .media {
   z-index: -1;
   background: #03080e;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 82%, rgba(0,0,0,.72) 89%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 82%, rgba(0,0,0,.72) 89%, transparent 100%);
 }
 .desktopImage,
 .mobileImage {
@@ -49,7 +51,7 @@
   height: 100% !important;
   object-fit: cover;
   object-position: center;
-  filter: saturate(.86) contrast(1.05) brightness(.82);
+  filter: saturate(.94) contrast(1.03) brightness(.98);
   transform: translate3d(var(--hero-x), 0, 0) scale(1.025);
   transform-origin: center;
   transition: transform .14s linear;
@@ -57,8 +59,8 @@
 .mobileImage { display: none; }
 .veil {
   background:
-    linear-gradient(90deg, rgba(2, 6, 10, .96) 0%, rgba(2, 6, 10, .75) 32%, rgba(2, 6, 10, .14) 62%, rgba(2, 6, 10, .08) 100%),
-    linear-gradient(180deg, rgba(2, 6, 10, .1), transparent 52%, rgba(2, 6, 10, .72));
+    linear-gradient(90deg, rgba(2, 6, 10, .84) 0%, rgba(2, 6, 10, .6) 32%, rgba(2, 6, 10, .08) 62%, rgba(2, 6, 10, .03) 100%),
+    linear-gradient(180deg, rgba(2, 6, 10, .04), transparent 52%, rgba(2, 6, 10, .58));
 }
 
 .content {
@@ -159,10 +161,14 @@
 
 @media (max-width: 820px) {
   .hero { min-height: 780px; margin-top: -68px; }
-  .media { background: #03080e; }
+  .media {
+    background: #03080e;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 84%, rgba(0,0,0,.76) 91%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 84%, rgba(0,0,0,.76) 91%, transparent 100%);
+  }
   .desktopImage { display: none; }
-  .mobileImage { display: block; inset: -3% 0 !important; width: 100% !important; height: 106% !important; object-position: center top; filter: saturate(.86) contrast(1.05) brightness(.78); transform: translate3d(0, var(--hero-scroll), 0) scale(1.025); }
-  .veil { background: linear-gradient(180deg, rgba(2,6,10,.02), rgba(2,6,10,.08) 35%, rgba(2,6,10,.82) 58%, #03080e 82%); }
+  .mobileImage { display: block; inset: -3% 0 !important; width: 100% !important; height: 106% !important; object-position: center top; filter: saturate(.93) contrast(1.03) brightness(.94); transform: translate3d(0, var(--hero-scroll), 0) scale(1.025); }
+  .veil { background: linear-gradient(180deg, rgba(2,6,10,0), rgba(2,6,10,.03) 35%, rgba(2,6,10,.68) 58%, #03080e 84%); }
   .content { width: calc(100% - 28px); }
   .copy { top: auto; right: 0; bottom: 105px; width: auto; transform: none; }
   .eyebrow { font-size: 12px; }
