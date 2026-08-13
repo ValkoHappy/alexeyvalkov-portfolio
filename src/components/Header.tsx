@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Github, Menu, Send, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
@@ -124,7 +125,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
   return (
     <header className={`site-header${hasSurface ? " is-scrolled" : ""}${isMenuOpen ? " menu-open" : ""}`} ref={headerRef}>
       <Link className="brand" href={localeRoot || "/"} onClick={() => setIsMenuOpen(false)}>
-        <span>{profile.initials}</span>
+        <Image className="brand-mark" src="/favicon.svg" alt="" width={42} height={42} priority />
         <small>Fullstack / AI Product Engineer</small>
       </Link>
       <nav className="main-nav" id="main-navigation" aria-label={locale === "en" ? "Main navigation" : "Главная навигация"}>

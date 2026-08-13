@@ -173,12 +173,7 @@ button { font: inherit; }
   backdrop-filter: blur(18px) saturate(125%);
 }
 .brand { display: flex; align-items: center; gap: 12px; width: max-content; }
-.brand > span {
-  color: var(--blue-soft);
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-}
+.brand-mark { display: block; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 11px; box-shadow: 0 8px 24px rgba(0,0,0,.3), 0 0 18px rgba(242,130,56,.1); }
 .brand small {
   padding-left: 12px;
   border-left: 1px solid var(--line-strong);
@@ -672,6 +667,7 @@ button { font: inherit; }
   .page-shell { width: min(100% - 28px, var(--max)); padding-top: 10px; }
   .ambient { display: none; }
   .site-header { top: 8px; grid-template-columns: 1fr auto; min-height: 58px; padding: 8px 9px 8px 16px; border-radius: 14px; }
+  .brand-mark { width: 44px; height: 44px; flex-basis: 44px; border-radius: 11px; }
   .brand small, .header-actions { display: none; }
   .mobile-nav-actions { grid-template-columns: 1fr; }
   .section-block { padding-top: 86px; }
