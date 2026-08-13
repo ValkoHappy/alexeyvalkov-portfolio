@@ -6,13 +6,12 @@ import { getProjectDetails, type Project, type ProjectCategory } from "@/data/si
 
 const filters: { value: "all" | ProjectCategory; ru: string; en: string }[] = [
   { value: "all", ru: "Все", en: "All" },
-  { value: "games", ru: "Unity / Игры", en: "Unity / Games" },
-  { value: "fullstack", ru: "Fullstack", en: "Fullstack" },
-  { value: "automation", ru: "Автоматизация", en: "Automation" },
-  { value: "react", ru: "React", en: "React" },
   { value: "websites", ru: "Сайты", en: "Websites" },
+  { value: "fullstack", ru: "Сервисы", en: "Services" },
+  { value: "automation", ru: "Автоматизация", en: "Automation" },
   { value: "bots", ru: "Telegram", en: "Telegram" },
-  { value: "extensions", ru: "Расширения", en: "Extensions" }
+  { value: "extensions", ru: "Расширения", en: "Extensions" },
+  { value: "games", ru: "Unity", en: "Unity" }
 ];
 
 export function ProjectsExplorer({ projects, locale = "ru" }: { projects: Project[]; locale?: "ru" | "en" }) {

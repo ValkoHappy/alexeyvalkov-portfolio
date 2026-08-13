@@ -7,7 +7,7 @@ import { projects } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Проекты",
-  description: "18 кейсов Алексея Валькова: Unity-игры, fullstack-системы, автоматизация, React-интерфейсы, Telegram-боты и коммерческие сайты.",
+  description: `${projects.length} кейсов Алексея Валькова: сайты, сервисы, автоматизация, Telegram-инструменты, расширения и Unity-игры.`,
   alternates: { canonical: "/projects", languages: { ru: "/projects", en: "/en/projects" } }
 };
 
@@ -22,8 +22,8 @@ export default function ProjectsPage() {
           </Link>
           <h1>Все проекты</h1>
           <p>
-            Здесь опубликованные игры, production-системы, рабочие внутренние инструменты и прототипы.
-            Для каждого проекта честно указан статус, роль и технический контекст.
+            Здесь коммерческие сайты, внутренние сервисы, автоматизация, Telegram-инструменты и Unity-игры.
+            В каждом кейсе указаны моя роль, статус проекта и основные технологии.
           </p>
         </section>
         <section className="projects-explorer" aria-label="Каталог проектов">

@@ -74,18 +74,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
 
           <section className="case-story">
-            <div className="case-story-title"><span>Коротко и по делу</span><h2>Задача, реализация, итог</h2></div>
+            <div className="case-story-title"><span>Коротко о проекте</span><h2>Задача, моя работа, результат</h2></div>
             <div className="case-story-grid">
               <article><Target size={23} /><span>01 / Задача</span><p>{details.challenge}</p></article>
-              <article><Layers3 size={23} /><span>02 / Реализация</span><p>{details.solution}</p></article>
-              <article><Zap size={23} /><span>03 / Итог</span><p>{details.outcome}</p></article>
+              <article><Layers3 size={23} /><span>02 / Что сделал</span><p>{details.solution}</p></article>
+              <article><Zap size={23} /><span>03 / Результат</span><p>{details.outcome}</p></article>
             </div>
           </section>
 
-          <section className="case-section workflow-section">
+          {project.workflow?.length ? <section className="case-section workflow-section">
             <div className="case-section-head"><span>Рабочий поток</span><h2>Что происходит по шагам</h2></div>
             <WorkflowDiagram steps={project.workflow} />
-          </section>
+          </section> : null}
 
           <section className="case-detail-grid">
             <div className="case-section">
