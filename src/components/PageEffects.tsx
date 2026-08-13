@@ -30,7 +30,7 @@ export function PageEffects() {
       setShowLoader(false);
     } else {
       window.sessionStorage.setItem(loaderKey, "1");
-      const timeout = window.setTimeout(() => setShowLoader(false), 1150);
+      const timeout = window.setTimeout(() => setShowLoader(false), 520);
       return () => window.clearTimeout(timeout);
     }
 
