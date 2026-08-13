@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { MapWorld } from "@/components/MapWorld";
 import { LocaleRedirect } from "@/components/LocaleRedirect";
+import { PageEffects } from "@/components/PageEffects";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="ru">
       <body>
         <MapWorld />
+        <PageEffects />
         <LocaleRedirect />
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
