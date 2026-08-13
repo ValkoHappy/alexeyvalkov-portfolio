@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpRight, Github, Menu, Send, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
@@ -54,7 +53,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
       if (event.key === "Escape") setIsMenuOpen(false);
     };
     const closeOnDesktop = () => {
-      if (window.innerWidth > 1120) setIsMenuOpen(false);
+      if (window.innerWidth > 1400) setIsMenuOpen(false);
     };
 
     document.addEventListener("pointerdown", closeOnOutsideClick);
@@ -125,7 +124,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
   return (
     <header className={`site-header${hasSurface ? " is-scrolled" : ""}${isMenuOpen ? " menu-open" : ""}`} ref={headerRef}>
       <Link className="brand" href={localeRoot || "/"} onClick={() => setIsMenuOpen(false)}>
-        <Image className="brand-mark" src="/favicon.svg" alt="" width={42} height={42} priority />
+        <span className="brand-mark" aria-hidden="true"><span>A</span>V</span>
         <small>Fullstack / AI Product Engineer</small>
       </Link>
       <nav className="main-nav" id="main-navigation" aria-label={locale === "en" ? "Main navigation" : "Главная навигация"}>
