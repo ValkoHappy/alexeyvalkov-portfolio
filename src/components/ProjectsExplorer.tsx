@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { ProjectCard } from "./ProjectCard";
-import type { Project, ProjectCategory } from "@/data/site";
+import { getProjectDetails, type Project, type ProjectCategory } from "@/data/site";
 
 const filters: { value: "all" | ProjectCategory; ru: string; en: string }[] = [
   { value: "all", ru: "Все", en: "All" },
@@ -17,10 +17,15 @@ const filters: { value: "all" | ProjectCategory; ru: string; en: string }[] = [
 
 export function ProjectsExplorer({ projects, locale = "ru" }: { projects: Project[]; locale?: "ru" | "en" }) {
   const [active, setActive] = useState<(typeof filters)[number]["value"]>("all");
-  const visibleProjects = useMemo(
-    () => active === "all" ? projects : projects.filter((project) => project.categories.includes(active)),
-    [active, projects]
-  );
+  const visibleProjects = useMemo(() => {
+    const filtered = active === "all" ? projects : projects.filter((project) => project.categories.includes(active));
+
+    return [...filtered].sort((a, b) => {
+      const aHasImage = Boolean(getProjectDetails(a).image);
+      const bHasImage = Boolean(getProjectDetails(b).image);
+      return Number(bHasImage) - Number(aHasImage);
+    });
+  }, [active, projects]);
 
   return (
     <>

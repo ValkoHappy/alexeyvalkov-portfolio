@@ -73,8 +73,10 @@
 .footer button i { display: block; width: 34px; height: 1px; background: rgba(255,255,255,.18); transition: width .25s ease, background .25s ease; }
 .footer button[data-active] { color: #fff; }
 .footer button[data-active] i { width: 72px; background: #ff8a3d; }
-.footer > a { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 800; }
-.footer > a svg { color: #ff8a3d; }
+.footer > a { display: inline-flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 16px 0 18px; border: 1px solid rgba(255,138,61,.72); border-radius: 10px; color: #fff; background: rgba(9,16,24,.88); box-shadow: 0 10px 28px rgba(0,0,0,.28), 0 0 0 1px rgba(255,138,61,.08); font-size: 14px; font-weight: 800; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.footer > a:hover { transform: translateY(-3px); border-color: #ffb176; background: rgba(255,138,61,.16); }
+.footer > a svg { color: #ff8a3d; transition: transform .2s ease; }
+.footer > a:hover svg { transform: translateX(4px); }
 
 @keyframes panel-enter {
   from { opacity: .72; }
@@ -126,7 +128,7 @@
   .visualNumber { right: 0; bottom: -24px; font-size: 105px; }
   .footer { position: relative; right: auto; bottom: auto; left: auto; margin: 0 16px; padding: 0 0 58px; }
   .footer nav { display: none; }
-  .footer > a { margin-left: auto; }
+  .footer > a { width: 100%; margin-left: 0; justify-content: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

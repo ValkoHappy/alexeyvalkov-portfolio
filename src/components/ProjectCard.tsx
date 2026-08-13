@@ -10,7 +10,7 @@ export function ProjectCard({ project, featured = false, locale = "ru" }: { proj
 
   return (
     <Link className={`project-card ${featured ? "project-card-featured" : ""}${details.image ? "" : " project-card-text"}`} href={`${prefix}/projects/${project.slug}`}>
-      {details.image ? <PreviewFrame project={project} locale={locale} /> : null}
+      {details.image ? <PreviewFrame project={project} locale={locale} priority={featured} /> : null}
       <div className="project-card-body">
         <div className="project-meta">
           <span>{details.status}</span>

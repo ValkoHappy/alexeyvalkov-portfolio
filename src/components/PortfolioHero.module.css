@@ -4,13 +4,25 @@
   --route-progress: 0%;
   position: relative;
   width: 100vw;
-  height: 100svh;
-  min-height: 720px;
+  height: min(100svh, 920px);
+  min-height: 680px;
   margin: -86px 0 0 calc(50% - 50vw);
   overflow: hidden;
   isolation: isolate;
   color: #f6f2ea;
   background: #03080e;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, #071019 94%);
 }
 
 .media,
@@ -51,6 +63,7 @@
 
 .content {
   position: relative;
+  z-index: 1;
   width: min(1760px, calc(100% - 56px));
   height: 100%;
   margin: 0 auto;

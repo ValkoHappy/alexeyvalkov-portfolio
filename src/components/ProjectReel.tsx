@@ -75,7 +75,7 @@ export function ProjectReel({ projects, totalCount, locale = "ru" }: { projects:
           </div>
           {details.image ? (
             <Link className={styles.visual} data-project={project.slug} href={`${prefix}/projects/${project.slug}`} aria-label={`${locale === "en" ? "View case study" : "Открыть кейс"} ${project.shortTitle}`}>
-              <PreviewFrame project={project} locale={locale} />
+              <PreviewFrame project={project} locale={locale} priority={!mobile && index === activeIndex} />
               <span className={styles.visualNumber}>0{index + 1}</span>
             </Link>
           ) : null}

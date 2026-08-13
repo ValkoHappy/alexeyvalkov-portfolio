@@ -63,7 +63,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ))}
               </div>
             </div>
-            {details.image ? <PreviewFrame project={project} /> : null}
+            {details.image ? <PreviewFrame project={project} priority /> : null}
           </section>
 
           <section className="case-facts" aria-label="Кратко о проекте">
@@ -109,7 +109,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <section className="case-contact">
             <div><span>Есть похожая задача?</span><h2>Давайте разберём ваш сценарий</h2></div>
-            <a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">Написать в Telegram <ArrowRight size={18} /></a>
+            <div className="case-contact-actions">
+              <a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">Написать в Telegram <ArrowRight size={18} /></a>
+              <a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub <ExternalLink size={16} /></a>
+              <a className="button contact-ghost" href={profile.vk} target="_blank" rel="noreferrer">VK <ExternalLink size={16} /></a>
+              <a className="button contact-ghost" href={profile.instagram} target="_blank" rel="noreferrer">Instagram <ExternalLink size={16} /></a>
+            </div>
           </section>
         </article>
       </div>

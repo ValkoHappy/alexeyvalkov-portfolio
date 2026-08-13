@@ -68,12 +68,15 @@ export function PageEffects() {
       <div className="loader-grid" />
       <div className="loader-orbit orbit-one" />
       <div className="loader-orbit orbit-two" />
+      <div className="loader-scan" />
+      <div className="loader-nodes" aria-hidden="true"><i /><i /><i /><i /></div>
       <div className="loader-content">
         <div className="loader-kicker"><i /> INITIALIZING PORTFOLIO <b>01</b></div>
-        <div className="loader-mark"><span>AV</span><i /></div>
+        <div className="loader-mark"><span>AV</span><i /><b>∞</b></div>
         <div className="loader-title">Alexey Valkov</div>
         <div className="loader-track"><span /></div>
-        <div className="loader-meta"><small>FULLSTACK / AI PRODUCT ENGINEER</small><strong>READY</strong></div>
+        <div className="loader-meta"><small>FULLSTACK / AI PRODUCT ENGINEER</small><strong><i /> READY</strong></div>
+        <div className="loader-foot"><span>BUILDING DIGITAL PRODUCTS</span><b>02 / 05</b></div>
       </div>
     </div>
   );

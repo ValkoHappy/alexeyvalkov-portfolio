@@ -177,7 +177,7 @@ const projectCatalog: Project[] = [
       "Крупный production-like инструмент вокруг сбора и обработки кандидатов из соцсетей. В проекте есть web-интерфейс, очередь задач, слой БД, worker-процессы, collectors для Instagram/VK/YouTube, Chrome extension и тесты.",
     stack: ["Next.js", "React", "Prisma", "SQLite", "Playwright", "Vitest"],
     categories: ["fullstack", "react", "automation", "extensions"],
-    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Архитектура web / worker / core / database",
       "Сбор и нормализация данных из нескольких соцсетей",
@@ -197,7 +197,7 @@ const projectCatalog: Project[] = [
       "Production-платформа для большого продуктового сайта: Astro отвечает за маршруты и статическую сборку, Strapi — за страницы, справочники и редакторский интерфейс. AI заполняет только заранее подготовленные структуры, после чего редактор проверяет preview и вручную допускает материал к публикации.",
     stack: ["Astro", "Strapi", "PostgreSQL", "Node.js", "AI API", "VPS"],
     categories: ["websites", "fullstack", "automation"],
-    links: [{ label: "Описание проекта", href: "https://github.com/ValkoHappy" }],
+    links: [{ label: "Открыть сайт", href: "https://chatplus247.ru/" }],
     highlights: [
       "Astro-портал, Strapi 5, Postgres, uploads и nginx на VPS",
       "AI Generation Jobs с target page, проверкой сущностей и обязательным human review",
@@ -217,7 +217,7 @@ const projectCatalog: Project[] = [
       "Монорепозиторий из web-приложения, scan worker, MCP-сервера и общих пакетов. Администратор управляет рекламодателями и очередью, worker собирает detail/preview-данные, база хранит историю, а MCP выдаёт проверенные данные агентным клиентам.",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Worker", "Playwright", "MCP"],
     categories: ["fullstack", "react", "automation"],
-    links: [{ label: "Private case", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Очередь advertiser jobs, bounded concurrency и история запусков",
       "Next.js dashboard с рекламодателями, креативами, экспортом и статусами ошибок",
@@ -237,7 +237,7 @@ const projectCatalog: Project[] = [
       "Расширение собирает SEO-сигналы прямо из активной вкладки, дополняет их сетевыми проверками через service worker и показывает результат в модульном popup. AI-ключ не попадает в клиент: запросы идут через Yandex Cloud Function к внешней модели.",
     stack: ["JavaScript", "Manifest V3", "Chrome APIs", "SEO", "PDF"],
     categories: ["extensions", "automation"],
-    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Meta, headings, canonical, robots, hreflang, ссылки, изображения, JSON-LD и Web Vitals",
       "AI-оценка, генерация мета-тегов, intent/LSI и анализ переспама через защищённый proxy",
@@ -277,7 +277,7 @@ const projectCatalog: Project[] = [
       "Локальная система для двухкомпьютерной трансляции: Fastify хранит состояние аукциона в SQLite, React admin управляет лотами и никами, а отдельный URL используется как web source в TikTok LIVE Studio.",
     stack: ["Fastify", "React", "TypeScript", "SQLite", "Vitest"],
     categories: ["fullstack", "react", "automation"],
-    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Суммирование донатов по Roblox-нику, tie-break и ручное исправление имени",
       "Таймер с продлением, лоты, dev-события и сохранение состояния в SQLite",
@@ -297,7 +297,7 @@ const projectCatalog: Project[] = [
       "Google Sheet используется как исходная очередь, а Postgres — как рабочее состояние приложения. FastAPI и отдельный worker готовят следующую пачку, Playwright снимает страницы, React-интерфейс помогает быстро оценивать их и формировать CRM copy package.",
     stack: ["FastAPI", "PostgreSQL", "Playwright", "React", "Vite"],
     categories: ["fullstack", "react", "automation"],
-    links: [{ label: "Internal case", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Full sync таблицы без предварительного создания тысяч review-задач",
       "Фоновые Playwright captures, очереди ARQ/Redis и Postgres migrations",
@@ -317,7 +317,7 @@ const projectCatalog: Project[] = [
       "Прототип сервиса в Telegram: пользовательский webapp показывает интерфейс поиска, FastAPI отвечает за API и данные, бот связывает mini app с Telegram-сценариями, а отдельная настройка туннеля помогает тестировать backend.",
     stack: ["React", "Vite", "FastAPI", "SQLAlchemy", "Telegram Bot"],
     categories: ["react", "fullstack", "bots"],
-    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Telegram Mini App с web-интерфейсом",
       "FastAPI backend и структура данных",
@@ -337,7 +337,7 @@ const projectCatalog: Project[] = [
       "Рабочий Telegram-бот для отслеживания новых заказов. Парсеры собирают свежие предложения, фильтры оставляют релевантное, хэштеги помогают сортировать поток, а механика отправки учитывает ограничения Telegram.",
     stack: ["Python", "aiogram", "aiohttp", "BS4", "Playwright"],
     categories: ["bots", "automation"],
-    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy" }],
+    links: [],
     highlights: [
       "Мониторинг заказов и новых публикаций",
       "Фильтры, автотеги и хранение просмотренного",
@@ -377,10 +377,7 @@ const projectCatalog: Project[] = [
       "Многостраничный сайт автошколы с программами обучения, юридическими страницами и формами. PHP API валидирует обращения и отправляет их менеджеру в Telegram; robots.txt, sitemap, verification-файлы и серверные правила подготовлены для рабочего домена.",
     stack: ["HTML", "CSS", "JavaScript", "PHP", "Telegram API"],
     categories: ["websites", "automation"],
-    links: [
-      { label: "Открыть сайт", href: "https://mustang-29.ru/" },
-      { label: "Пост с примером", href: "https://t.me/alexworktut/4" }
-    ],
+    links: [{ label: "Открыть сайт", href: "https://mustang-29.ru/" }],
     highlights: [
       "Адаптивная главная и отдельная страница об образовательной программе",
       "PHP endpoint для заявок, валидация и Telegram API",
@@ -400,7 +397,7 @@ const projectCatalog: Project[] = [
       "Учебная система регистрации на курс с интерфейсом пользователя и административной частью. Проект показывает связку frontend, backend API и базы данных.",
     stack: ["React", "Vite", "PHP", "MySQL", "REST API"],
     categories: ["react", "fullstack"],
-    links: [{ label: "Пост с примером", href: "https://t.me/alexworktut/2" }],
+    links: [],
     highlights: [
       "React-интерфейс с маршрутизацией",
       "PHP API для заявок и авторизации",
@@ -420,7 +417,7 @@ const projectCatalog: Project[] = [
       "Большая исследовательская система, где GMGN остаётся рыночным терминалом, а локальный стек добавляет память, collectors, replay и слой принятия решений. Внутри есть Chrome extension, data server, dashboard и отдельный browser audit service.",
     stack: ["Node.js", "Chrome Extension", "React", "PostgreSQL", "Playwright", "Python"],
     categories: ["extensions", "react", "fullstack", "automation"],
-    links: [{ label: "Пост с примером", href: "https://t.me/alexworktut/5" }],
+    links: [],
     highlights: [
       "Wallet/developer intelligence, token replay, coverage и risk verdicts",
       "Chrome extension, collectors, API, Postgres и operations dashboard",
