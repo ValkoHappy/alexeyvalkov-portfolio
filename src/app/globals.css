@@ -31,6 +31,12 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--bg); }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .32s; }
+::view-transition-old(root) { animation-name: locale-out; }
+::view-transition-new(root) { animation-name: locale-in; }
+@keyframes locale-out { to { opacity: 0; transform: translateY(-8px); } }
+@keyframes locale-in { from { opacity: 0; transform: translateY(8px); } }
 body {
   margin: 0;
   min-width: 320px;
@@ -134,8 +140,8 @@ button { font: inherit; }
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 78px;
-  min-height: 36px;
+  width: 84px;
+  min-height: 38px;
   margin-left: 5px;
   padding: 3px;
   border: 1px solid rgba(240,161,95,.4);
@@ -152,14 +158,14 @@ button { font: inherit; }
   z-index: -1;
   top: 3px;
   left: 3px;
-  width: 33px;
-  height: 28px;
+  width: 35px;
+  height: 30px;
   border-radius: 999px;
   background: #f28238;
   box-shadow: 0 4px 14px rgba(242,130,56,.28);
   transition: transform .24s cubic-bezier(.2,.8,.2,1);
 }
-.main-nav a.language-toggle[data-locale="en"]::before { transform: translateX(36px); }
+.main-nav a.language-toggle[data-locale="en"]::before { transform: translateX(37px); }
 .main-nav a.language-toggle::after { display: none; }
 .language-toggle span { display: grid; place-items: center; transition: color .2s ease; }
 .language-toggle[data-locale="ru"] span:first-child,

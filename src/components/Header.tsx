@@ -2,16 +2,18 @@
 
 import { ArrowUpRight, Github, Menu, Send, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { SiInstagram, SiVk } from "react-icons/si";
 import { profile } from "@/data/site";
+import { getLocalePath, preferenceKey } from "./LocaleRedirect";
 
 const homeSections = ["top", "expertise", "projects", "proof", "about"] as const;
 type HomeSection = (typeof homeSections)[number];
 
 export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
   const pathname = usePathname();
+  const router = useRouter();
   const localeRoot = locale === "en" ? "/en" : "";
   const isProjects = pathname.startsWith(`${localeRoot}/projects`);
   const languageHref = locale === "en" ? (pathname.replace(/^\/en/, "") || "/") : `/en${pathname === "/" ? "" : pathname}`;
@@ -19,6 +21,23 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
   const [hasSurface, setHasSurface] = useState(isProjects);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+
+  const switchLanguage = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const nextLocale = locale === "en" ? "ru" : "en";
+    const nextPath = getLocalePath(pathname, nextLocale);
+    window.localStorage.setItem(preferenceKey, nextLocale);
+    document.documentElement.lang = nextLocale;
+    setIsMenuOpen(false);
+
+    const navigate = () => router.push(nextPath);
+    const viewTransitionDocument = document as Document & { startViewTransition?: (callback: () => void) => void };
+    if (viewTransitionDocument.startViewTransition) {
+      viewTransitionDocument.startViewTransition(navigate);
+    } else {
+      navigate();
+    }
+  };
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -120,7 +139,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
           href={languageHref}
           aria-label={locale === "en" ? "Switch language to Russian" : "Переключить язык на английский"}
           title={locale === "en" ? "Русская версия" : "English version"}
-          onClick={() => setIsMenuOpen(false)}
+          onClick={switchLanguage}
         >
           <span aria-hidden="true">RU</span>
           <span aria-hidden="true">EN</span>
