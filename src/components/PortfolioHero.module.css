@@ -23,9 +23,7 @@
 
 .media {
   z-index: -1;
-  background:
-    url("/profile/map-world-long-2k.webp") center 11% / cover no-repeat,
-    #03080e;
+  background: #03080e;
 }
 .desktopImage,
 .mobileImage {
@@ -34,19 +32,14 @@
   will-change: transform;
 }
 .desktopImage {
-  top: 0 !important;
-  right: -1% !important;
-  bottom: auto !important;
-  left: auto !important;
-  width: min(100%, 1672px) !important;
+  inset: 0 !important;
+  width: 100% !important;
   height: 100% !important;
-  object-fit: contain;
-  object-position: right center;
+  object-fit: cover;
+  object-position: center;
   filter: saturate(.86) contrast(1.05) brightness(.82);
-  -webkit-mask-image: radial-gradient(ellipse 76% 88% at 76% 50%, #000 38%, rgba(0,0,0,.9) 55%, rgba(0,0,0,.32) 75%, transparent 100%);
-  mask-image: radial-gradient(ellipse 76% 88% at 76% 50%, #000 38%, rgba(0,0,0,.9) 55%, rgba(0,0,0,.32) 75%, transparent 100%);
-  transform: translate3d(var(--hero-x), 0, 0) scale(.97);
-  transform-origin: right center;
+  transform: translate3d(var(--hero-x), 0, 0) scale(1.025);
+  transform-origin: center;
   transition: transform .14s linear;
 }
 .mobileImage { display: none; }
@@ -183,7 +176,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .desktopImage { transform: scale(.97); transition: none; }
+  .desktopImage { transform: scale(1.025); transition: none; }
   .mobileImage { transform: scale(1.01); transition: none; }
   .routeLine::before { animation: none; }
 }
