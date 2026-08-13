@@ -14,6 +14,25 @@ export function ProjectReel({ projects, totalCount, locale = "ru" }: { projects:
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const imageUrls = projects
+      .map((project) => locale === "en" ? getProjectDetailsEn(project).image : getProjectDetails(project).image)
+      .filter((image): image is string => Boolean(image));
+
+    const preloaders = imageUrls.map((src) => {
+      const image = new window.Image();
+      image.decoding = "async";
+      image.src = src;
+      return image;
+    });
+
+    return () => {
+      preloaders.forEach((image) => {
+        image.src = "";
+      });
+    };
+  }, [locale, projects]);
+
+  useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
