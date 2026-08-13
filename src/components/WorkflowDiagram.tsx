@@ -4,8 +4,8 @@ export function WorkflowDiagram({ steps, locale = "ru" }: { steps: string[]; loc
       {steps.map((step, index) => (
         <div className="workflow-item" key={step}>
           <span>
+            <small>0{index + 1}</small>
             <b>{step}</b>
-            <small>{locale === "en" ? "step" : "этап"} {index + 1}</small>
           </span>
           {index < steps.length - 1 && <i />}
         </div>

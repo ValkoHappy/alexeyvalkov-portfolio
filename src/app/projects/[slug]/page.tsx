@@ -5,7 +5,6 @@ import {
   Code2,
   ExternalLink,
   Layers3,
-  ShieldCheck,
   Target,
   Zap
 } from "lucide-react";
@@ -55,7 +54,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="case-hero-copy">
               <div className="case-eyebrow"><span>{details.status}</span><i />{details.period}</div>
               <h1>{project.title}</h1>
-              <p>{project.description}</p>
+              <p>{project.summary}</p>
               <div className="case-links">
                 {project.links.map((link) => (
                   <a className="button secondary" href={link.href} target="_blank" rel="noreferrer" key={`${link.label}-${link.href}`}>
@@ -69,34 +68,34 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <section className="case-facts" aria-label="Кратко о проекте">
             <div><CalendarDays size={20} /><span>Период</span><b>{details.period}</b></div>
-            <div><ShieldCheck size={20} /><span>Статус</span><b>{details.status}</b></div>
+            <div><Target size={20} /><span>Тип проекта</span><b>{project.type}</b></div>
             <div><Layers3 size={20} /><span>Моя роль</span><b>{details.role}</b></div>
             <div><Code2 size={20} /><span>Основной стек</span><b>{project.stack.slice(0, 3).join(" / ")}</b></div>
           </section>
 
           <section className="case-story">
-            <div className="case-story-title"><span>Разбор</span><h2>Задача → решение → результат</h2></div>
+            <div className="case-story-title"><span>Коротко и по делу</span><h2>Задача, реализация, итог</h2></div>
             <div className="case-story-grid">
               <article><Target size={23} /><span>01 / Задача</span><p>{details.challenge}</p></article>
-              <article><Layers3 size={23} /><span>02 / Решение</span><p>{details.solution}</p></article>
-              <article><Zap size={23} /><span>03 / Результат</span><p>{details.outcome}</p></article>
+              <article><Layers3 size={23} /><span>02 / Реализация</span><p>{details.solution}</p></article>
+              <article><Zap size={23} /><span>03 / Итог</span><p>{details.outcome}</p></article>
             </div>
           </section>
 
           <section className="case-section workflow-section">
-            <div className="case-section-head"><span>Сценарий</span><h2>Как работает система</h2></div>
+            <div className="case-section-head"><span>Рабочий поток</span><h2>Что происходит по шагам</h2></div>
             <WorkflowDiagram steps={project.workflow} />
           </section>
 
           <section className="case-detail-grid">
             <div className="case-section">
-              <div className="case-section-head"><span>Вклад</span><h2>Что сделано</h2></div>
+              <div className="case-section-head"><span>Реализовано</span><h2>Ключевые функции</h2></div>
               <ul className="check-list">
                 {project.highlights.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
             <div className="case-section stack-section">
-              <div className="case-section-head"><span>Технологии</span><h2>Стек проекта</h2></div>
+              <div className="case-section-head"><span>Технологии</span><h2>Стек</h2></div>
               <div className="stack-list large">
                 {project.stack.map((item) => <span key={item}>{item}</span>)}
               </div>
