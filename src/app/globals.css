@@ -311,8 +311,8 @@ button { font: inherit; }
 }
 .project-card:hover { transform: translateY(-5px); border-color: rgba(92,166,255,.4); box-shadow: 0 24px 60px rgba(0,0,0,.24); }
 .project-card-body { display: flex; flex: 1; flex-direction: column; padding: 24px; }
-.project-card-text { align-self: start; height: auto; min-height: 320px; border-top: 2px solid rgba(242,130,56,.5); }
-.project-card-text .project-card-body { min-height: 318px; padding-top: 30px; }
+.project-card-text { min-height: 0; border-top: 2px solid rgba(242,130,56,.5); }
+.project-card-text .project-card-body { padding-top: 30px; }
 .project-meta { display: flex; justify-content: space-between; gap: 14px; color: var(--blue-soft); font: 800 12px ui-monospace, monospace; line-height: 1.45; letter-spacing: .06em; text-transform: uppercase; }
 .project-meta span:last-child { color: var(--muted-2); }
 .project-card h3 { margin: 15px 0 0; font-size: clamp(21px, 2vw, 29px); line-height: 1.13; letter-spacing: -.035em; }
@@ -325,7 +325,7 @@ button { font: inherit; }
 .project-more { display: inline-flex; align-items: center; flex: 0 0 auto; gap: 7px; color: #e8f1fe; font-size: 14px; font-weight: 800; }
 .featured-slot:nth-child(n+3) .project-more { display: none; }
 
-.preview-frame { position: relative; aspect-ratio: 16 / 9; min-height: 0; border-bottom: 1px solid var(--line); overflow: hidden; background: #0c1b2e; }
+.preview-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 0; flex: 0 0 auto; border-bottom: 1px solid var(--line); overflow: hidden; background: #0c1b2e; }
 .preview-real { background: rgba(4, 9, 15, .86); }
 .preview-real img { object-fit: cover; object-position: left top; transition: filter .35s ease; }
 .project-card:hover .preview-real img { filter: brightness(1.05); }
@@ -476,8 +476,7 @@ button { font: inherit; }
 .project-filters button { padding: 11px 15px; border: 0; border-radius: 9px; color: var(--muted); background: transparent; cursor: pointer; font-size: 14px; font-weight: 750; }
 .project-filters button:hover, .project-filters button.active { color: #fff; background: #236fda; }
 .filter-result { margin: 20px 0; color: var(--muted); font: 12px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
-.all-projects { align-items: start; }
-.all-projects > .project-card { grid-column: span 4; height: auto; }
+.all-projects > .project-card { grid-column: span 4; height: 100%; align-self: stretch; }
 
 /* Case pages */
 .case-page { padding: 72px 0 32px; }
