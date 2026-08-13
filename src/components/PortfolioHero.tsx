@@ -25,11 +25,21 @@ export function PortfolioHero({ locale = "ru" }: { locale?: "ru" | "en" }) {
 
     const updateScroll = () => {
       const rect = hero.getBoundingClientRect();
-      const progress = Math.min(1, Math.max(0, -rect.top / Math.max(1, rect.height)));
-      const routeProgress = Math.min(1, progress * 1.35);
-      const activeStep = Math.round(routeProgress * (directions.length - 1));
+      const heroProgress = Math.min(1, Math.max(0, -rect.top / Math.max(1, rect.height)));
+      const activationLine = window.innerHeight * 0.72;
+      const routeProgress = directions.reduce((maxProgress, direction, index) => {
+        const target = document.querySelector(direction.href);
+        if (!target) return maxProgress;
 
-      hero.style.setProperty("--hero-scroll", `${progress * -34}px`);
+        const targetTop = target.getBoundingClientRect().top;
+        if (targetTop > activationLine) return maxProgress;
+
+        const targetProgress = Math.min(1, Math.max(0, (activationLine - targetTop) / Math.max(1, window.innerHeight)));
+        return Math.max(maxProgress, (index + targetProgress) / (directions.length - 1));
+      }, 0);
+      const activeStep = Math.min(directions.length - 1, Math.floor(routeProgress * (directions.length - 1) + 0.001));
+
+      hero.style.setProperty("--hero-scroll", `${heroProgress * -34}px`);
       hero.style.setProperty("--route-progress", `${routeProgress * 100}%`);
       hero.querySelectorAll<HTMLElement>("[data-route-node]").forEach((node, index) => {
         node.toggleAttribute("data-active", index <= activeStep);
