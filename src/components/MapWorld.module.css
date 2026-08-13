@@ -94,9 +94,10 @@
 
 @media (max-width: 760px) {
   .pointerGlow { display: none; }
-  .base { inset: -18px 0; background-position: center, center, center var(--map-position); background-size: cover, cover, 100% auto; }
+  .base { inset: -18px 0; background-position: center; background-size: cover, cover, 100% auto; filter: none; transform: none; will-change: auto; }
   .contours { inset: -5% -80%; }
   .grid { opacity: .1; }
+  .fog { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

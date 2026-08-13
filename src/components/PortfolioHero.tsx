@@ -21,6 +21,8 @@ export function PortfolioHero({ locale = "ru" }: { locale?: "ru" | "en" }) {
     const hero = heroRef.current;
     if (!hero) return;
 
+    const isTouchLayout = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 820px)").matches;
+
     let frame = 0;
 
     const updateScroll = () => {
@@ -39,7 +41,7 @@ export function PortfolioHero({ locale = "ru" }: { locale?: "ru" | "en" }) {
       }, 0);
       const activeStep = Math.min(directions.length - 1, Math.floor(routeProgress * (directions.length - 1) + 0.001));
 
-      hero.style.setProperty("--hero-scroll", `${heroProgress * -34}px`);
+      hero.style.setProperty("--hero-scroll", isTouchLayout ? "0px" : `${heroProgress * -34}px`);
       hero.style.setProperty("--route-progress", `${routeProgress * 100}%`);
       hero.querySelectorAll<HTMLElement>("[data-route-node]").forEach((node, index) => {
         node.toggleAttribute("data-active", index <= activeStep);
@@ -58,6 +60,8 @@ export function PortfolioHero({ locale = "ru" }: { locale?: "ru" | "en" }) {
     };
 
     updateScroll();
+    if (isTouchLayout) return undefined;
+
     window.addEventListener("scroll", requestScrollUpdate, { passive: true });
     window.addEventListener("resize", requestScrollUpdate);
     window.addEventListener("pointermove", updatePointer, { passive: true });

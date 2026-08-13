@@ -10,6 +10,8 @@ export function MapWorld() {
     const world = worldRef.current;
     if (!world) return;
 
+    const isTouchLayout = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 820px)").matches;
+
     let frame = 0;
 
     const updateScroll = () => {
@@ -35,6 +37,11 @@ export function MapWorld() {
       world.style.setProperty("--pointer-x", `${event.clientX}px`);
       world.style.setProperty("--pointer-y", `${event.clientY}px`);
     };
+
+    if (isTouchLayout) {
+      updateScroll();
+      return undefined;
+    }
 
     const settleTimer = window.setTimeout(updateScroll, 300);
     updateScroll();

@@ -34,7 +34,7 @@ export function PageEffects() {
     const uniqueElements = Array.from(new Set(elements));
     uniqueElements.forEach((element, index) => {
       element.dataset.reveal = "";
-      element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 45}ms`);
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 55}ms`);
     });
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -52,8 +52,8 @@ export function PageEffects() {
     }, {
       threshold: 0.01,
       rootMargin: window.matchMedia("(max-width: 760px)").matches
-        ? "0px 0px 28% 0px"
-        : "0px 0px 12% 0px"
+        ? "0px 0px 8% 0px"
+        : "0px 0px -2% 0px"
     });
 
     uniqueElements.forEach((element) => observer.observe(element));
