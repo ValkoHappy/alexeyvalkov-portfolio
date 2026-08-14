@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     siteName: "Алексей Вальков — портфолио",
     title: "Алексей Вальков — Fullstack / AI Product Engineer",
     description: "Веб-приложения, внутренние сервисы, автоматизация, AI-инструменты и Unity-игры.",
-    images: [{ url: "/og.png", width: 1693, height: 929, alt: "Портфолио Алексея Валькова" }]
+    images: [{ url: "/og-v3.jpg", width: 2536, height: 1440, type: "image/jpeg", alt: "Портфолио Алексея Валькова" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "Алексей Вальков — Fullstack / AI Product Engineer",
     description: "Веб-приложения, автоматизация, AI-инструменты и Unity.",
-    images: ["/og.png"]
+    images: ["/og-v3.jpg"]
   },
   icons: {
     icon: "/favicon.svg"
