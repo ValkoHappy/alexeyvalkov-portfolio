@@ -527,6 +527,8 @@ button { font: inherit; }
 .contact-section::after { content: ""; position: absolute; right: -100px; bottom: -170px; width: 420px; height: 420px; border: 1px solid rgba(255,174,108,.26); border-radius: 50%; box-shadow: 0 0 0 48px rgba(255,174,108,.035), 0 0 0 96px rgba(255,174,108,.025); }
 .contact-section h2 { max-width: 1120px; margin: 22px 0 0; font: 600 clamp(58px,5.5vw,98px)/.98 var(--font-display); letter-spacing: -.03em; text-transform: uppercase; text-wrap: balance; }
 .contact-section p { max-width: 720px; margin: 22px 0 0; color: rgba(235,239,242,.7); font-size: 17px; line-height: 1.65; }
+.contact-email-link { display: inline-flex; align-items: center; gap: 9px; max-width: 100%; margin-top: 15px; color: #ffd4b1; font-size: 16px; font-weight: 750; overflow-wrap: anywhere; transition: color .25s ease, transform .25s ease; }
+.contact-email-link:hover { color: #fff; transform: translateY(-2px); }
 .contact-section .availability { color: #ffd4b1; }
 .contact-section .availability i { background: #f28238; box-shadow: 0 0 0 5px rgba(242,130,56,.1); }
 .contact-section .button.light { color: #08090b; background: #f7eee6; }

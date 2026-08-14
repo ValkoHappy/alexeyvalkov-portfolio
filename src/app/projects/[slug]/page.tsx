@@ -5,6 +5,7 @@ import {
   Code2,
   ExternalLink,
   Layers3,
+  Mail,
   Target,
   Zap
 } from "lucide-react";
@@ -111,6 +112,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div><span>Есть похожая задача?</span><h2>Давайте разберём ваш сценарий</h2></div>
             <div className="case-contact-actions">
               <a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">Написать в Telegram <ArrowRight size={18} /></a>
+              <a className="button contact-ghost" href={`mailto:${profile.email}`}>Email <Mail size={16} /></a>
               <a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub <ExternalLink size={16} /></a>
               <a className="button contact-ghost" href={profile.vk} target="_blank" rel="noreferrer">VK <ExternalLink size={16} /></a>
               <a className="button contact-ghost" href={profile.instagram} target="_blank" rel="noreferrer">Instagram <ExternalLink size={16} /></a>

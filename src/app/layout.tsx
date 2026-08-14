@@ -51,6 +51,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: "Алексей Вальков",
     jobTitle: "Fullstack / AI Product Engineer",
     url: siteUrl,
+    email: "aivai.studio.alexeyka@gmail.com",
     sameAs: [
       "https://github.com/ValkoHappy",
       "https://t.me/leshaqt",

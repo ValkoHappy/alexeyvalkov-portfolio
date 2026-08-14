@@ -1,4 +1,4 @@
-import { ArrowRight, BrainCircuit, Code2, Gamepad2, Github, Globe2, MessageSquare, Send, Server, Star, Workflow, Wrench } from "lucide-react";
+import { ArrowRight, BrainCircuit, Code2, Gamepad2, Github, Globe2, Mail, MessageSquare, Send, Server, Star, Workflow, Wrench } from "lucide-react";
 import type { IconType } from "react-icons";
 import { SiAstro, SiCss3, SiFastapi, SiGooglechrome, SiHtml5, SiInstagram, SiMysql, SiNextdotjs, SiNodedotjs, SiOpenai, SiPhp, SiPostgresql, SiPython, SiReact, SiSqlite, SiTelegram, SiTypescript, SiUnity, SiVk, SiWebgl } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
@@ -92,7 +92,7 @@ export function HomeSections({
         <div className="principles-grid">{principles.map((item, index) => <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
       </section>
 
-      <section className="contact-section" id="contacts"><div><span className="availability"><i /> {content.contact.availability}</span><h2>{content.contact.title}</h2><p>{content.contact.text}</p></div><div className="contact-actions"><a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">{content.contact.telegram} <Send size={18} /></a><a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub <Github size={18} /></a><a className="button contact-ghost" href={profile.vk} target="_blank" rel="noreferrer">VK <SiVk size={19} /></a><a className="button contact-ghost" href={profile.instagram} target="_blank" rel="noreferrer">Instagram <SiInstagram size={18} /></a></div></section>
+      <section className="contact-section" id="contacts"><div><span className="availability"><i /> {content.contact.availability}</span><h2>{content.contact.title}</h2><p>{content.contact.text}</p><a className="contact-email-link" href={`mailto:${profile.email}`}><Mail size={18} /> {profile.email}</a></div><div className="contact-actions"><a className="button light" href={profile.telegram} target="_blank" rel="noreferrer">{content.contact.telegram} <Send size={18} /></a><a className="button contact-ghost" href={profile.github} target="_blank" rel="noreferrer">GitHub <Github size={18} /></a><a className="button contact-ghost" href={profile.vk} target="_blank" rel="noreferrer">VK <SiVk size={19} /></a><a className="button contact-ghost" href={profile.instagram} target="_blank" rel="noreferrer">Instagram <SiInstagram size={18} /></a></div></section>
 
       <footer className="site-footer"><div><b>{locale === "en" ? "Alexey Valkov" : profile.name}</b><span>{profile.role}</span></div><span>{content.footer}</span></footer>
     </>

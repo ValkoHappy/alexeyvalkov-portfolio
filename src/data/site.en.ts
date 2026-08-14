@@ -230,7 +230,7 @@ export const homeContentEn: HomeContent = {
   stack: { index: "03 / Technology", title: "Technology I work with", intro: "My main stack by area. The final choice depends on the task and deployment requirements." },
   reviews: { index: "05 / Reviews", title: "Client reviews", intro: "Feedback from completed projects on Kwork.", ratingLabel: "rating", reviewsLabel: "reviews", linkLabel: "Kwork profile" },
   about: { index: "06 / About" },
-  contact: { availability: "Open to freelance work and job opportunities", title: "Have a project in mind?", text: "Send me a short description on Telegram. I will review the requirements and suggest the next step.", telegram: "Message me on Telegram" },
+  contact: { availability: "Open to freelance work and job opportunities", title: "Have a project in mind?", text: "Send me a short description on Telegram or by email. I will review the requirements and suggest the next step.", telegram: "Message me on Telegram" },
   footer: "Working remotely · 2026"
 };
 

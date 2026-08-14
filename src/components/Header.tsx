@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Github, Menu, Send, X } from "lucide-react";
+import { ArrowUpRight, Github, Mail, Menu, Send, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
@@ -148,6 +148,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
           <a href={profile.github} target="_blank" rel="noreferrer"><Github size={19} /> GitHub</a>
           <a href={profile.vk} target="_blank" rel="noreferrer"><SiVk size={20} /> VK</a>
           <a href={profile.instagram} target="_blank" rel="noreferrer"><SiInstagram size={19} /> Instagram</a>
+          <a href={`mailto:${profile.email}`}><Mail size={19} /> Email</a>
           <a href={profile.telegram} target="_blank" rel="noreferrer"><Send size={19} /> {locale === "en" ? "Discuss your project" : "Обсудить задачу"}</a>
         </div>
       </nav>

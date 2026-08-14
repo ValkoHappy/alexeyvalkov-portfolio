@@ -59,6 +59,7 @@ export const profile = {
   name: "Алексей Вальков",
   initials: "AV",
   role: "Fullstack / AI Product Engineer",
+  email: "aivai.studio.alexeyka@gmail.com",
   telegram: "https://t.me/leshaqt",
   github: "https://github.com/ValkoHappy",
   vk: "https://vk.ru/alexvalkoov",
@@ -145,7 +146,7 @@ export const homeContent: HomeContent = {
   contact: {
     availability: "Открыт к проектам и предложениям",
     title: "Есть задача?",
-    text: "Напишите в Telegram и коротко опишите, что нужно сделать. Я разберу требования и предложу следующий шаг.",
+    text: "Напишите в Telegram или на почту и коротко опишите, что нужно сделать. Я разберу требования и предложу следующий шаг.",
     telegram: "Написать в Telegram"
   },
   footer: "Работаю удалённо · 2026"
