@@ -3,7 +3,7 @@ import { EnglishHome } from "@/components/EnglishHome";
 
 export const metadata: Metadata = {
   title: "Alexey Valkov — Fullstack / AI Product Engineer",
-  description: "Portfolio of Alexey Valkov: web products, automation, AI tools, agent workflows and Unity games.",
+  description: "Alexey Valkov's portfolio: websites, internal tools, automation, AI integrations and Unity games.",
   alternates: { canonical: "/en", languages: { ru: "/", en: "/en" } }
 };
 

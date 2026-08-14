@@ -88,12 +88,12 @@ export function PortfolioHero({ locale = "ru" }: { locale?: "ru" | "en" }) {
           <h1 id="portfolio-title"><span>{locale === "en" ? "Alexey Valkov" : profile.name}</span><strong>{locale === "en" ? "Web · automation · AI" : "Веб · автоматизация · AI"}</strong></h1>
           <p className={styles.lead}>
             {locale === "en"
-              ? "I build websites, internal services, automation and AI tools — from the initial problem to a working release. I can own the complete product or join an existing team."
+              ? "I build websites, internal tools, automation and AI products — from requirements to launch. I can deliver an entire project or join an existing team."
               : "Разрабатываю сайты, внутренние сервисы, автоматизацию и AI-инструменты — от разбора задачи до рабочего запуска. Могу сделать проект целиком или подключиться к команде."}
           </p>
           <div className={styles.actions}>
             <Link href="#projects">{locale === "en" ? "View projects" : "Смотреть проекты"} <ArrowDown size={17} /></Link>
-            <a href={profile.telegram} target="_blank" rel="noreferrer">{locale === "en" ? "Discuss a project" : "Обсудить задачу"} <ArrowRight size={17} /></a>
+            <a href={profile.telegram} target="_blank" rel="noreferrer">{locale === "en" ? "Discuss your project" : "Обсудить задачу"} <ArrowRight size={17} /></a>
           </div>
         </div>
 

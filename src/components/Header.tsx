@@ -148,7 +148,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
           <a href={profile.github} target="_blank" rel="noreferrer"><Github size={19} /> GitHub</a>
           <a href={profile.vk} target="_blank" rel="noreferrer"><SiVk size={20} /> VK</a>
           <a href={profile.instagram} target="_blank" rel="noreferrer"><SiInstagram size={19} /> Instagram</a>
-          <a href={profile.telegram} target="_blank" rel="noreferrer"><Send size={19} /> {locale === "en" ? "Discuss a project" : "Обсудить задачу"}</a>
+          <a href={profile.telegram} target="_blank" rel="noreferrer"><Send size={19} /> {locale === "en" ? "Discuss your project" : "Обсудить задачу"}</a>
         </div>
       </nav>
       <div className="header-actions">
@@ -164,7 +164,7 @@ export function Header({ locale = "ru" }: { locale?: "ru" | "en" }) {
         </a>
         <a href={profile.telegram} aria-label="Telegram" target="_blank" rel="noreferrer">
           <Send size={19} />
-          <span>{locale === "en" ? "Discuss a project" : "Обсудить задачу"}</span>
+          <span>{locale === "en" ? "Discuss your project" : "Обсудить задачу"}</span>
           <ArrowUpRight size={16} />
         </a>
       </div>
