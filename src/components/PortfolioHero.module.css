@@ -27,7 +27,7 @@
 
 .media,
 .desktopImage,
-.mobileImage,
+.mobileMapImage,
 .veil {
   position: absolute;
   inset: 0;
@@ -40,7 +40,7 @@
   mask-image: linear-gradient(180deg, #000 0%, #000 82%, rgba(0,0,0,.72) 89%, transparent 100%);
 }
 .desktopImage,
-.mobileImage {
+.mobileMapImage {
   object-fit: cover;
   object-position: center;
   will-change: transform;
@@ -56,7 +56,7 @@
   transform-origin: center;
   transition: transform .14s linear;
 }
-.mobileImage { display: none; }
+.mobileMapImage { display: none; }
 .veil {
   background:
     linear-gradient(90deg, rgba(2, 6, 10, .84) 0%, rgba(2, 6, 10, .6) 32%, rgba(2, 6, 10, .08) 62%, rgba(2, 6, 10, .03) 100%),
@@ -167,8 +167,8 @@
     mask-image: linear-gradient(180deg, #000 0%, #000 84%, rgba(0,0,0,.76) 91%, transparent 100%);
   }
   .desktopImage { display: none; }
-  .mobileImage { display: block; inset: -3% 0 !important; width: 100% !important; height: 106% !important; object-position: center top; filter: saturate(.93) contrast(1.03) brightness(.94); transform: scale(1.025); will-change: auto; }
-  .veil { background: linear-gradient(180deg, rgba(2,6,10,0), rgba(2,6,10,.03) 35%, rgba(2,6,10,.68) 58%, #03080e 84%); }
+  .mobileMapImage { display: block; inset: -3% 0 !important; width: 100% !important; height: 106% !important; object-position: center top; filter: saturate(.93) contrast(1.03) brightness(.94); transform: scale(1.025); will-change: auto; }
+  .veil { z-index: 2; background: linear-gradient(180deg, rgba(2,6,10,.06), rgba(2,6,10,.1) 35%, rgba(2,6,10,.72) 58%, #03080e 84%); }
   .content { width: calc(100% - 28px); }
   .copy { top: auto; right: 0; bottom: 105px; width: auto; transform: none; }
   .eyebrow { font-size: 12px; }
@@ -201,6 +201,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .desktopImage { transform: scale(1.025); transition: none; }
-  .mobileImage { transform: scale(1.01); transition: none; }
+  .mobileMapImage { transform: scale(1.01); transition: none; }
   .routeLine::before { transition: none; }
 }

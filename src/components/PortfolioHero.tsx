@@ -78,7 +78,7 @@ export function PortfolioHero({ locale = "ru" }: { locale?: "ru" | "en" }) {
     <section className={styles.hero} id="top" ref={heroRef} aria-labelledby="portfolio-title">
       <div className={styles.media} aria-hidden="true">
         <Image className={styles.desktopImage} src="/profile/hero-map-v2.png" alt="" fill priority sizes="100vw" />
-        <Image className={styles.mobileImage} src="/profile/hero-map-mobile.png" alt="" fill priority sizes="100vw" />
+        <Image className={styles.mobileMapImage} src="/profile/hero-map-mobile-composite.png" alt="" fill priority sizes="100vw" />
         <div className={styles.veil} />
       </div>
 
