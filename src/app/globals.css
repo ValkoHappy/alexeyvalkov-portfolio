@@ -400,6 +400,9 @@ button { font: inherit; }
 .preview-real.preview-funpay-price-sniper img.preview-image,
 .preview-real.preview-scaner-frilance-bot img.preview-image { object-fit: contain; object-position: center; padding: 10px; }
 .preview-real.preview-tower-defense-builder img.preview-image { object-fit: cover; object-position: left top; background: #23354d; }
+.preview-real.preview-fitness-coach-landing img.preview-image { object-fit: contain; object-position: center; background: #11110f; }
+.preview-fitness-coach-landing .preview-status,
+.preview-fitness-coach-landing .preview-caption { display: none; }
 .preview-status { position: absolute; top: 16px; right: 16px; z-index: 2; padding: 7px 9px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; color: #fff; background: rgba(4,10,18,.68); backdrop-filter: blur(12px); font: 750 11px ui-monospace, monospace; text-transform: uppercase; }
 .preview-caption { position: absolute; z-index: 2; left: 16px; right: 16px; bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding: 13px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px; color: #fff; background: rgba(4,10,18,.72); backdrop-filter: blur(14px); }
 .preview-caption strong, .preview-caption span { display: block; }
