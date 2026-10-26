@@ -248,7 +248,7 @@ const projectCatalog: Project[] = [
       "Крупный production-like инструмент вокруг сбора и обработки кандидатов из соцсетей. В проекте есть web-интерфейс, очередь задач, слой БД, worker-процессы, collectors для Instagram/VK/YouTube, Chrome extension и тесты.",
     stack: ["Next.js", "React", "Prisma", "SQLite", "Playwright", "Vitest"],
     categories: ["fullstack", "react", "automation", "extensions"],
-    links: [{"label":"GitHub","href":"https://github.com/ValkoHappy/scaner-blogers"}],
+    links: [],
     highlights: [
       "Архитектура web / worker / core / database",
       "Сбор и нормализация данных из нескольких соцсетей",
@@ -463,7 +463,7 @@ const projectCatalog: Project[] = [
       "Учебная система регистрации на курс с интерфейсами пользователя и администратора. Проект показывает полный путь от формы в браузере до API и базы данных.",
     stack: ["React", "Vite", "PHP", "MySQL", "REST API"],
     categories: ["react", "fullstack"],
-    links: [{"label":"GitHub","href":"https://github.com/ValkoHappy/course-registration"}],
+    links: [],
     highlights: [
       "React-интерфейс с маршрутизацией",
       "PHP API для заявок и авторизации",
@@ -501,7 +501,7 @@ const projectCatalog: Project[] = [
       "Лендинг для персонального тренера: первый экран, услуги, преимущества, контакты и адаптивная структура для публикации на GitHub Pages.",
     stack: ["HTML", "CSS", "JavaScript"],
     categories: ["websites"],
-    links: [{"label":"Открыть сайт","href":"https://valkohappy.github.io/sharipculov/"},{"label":"Демо кабинета","href":"https://valkohappy.github.io/sharipculov/demo/"},{"label":"GitHub","href":"https://github.com/ValkoHappy/sharipculov"}],
+    links: [{"label":"Открыть сайт","href":"https://valkohappy.github.io/sharipculov/"},{"label":"Демо кабинета","href":"https://valkohappy.github.io/sharipculov/demo/"}],
     highlights: [
       "Визуальная посадочная страница",
       "Адаптивные секции и навигация",
@@ -577,7 +577,7 @@ const projectCatalog: Project[] = [
     description: "Настольный менеджер запускает Chromium с отдельными каталогами профилей. В нём есть группы, поиск, пул прокси с локальными реле, установка движков с проверкой хэша и сейф для записей пользователя.",
     stack: ["Electron", "Node.js", "JavaScript", "Chromium", "AES-256-GCM", "Argon2id"],
     categories: ["automation"],
-    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy/antik" }],
+    links: [],
     highlights: ["Профили, группы и восстановление запущенных браузеров", "HTTP и SOCKS5-прокси, локальные реле и распределение профилей", "Шифрованное хранилище и проверяемая установка движков"],
     accent: "blue",
     preview: { kind: "tool", label: "Desktop application" }
