@@ -3,6 +3,14 @@ import { getProjectDetails, projects, type HomeContent, type Project, type Proje
 type ProjectCopy = Pick<Project, "title" | "type" | "summary" | "description" | "highlights" | "workflow">;
 
 const copy: Record<string, ProjectCopy> = {
+  "antik-browser-manager": {
+    title: "Antik Browser Profile Manager",
+    type: "Windows desktop application",
+    summary: "Separate browser profiles, proxy management, fingerprint settings and an encrypted vault in an Electron application.",
+    description: "A desktop manager that launches Chromium with separate profile directories. Includes groups, search, local proxy relays, verified engine downloads and encrypted user notes.",
+    highlights: ["Profiles, groups and running browser recovery", "HTTP and SOCKS5 proxies with local relays", "Encrypted vault and verified browser engine installation"],
+    workflow: undefined
+  },
   "mystery-forest-survival": {
     title: "Survival: Mystery Forest",
     type: "Published Unity game",
@@ -150,6 +158,7 @@ const copy: Record<string, ProjectCopy> = {
 };
 
 const detailsCopy: Record<string, Omit<ProjectDetails, "image" | "imageAlt"> & { imageAlt?: string }> = {
+  "antik-browser-manager": { period: "2026", status: "Working desktop application", role: "Electron, Chromium processes, proxies and storage", challenge: "Manage multiple separate browser profiles, their settings and proxies in one application.", solution: "Dedicated modules handle profile launches, settings, browser engines, proxy relays and the encrypted vault. The UI accesses them through a restricted IPC API.", outcome: "Runs on Windows. Published source includes module tests and excludes real profiles and user data.", imageAlt: "Antik browser profile manager interface" },
   "mystery-forest-survival": { period: "2024 — live", status: "Published", role: "Unity development, gameplay systems and WebGL release", challenge: "Create a coherent survival world where exploration, character needs, resources, crafting and construction form one loop and persist between sessions.", solution: "Connected the gameplay systems into an open survival scenario and integrated Yandex Games authentication, cloud saves and localization.", outcome: "Released on November 1, 2024; the game remains playable online and has a 4.0 user rating.", imageAlt: "Mystery Forest game page on Yandex Games" },
   "tower-defense-builder": { period: "Unity project", status: "Completed project", role: "C# architecture and gameplay systems", challenge: "Construction, resource production and enemy waves required several connected systems that could preserve state between levels.", solution: "Separated building and grid logic, resources, turrets, enemy states, spawners, levels, UI and persistence.", outcome: "Completed a playable build with the full build → produce → defend → progress loop.", imageAlt: "Main menu of the base defense Unity game" },
   "chatplus-cms-portal": { period: "2025–2026", status: "Published", role: "Astro website, Strapi CMS, AI features and deployment", challenge: "The content team needed to manage pages, uploads and drafts without editing the website code.", solution: "Separated the public Astro website from Strapi CMS, defined page structures, connected PostgreSQL and uploads, and added reviewed AI drafts.", outcome: "The website runs on a VPS: editors manage content in Strapi and approved changes trigger a new build.", imageAlt: "Chat Plus platform homepage" },
@@ -173,6 +182,7 @@ const detailsCopy: Record<string, Omit<ProjectDetails, "image" | "imageAlt"> & {
 const linkLabels: Record<string, string> = {
   "Играть на Яндекс Играх": "Play on Yandex Games",
   "Открыть сайт": "Open website",
+  "Демо кабинета": "Cabinet demo",
   "Архив проекта": "View project archive"
 };
 

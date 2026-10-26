@@ -248,7 +248,7 @@ const projectCatalog: Project[] = [
       "Крупный production-like инструмент вокруг сбора и обработки кандидатов из соцсетей. В проекте есть web-интерфейс, очередь задач, слой БД, worker-процессы, collectors для Instagram/VK/YouTube, Chrome extension и тесты.",
     stack: ["Next.js", "React", "Prisma", "SQLite", "Playwright", "Vitest"],
     categories: ["fullstack", "react", "automation", "extensions"],
-    links: [],
+    links: [{"label":"GitHub","href":"https://github.com/ValkoHappy/scaner-blogers"}],
     highlights: [
       "Архитектура web / worker / core / database",
       "Сбор и нормализация данных из нескольких соцсетей",
@@ -463,7 +463,7 @@ const projectCatalog: Project[] = [
       "Учебная система регистрации на курс с интерфейсами пользователя и администратора. Проект показывает полный путь от формы в браузере до API и базы данных.",
     stack: ["React", "Vite", "PHP", "MySQL", "REST API"],
     categories: ["react", "fullstack"],
-    links: [],
+    links: [{"label":"GitHub","href":"https://github.com/ValkoHappy/course-registration"}],
     highlights: [
       "React-интерфейс с маршрутизацией",
       "PHP API для заявок и авторизации",
@@ -501,7 +501,7 @@ const projectCatalog: Project[] = [
       "Лендинг для персонального тренера: первый экран, услуги, преимущества, контакты и адаптивная структура для публикации на GitHub Pages.",
     stack: ["HTML", "CSS", "JavaScript"],
     categories: ["websites"],
-    links: [{ label: "Открыть сайт", href: "https://valkohappy.github.io/sharipculov/" }],
+    links: [{"label":"Открыть сайт","href":"https://valkohappy.github.io/sharipculov/"},{"label":"Демо кабинета","href":"https://valkohappy.github.io/sharipculov/demo/"},{"label":"GitHub","href":"https://github.com/ValkoHappy/sharipculov"}],
     highlights: [
       "Визуальная посадочная страница",
       "Адаптивные секции и навигация",
@@ -567,10 +567,24 @@ const projectCatalog: Project[] = [
     workflow: ["Приглашение", "Аккаунт", "Параметры", "Поиск", "Подтверждение"],
     accent: "cyan",
     preview: { kind: "tool", label: "Private booking service" }
+  },
+  {
+    slug: "antik-browser-manager",
+    title: "Antik: управление браузерными профилями",
+    shortTitle: "Antik",
+    type: "Настольное приложение для Windows",
+    summary: "Отдельные браузерные профили, прокси, настройки отпечатка и шифрованное хранилище в приложении на Electron.",
+    description: "Настольный менеджер запускает Chromium с отдельными каталогами профилей. В нём есть группы, поиск, пул прокси с локальными реле, установка движков с проверкой хэша и сейф для записей пользователя.",
+    stack: ["Electron", "Node.js", "JavaScript", "Chromium", "AES-256-GCM", "Argon2id"],
+    categories: ["automation"],
+    links: [{ label: "GitHub", href: "https://github.com/ValkoHappy/antik" }],
+    highlights: ["Профили, группы и восстановление запущенных браузеров", "HTTP и SOCKS5-прокси, локальные реле и распределение профилей", "Шифрованное хранилище и проверяемая установка движков"],
+    accent: "blue",
+    preview: { kind: "tool", label: "Desktop application" }
   }
 ];
 
-const hiddenProjectSlugs = new Set(["wordset-docx-checker", "scaner-blogers-dashboard"]);
+const hiddenProjectSlugs = new Set(["wordset-docx-checker"]);
 
 export const projects = projectCatalog.filter((project) => !hiddenProjectSlugs.has(project.slug));
 
@@ -585,6 +599,16 @@ export const featuredProjectSlugs = [
 ] as const;
 
 export const projectDetails: Record<string, ProjectDetails> = {
+  "antik-browser-manager": {
+    period: "2026",
+    status: "Рабочее настольное приложение",
+    role: "Electron, управление процессами Chromium, прокси и хранение данных",
+    challenge: "Нужно управлять несколькими отдельными браузерными профилями, их настройками и прокси из одного приложения.",
+    solution: "Запуск профилей, хранение настроек, управление движками, локальные прокси-реле и сейф вынесены в отдельные модули. Интерфейс обращается к ним через ограниченный IPC API.",
+    outcome: "Приложение запускается на Windows. Исходники опубликованы с тестами модулей; профили и пользовательские данные в репозиторий не входят.",
+    image: "/projects/antik.png",
+    imageAlt: "Интерфейс менеджера браузерных профилей Antik"
+  },
   "mystery-forest-survival": {
     period: "2024 — сейчас онлайн",
     status: "Опубликован",
@@ -734,7 +758,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
     role: "Frontend, PHP API и MySQL",
     challenge: "Нужно было реализовать полный сценарий записи на курсы с авторизацией, пользовательской и административной частью.",
     solution: "Связал React-интерфейс, маршрутизацию, PHP REST API и структуру MySQL для пользователей и заявок.",
-    outcome: "Проект демонстрирует базовую fullstack-связку и разделение пользовательских и административных сценариев."
+    outcome: "Проект демонстрирует регистрацию, запись на курс и обработку заявок администратором. API проверен интеграционными тестами на SQLite и MySQL.",
+    image: "/projects/course-registration.png",
+    imageAlt: "Панель администратора учебного приложения записи на курсы"
   },
   "token-audit-trading-assistant": {
     period: "2024–2025",
