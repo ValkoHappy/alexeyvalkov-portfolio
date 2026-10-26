@@ -181,6 +181,20 @@ export const aboutPrinciples = [
 
 const projectCatalog: Project[] = [
   {
+    slug: "salecraft-sales-website",
+    title: "Лендинг SALECRAFT",
+    shortTitle: "SALECRAFT",
+    type: "Лендинг услуг",
+    summary: "Сайт программы построения системы продаж с описанием этапов работы, эксперта и состава услуг.",
+    description: "Одностраничный сайт SALECRAFT на HTML и CSS. На странице собраны предложение компании, информация об эксперте, задачи клиентов, программа работы и результаты, которые описывает услуга.",
+    stack: ["HTML", "CSS"],
+    categories: ["websites"],
+    links: [{ label: "Открыть сайт", href: "https://valkohappy.github.io/SALECRAFT/" }],
+    highlights: ["Адаптивная вёрстка для компьютеров и телефонов", "Блоки об эксперте, программе и составе услуг", "Публикация статического сайта на GitHub Pages"],
+    accent: "amber",
+    preview: { kind: "site", label: "Программа продаж" }
+  },
+  {
     slug: "mystery-forest-survival",
     title: "Выживание: Загадочный Лес",
     shortTitle: "Mystery Forest",
@@ -599,6 +613,16 @@ export const featuredProjectSlugs = [
 ] as const;
 
 export const projectDetails: Record<string, ProjectDetails> = {
+  "salecraft-sales-website": {
+    period: "2026",
+    status: "Опубликован",
+    role: "HTML/CSS-вёрстка и публикация",
+    challenge: "Представить программу построения системы продаж на одной странице и сделать большой объём информации удобным для чтения.",
+    solution: "Собрал страницу из блоков о компании, эксперте, задачах клиентов, программе и составе услуг. Подготовил адаптивные сетки, типографику и размещение изображений.",
+    outcome: "Лендинг опубликован на GitHub Pages. Страница доступна на компьютерах и телефонах.",
+    image: "/projects/salecraft.jpg",
+    imageAlt: "Первый экран лендинга SALECRAFT"
+  },
   "antik-browser-manager": {
     period: "2026",
     status: "Рабочее настольное приложение",
