@@ -50,7 +50,10 @@ export function HomeSections({
   return (
     <>
       <section className="section-block expertise-section" id="expertise">
-        <div className="section-heading"><div><span className="section-index">{content.services.index}</span><h2>{content.services.title}</h2><p>{content.services.intro}</p></div></div>
+        <div className="section-heading services-heading">
+          <div><span className="section-index">{content.services.index}</span><h2>{content.services.title}</h2></div>
+          <p>{content.services.intro}</p>
+        </div>
         <div className="capability-grid">
           {focusItems.map((item, index) => {
             const Icon = capabilityIcons[index] ?? Wrench;

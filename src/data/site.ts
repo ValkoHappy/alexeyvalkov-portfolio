@@ -91,7 +91,7 @@ export const focusItems = [
 export const homeContent: HomeContent = {
   services: {
     index: "01 / Услуги",
-    title: "Что можно заказать",
+    title: "Чем могу помочь",
     intro: "Можно прийти с техническим заданием или описать проблему. Я помогу определить объём работ и собрать решение."
   },
   evidence: {
