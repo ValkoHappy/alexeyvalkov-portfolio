@@ -1,8 +1,10 @@
 import { getProjectDetails, projects, type HomeContent, type Project, type ProjectDetails } from "./site";
+import { recentProjectsEn, recentProjectDetailsEn } from "./recent-projects";
 
 type ProjectCopy = Pick<Project, "title" | "type" | "summary" | "description" | "highlights" | "workflow">;
 
 const copy: Record<string, ProjectCopy> = {
+  ...recentProjectsEn,
   "salecraft-sales-website": {
     title: "SALECRAFT Landing Page",
     type: "Service landing page",
@@ -166,6 +168,7 @@ const copy: Record<string, ProjectCopy> = {
 };
 
 const detailsCopy: Record<string, Omit<ProjectDetails, "image" | "imageAlt"> & { imageAlt?: string }> = {
+  ...recentProjectDetailsEn,
   "salecraft-sales-website": { period: "2026", status: "Published", role: "HTML/CSS frontend and publication", challenge: "Present a sales consulting program on one page while keeping extensive information easy to read.", solution: "Built sections covering the company, expert, client needs, program and service scope, with responsive grids, typography and images.", outcome: "The landing page is published on GitHub Pages and supports desktop and mobile screens.", imageAlt: "SALECRAFT landing page hero" },
   "antik-browser-manager": { period: "2026", status: "Working desktop application", role: "Electron, Chromium processes, proxies and storage", challenge: "Manage multiple separate browser profiles, their settings and proxies in one application.", solution: "Dedicated modules handle profile launches, settings, browser engines, proxy relays and the encrypted vault. The UI accesses them through a restricted IPC API.", outcome: "Runs on Windows. Published source includes module tests and excludes real profiles and user data.", imageAlt: "Antik browser profile manager interface" },
   "mystery-forest-survival": { period: "2024 — live", status: "Published", role: "Unity development, gameplay systems and WebGL release", challenge: "Create a coherent survival world where exploration, character needs, resources, crafting and construction form one loop and persist between sessions.", solution: "Connected the gameplay systems into an open survival scenario and integrated Yandex Games authentication, cloud saves and localization.", outcome: "Released on November 1, 2024; the game remains playable online and has a 4.0 user rating.", imageAlt: "Mystery Forest game page on Yandex Games" },

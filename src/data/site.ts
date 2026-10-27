@@ -1,3 +1,5 @@
+import { recentProjects, recentProjectDetails } from "./recent-projects";
+
 export type ProjectCategory =
   | "websites"
   | "react"
@@ -180,6 +182,7 @@ export const aboutPrinciples = [
 ];
 
 const projectCatalog: Project[] = [
+  ...recentProjects,
   {
     slug: "salecraft-sales-website",
     title: "Лендинг SALECRAFT",
@@ -608,6 +611,7 @@ export const featuredProjectSlugs = [
 ] as const;
 
 export const projectDetails: Record<string, ProjectDetails> = {
+  ...recentProjectDetails,
   "salecraft-sales-website": {
     period: "2026",
     status: "Опубликован",
