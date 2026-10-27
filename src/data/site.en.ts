@@ -116,11 +116,11 @@ const copy: Record<string, ProjectCopy> = {
     workflow: undefined
   },
   "course-registration-platform": {
-    title: "Course Participant Portal",
-    type: "Educational fullstack project",
-    summary: "An educational application with registration, course enrolment and a separate administrator interface.",
-    description: "A course registration system with user and administrator interfaces. It demonstrates the complete flow from browser forms to an API and database.",
-    highlights: ["React interface with routing", "PHP REST API for authentication and applications", "MySQL schema for users and submissions"],
+    title: "FitStart Online Learning Platform",
+    type: "Learning platform",
+    summary: "Fitness coaching courses with a student dashboard, lessons, video, assignments, quizzes and learning progress.",
+    description: "A React, PHP and MySQL platform with student, curator and administrator roles. Includes a catalog, course editor, applications, assignment review and quizzes. A separate GitHub Pages version offers sample courses with progress saved in the browser.",
+    highlights: ["Student dashboard, sequential lessons and saved progress", "Course editor, assignments, quizzes and curator permissions", "PHP API with sessions and CSRF, plus a GitHub Pages version"],
     workflow: undefined
   },
   "token-audit-trading-assistant": {
@@ -180,7 +180,7 @@ const detailsCopy: Record<string, Omit<ProjectDetails, "image" | "imageAlt"> & {
   "scaner-frilance-bot": { period: "2024–2025", status: "Working tool", role: "Parsers, filters and Telegram delivery", challenge: "New freelance jobs disappear quickly in noisy feeds, while frequent polling creates duplicates and rate-limit issues.", solution: "Added asynchronous collection, filters, automatic tags, persistent seen-state and controlled delivery.", outcome: "The bot produces a clean feed of relevant jobs and reduces repeated manual browsing.", imageAlt: "Closed freelance job card in the Telegram feed" },
   "panzzi-furniture-website": { period: "2025–2026", status: "Published", role: "Multi-page website, catalog, localization and publication", challenge: "Present furniture and China business services as one coherent commercial website.", solution: "Built a multilingual structure, interactive catalog, project galleries and a dedicated China services section.", outcome: "The live site serves as a commercial showcase for services and completed projects.", imageAlt: "PANZZI furniture website homepage" },
   "mustang-driving-school": { period: "2024", status: "Published", role: "Frontend, PHP leads API, Telegram and technical SEO", challenge: "The driving school needed a clear responsive site that also captured enquiries.", solution: "Built information and legal pages, a validated PHP endpoint, Telegram lead delivery and technical SEO files.", outcome: "The site runs on its public domain and sends new leads directly to the manager.", imageAlt: "Mustang driving school homepage" },
-  "course-registration-platform": { period: "2024", status: "Educational project", role: "Frontend, PHP API and MySQL", challenge: "Implement course registration with authentication and separate user and administrator flows.", solution: "Connected the React interface and routing to a PHP REST API and MySQL data model.", outcome: "The project demonstrates a complete basic full-stack flow with separate user and administrator responsibilities." },
+  "course-registration-platform": { period: "2026", status: "Demo available", role: "React frontend, PHP API, MySQL and learning workflows", challenge: "Combine a course catalog and learning tools with separate student, curator and administrator permissions.", solution: "Connected courses, modules, lessons, applications, assignments, quizzes and progress. Separated editor and lesson components, API routing, session security, PDO and image handling.", outcome: "The GitHub Pages version provides three sample courses. The full PHP/MySQL application has verified authentication, permissions, applications, course editing, assignment review and quizzes.", imageAlt: "FitStart online learning platform homepage" },
   "token-audit-trading-assistant": { period: "2024–2025", status: "Prototype", role: "Extension, data collection, API, dashboard and risk analysis", challenge: "Token data from several sources needed to be normalized quickly before manual review.", solution: "Connected a Chrome extension, Node.js collectors, a PostgreSQL API, React dashboard and wallet/developer analysis services.", outcome: "Built a research prototype for testing hypotheses without real trades, private keys or hidden automated execution." },
   "fitness-coach-landing": { period: "2023", status: "Published", role: "Page structure, responsive frontend and publication", challenge: "A personal trainer needed a compact page with a clear offer, services and fast contact.", solution: "Built a focused sequence of sections, responsive navigation and direct contact points.", outcome: "The site is published through GitHub Pages and works as a personal showcase.", imageAlt: "Fitness coach personal website hero" },
   "used-car-showroom": { period: "Archived project", status: "Completed project", role: "Structure, interface design and frontend", challenge: "The dealership needed a homepage that immediately presented an offer and led visitors to inventory or services.", solution: "Built a contact header, high-contrast navigation, full-screen promotional slider and section structure.", outcome: "Delivered a coherent dealership presentation site with direct paths to key sections.", imageAlt: "Car dealership homepage and promotional showcase" },
@@ -209,7 +209,7 @@ const previewLabels: Record<string, string> = {
   "scaner-frilance-bot": "New matching job",
   "panzzi-furniture-website": "Furniture catalog",
   "mustang-driving-school": "Telegram leads",
-  "course-registration-platform": "Participant portal",
+  "course-registration-platform": "Online courses",
   "token-audit-trading-assistant": "Token analysis",
   "fitness-coach-landing": "Personal brand",
   "used-car-showroom": "Vehicle showcase",
